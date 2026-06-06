@@ -1,0 +1,5 @@
+name: Carl Hinton Theme Overrides
+type: module
+description: Adds custom styling and behaviour for CarlHinton.com.
+core_version_requirement: ^10
+package: Custom

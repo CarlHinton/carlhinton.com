@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_page_attachments().
+ */
+function carlhinton_theme_overrides_page_attachments(array &$attachments): void {
+  $attachments['#attached']['library'][] = 'carlhinton_theme_overrides/global';
+}

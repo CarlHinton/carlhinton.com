@@ -1,0 +1,78 @@
+/* =========================================================
+   Carl Hinton — front page only
+   Loaded only from page--front.html.twig
+   ========================================================= */
+
+body.path-frontpage .home-hero a.site-button-primary,
+body.path-frontpage .home-hero a.site-button-secondary {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 46px !important;
+  padding: 0.85rem 1.45rem !important;
+  margin: 0 !important;
+  border-radius: 4px !important;
+  font-family: "Metropolis", sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.015em !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+/* View CV */
+body.path-frontpage .home-hero a.site-button-primary {
+  min-width: 130px !important;
+  background: #0d5cab !important;
+  border: 1px solid #0d5cab !important;
+  color: #ffffff !important;
+}
+
+body.path-frontpage .home-hero a.site-button-primary:visited {
+  color: #ffffff !important;
+}
+
+body.path-frontpage .home-hero a.site-button-primary:hover,
+body.path-frontpage .home-hero a.site-button-primary:focus {
+  background: #084a8c !important;
+  border-color: #084a8c !important;
+  color: #ffffff !important;
+}
+
+/* Read Articles */
+body.path-frontpage .home-hero a.site-button-secondary {
+  min-width: 145px !important;
+  background: transparent !important;
+  border: 1px solid #c9d8ea !important;
+  color: #0d5cab !important;
+}
+
+body.path-frontpage .home-hero a.site-button-secondary:visited {
+  color: #0d5cab !important;
+}
+
+body.path-frontpage .home-hero a.site-button-secondary:hover,
+body.path-frontpage .home-hero a.site-button-secondary:focus {
+  background: #f3f8ff !important;
+  border-color: #0d5cab !important;
+  color: #084a8c !important;
+}
+
+/* Button row */
+body.path-frontpage .home-hero div:has(a.site-button-primary),
+body.path-frontpage .home-hero div:has(a.site-button-secondary) {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  align-items: center !important;
+  margin: 1.6rem 0 2rem 0 !important;
+}
+
+/* Remove Olivero text-link treatment from these two links */
+body.path-frontpage .text-content .home-hero a.site-button-primary,
+body.path-frontpage .text-content .home-hero a.site-button-secondary {
+  text-decoration: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}

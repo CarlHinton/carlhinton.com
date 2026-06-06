@@ -1,0 +1,13 @@
+global:
+#  css:
+#    theme:
+#      css/carlhinton-global.css: {}
+  js:
+    js/carlhinton-global.js: {}
+  dependencies:
+    - core/drupal
+articles-page:
+  version: 1.x
+  css:
+    theme:
+      css/articles-page.css: {}

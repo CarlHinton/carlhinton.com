@@ -1,0 +1,24 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/carlhinton-global.css: {}
+
+articles-page:
+  version: 1.x
+  css:
+    theme:
+      css/articles-page.css: {}
+
+
+articles-node:
+  version: 1.x
+  css:
+    theme:
+      css/articles-node.css: {}
+
+front-page:
+  version: 1.x
+  css:
+    theme:
+      css/front-page.css: {}

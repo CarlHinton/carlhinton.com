@@ -1,0 +1,1395 @@
+/* =========================================================
+   Carl Hinton - Articles Content Type Node Pages
+   File: themes/custom/carlhinton/css/articles-node.css
+
+   Applies to:
+   body.page-node-type-articles
+
+   This is for the plural "Articles" content type:
+   machine name = articles
+   ========================================================= */
+
+
+/* =========================================================
+   1. Break out of Olivero's normal article/content wrappers
+   ========================================================= */
+
+body.page-node-type-articles {
+  background: #05080d !important;
+}
+
+body.page-node-type-articles .ch-article-node-page-wrapper,
+body.page-node-type-articles .ch-article-node-main-wrapper,
+body.page-node-type-articles .ch-article-node-main-content,
+body.page-node-type-articles .ch-article-node-main,
+body.page-node-type-articles .layout-main-wrapper,
+body.page-node-type-articles .layout-main,
+body.page-node-type-articles .main-content,
+body.page-node-type-articles .region--content,
+body.page-node-type-articles #content,
+body.page-node-type-articles #block-carlhinton-content,
+body.page-node-type-articles #block-carlhinton-content > .block__content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .region--content,
+body.page-node-type-articles .region--content.grid-full,
+body.page-node-type-articles .region--content.layout--pass--content-medium {
+  display: block !important;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.page-node-type-articles .grid-full,
+body.page-node-type-articles .layout--pass--content-medium,
+body.page-node-type-articles .layout--content-medium {
+  max-width: none !important;
+}
+
+body.page-node-type-articles .main-content__container,
+body.page-node-type-articles .container {
+  max-width: none;
+}
+
+/* Remove unwanted Olivero spacing around the main block */
+body.page-node-type-articles .block-system-main-block,
+body.page-node-type-articles .block-system-main-block .block__content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Keep admin messages/tabs visible but contained */
+body.page-node-type-articles .ch-article-node-admin-region {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background: #ffffff;
+}
+
+body.page-node-type-articles .ch-article-node-admin-region:empty {
+  display: none;
+}
+
+/* Hide duplicate Drupal field labels inside styled custom sections */
+body.page-node-type-articles .ch-research-node .field__label {
+  display: none !important;
+}
+
+
+/* =========================================================
+   2. Base article node
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-node,
+body.page-node-type-articles .ch-research-node * {
+  box-sizing: border-box;
+}
+
+body.page-node-type-articles .ch-research-node {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #05080d;
+  color: #d9e8f7;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif;
+}
+
+body.page-node-type-articles .ch-research-node a {
+  color: #2fb8ff;
+}
+
+body.page-node-type-articles .ch-research-node a:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   3. Hero
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-hero {
+  position: relative;
+  width: 100% !important;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  background-color: #05080d;
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+body.page-node-type-articles .ch-research-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 78% 24%, rgba(47, 184, 255, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(5, 8, 13, 0.08), rgba(5, 8, 13, 0.52));
+}
+
+body.page-node-type-articles .ch-research-hero__inner {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+body.page-node-type-articles .ch-research-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.6rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+body.page-node-type-articles .ch-research-breadcrumb a {
+  color: #7fd3ff;
+  text-decoration: none;
+}
+
+body.page-node-type-articles .ch-research-breadcrumb a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+body.page-node-type-articles .ch-research-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 1.05rem;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(47, 184, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(47, 184, 255, 0.12);
+  color: #9fddff;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+body.page-node-type-articles .ch-research-title {
+  max-width: 820px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5.2vw, 5.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+}
+
+body.page-node-type-articles .ch-research-title span {
+  color: inherit;
+}
+
+body.page-node-type-articles .ch-research-hero-summary {
+  max-width: 720px;
+  margin: 1.45rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.05rem, 1.45vw, 1.22rem);
+  line-height: 1.68;
+}
+
+body.page-node-type-articles .ch-research-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+body.page-node-type-articles .ch-research-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.78rem 1.18rem;
+  border-radius: 8px;
+  border: 1px solid rgba(47, 184, 255, 0.65);
+  color: #ffffff;
+  background: rgba(47, 184, 255, 0.12);
+  font-size: 0.95rem;
+  font-weight: 850;
+  text-decoration: none;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease,
+    border-color 0.18s ease;
+}
+
+body.page-node-type-articles .ch-research-button:hover {
+  transform: translateY(-1px);
+  background: #2fb8ff;
+  border-color: #2fb8ff;
+  color: #03111f;
+  text-decoration: none;
+}
+
+body.page-node-type-articles .ch-research-button--primary {
+  background: #1496e8;
+  border-color: #1496e8;
+  color: #ffffff;
+}
+
+body.page-node-type-articles .ch-research-button--secondary {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   4. Meta bar
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-meta-bar {
+  width: 100%;
+  background: #081421;
+  border-top: 1px solid rgba(47, 184, 255, 0.18);
+  border-bottom: 1px solid rgba(47, 184, 255, 0.18);
+}
+
+body.page-node-type-articles .ch-research-meta-bar__inner {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+body.page-node-type-articles .ch-research-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 74px;
+  padding: 1rem 1.2rem;
+  border-right: 1px solid rgba(47, 184, 255, 0.16);
+  color: #d9e8f7;
+  font-size: 0.96rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+body.page-node-type-articles .ch-research-meta-item:first-child {
+  border-left: 1px solid rgba(47, 184, 255, 0.16);
+}
+
+body.page-node-type-articles .ch-research-meta-icon {
+  color: #2fb8ff;
+  font-size: 1.12rem;
+}
+
+
+/* =========================================================
+   5. Main two-column layout
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-layout {
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 3rem 0 4.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+body.page-node-type-articles .ch-research-main {
+  min-width: 0;
+}
+
+body.page-node-type-articles .ch-research-sidebar {
+  position: sticky;
+  top: 104px;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   6. Main content sections
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-section {
+  margin: 0 0 1.45rem;
+  padding: clamp(1.35rem, 2.2vw, 2rem);
+  border: 1px solid rgba(47, 184, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(8, 20, 33, 0.92);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+body.page-node-type-articles .ch-research-section h2 {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.2;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+body.page-node-type-articles .ch-research-rich-text {
+  color: #d9e8f7;
+  font-size: 1.03rem;
+  line-height: 1.76;
+}
+
+body.page-node-type-articles .ch-research-rich-text p {
+  margin: 0 0 1.12rem;
+}
+
+body.page-node-type-articles .ch-research-rich-text p:last-child {
+  margin-bottom: 0;
+}
+
+body.page-node-type-articles .ch-research-rich-text h2,
+body.page-node-type-articles .ch-research-rich-text h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+}
+
+body.page-node-type-articles .ch-research-rich-text h2:first-child,
+body.page-node-type-articles .ch-research-rich-text h3:first-child {
+  margin-top: 0;
+}
+
+body.page-node-type-articles .ch-research-rich-text a {
+  color: #7fd3ff;
+  font-weight: 750;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Remove Drupal field spacing inside rendered content fields */
+body.page-node-type-articles .ch-research-rich-text .field,
+body.page-node-type-articles .ch-research-rich-text .field__item,
+body.page-node-type-articles .ch-research-rich-text .text-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+  color: inherit;
+}
+
+/* Overview slightly lighter */
+body.page-node-type-articles .ch-research-overview {
+  background: rgba(10, 26, 43, 0.95);
+}
+
+/* Key findings block */
+body.page-node-type-articles .ch-research-key-findings {
+  background:
+    radial-gradient(circle at top right, rgba(47, 184, 255, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(8, 20, 33, 0.98), rgba(14, 39, 65, 0.98));
+}
+
+body.page-node-type-articles .ch-research-key-findings ul {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.page-node-type-articles .ch-research-key-findings li {
+  position: relative;
+  margin: 0;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: 1px solid rgba(47, 184, 255, 0.17);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #d9e8f7;
+  line-height: 1.55;
+}
+
+body.page-node-type-articles .ch-research-key-findings li::before {
+  content: "✓";
+  position: absolute;
+  left: 1rem;
+  top: 0.9rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid #2fb8ff;
+  border-radius: 50%;
+  color: #2fb8ff;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+/* Implications */
+body.page-node-type-articles .ch-research-implications {
+  border-left: 6px solid #2fb8ff;
+}
+
+/* Article body */
+body.page-node-type-articles .ch-research-article-body .ch-research-rich-text {
+  max-width: 78ch;
+}
+
+body.page-node-type-articles .ch-research-article-body .ch-research-rich-text h2 {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(47, 184, 255, 0.14);
+}
+
+body.page-node-type-articles .ch-research-article-body .ch-research-rich-text h2:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+
+/* =========================================================
+   7. Sidebar
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-side-card {
+  margin: 0 0 1rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(47, 184, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(8, 20, 33, 0.95);
+  color: #d9e8f7;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+body.page-node-type-articles .ch-research-side-card h2 {
+  margin: 0 0 0.85rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+body.page-node-type-articles .ch-research-side-card p {
+  margin: 0 0 1rem;
+  color: #b9cbe0;
+  font-size: 0.95rem;
+  line-height: 1.58;
+}
+
+body.page-node-type-articles .ch-research-side-card a {
+  color: #7fd3ff;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+body.page-node-type-articles .ch-research-side-card a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Table of contents */
+body.page-node-type-articles .ch-research-toc {
+  display: grid;
+  gap: 0.25rem;
+}
+
+body.page-node-type-articles .ch-research-toc a {
+  display: block;
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #d9e8f7;
+  font-size: 0.94rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+body.page-node-type-articles .ch-research-toc a:hover {
+  background: rgba(47, 184, 255, 0.14);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Download card */
+body.page-node-type-articles .ch-research-download-card {
+  background:
+    radial-gradient(circle at top right, rgba(47, 184, 255, 0.2), transparent 34%),
+    linear-gradient(135deg, #07111f, #0d233a);
+}
+
+body.page-node-type-articles .ch-research-download-button,
+body.page-node-type-articles .ch-research-external-link {
+  display: block;
+  margin-top: 0.7rem;
+  padding: 0.78rem 1rem;
+  border: 1px solid #2fb8ff;
+  border-radius: 8px;
+  text-align: center;
+  color: #ffffff !important;
+  background: rgba(47, 184, 255, 0.1);
+  font-weight: 850;
+  text-decoration: none !important;
+}
+
+body.page-node-type-articles .ch-research-download-button {
+  background: #1496e8;
+  border-color: #1496e8;
+}
+
+body.page-node-type-articles .ch-research-download-button:hover,
+body.page-node-type-articles .ch-research-external-link:hover {
+  background: #2fb8ff;
+  border-color: #2fb8ff;
+  color: #03111f !important;
+}
+
+/* Themes/tags */
+body.page-node-type-articles .ch-research-theme-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+body.page-node-type-articles .ch-research-theme-list span {
+  display: inline-flex;
+  padding: 0.42rem 0.65rem;
+  border: 1px solid rgba(47, 184, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(47, 184, 255, 0.1);
+  color: #d9e8f7;
+  font-size: 0.83rem;
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   8. Related research cards
+   ========================================================= */
+
+body.page-node-type-articles .ch-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+body.page-node-type-articles .ch-related-card {
+  overflow: hidden;
+  border: 1px solid rgba(47, 184, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(3, 7, 18, 0.72);
+}
+
+body.page-node-type-articles .ch-related-card__image-wrap {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0b1726;
+}
+
+body.page-node-type-articles .ch-related-card__image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.22s ease;
+}
+
+body.page-node-type-articles .ch-related-card:hover .ch-related-card__image {
+  transform: scale(1.035);
+}
+
+body.page-node-type-articles .ch-related-card__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(47, 184, 255, 0.35), transparent 35%),
+    linear-gradient(135deg, #0a1424, #243e5c);
+}
+
+body.page-node-type-articles .ch-related-card__body {
+  padding: 1rem;
+}
+
+body.page-node-type-articles .ch-related-card__body h3 {
+  margin: 0 0 0.55rem;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+}
+
+body.page-node-type-articles .ch-related-card__body h3 a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+body.page-node-type-articles .ch-related-card__body h3 a:hover {
+  color: #7fd3ff;
+  text-decoration: underline;
+}
+
+body.page-node-type-articles .ch-related-card__body p {
+  margin: 0;
+  color: #b9cbe0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   9. Social bar and footer corrections
+   ========================================================= */
+
+body.page-node-type-articles .social-bar {
+  background: #05080d;
+}
+
+body.page-node-type-articles .site-footer {
+  background: #05080d;
+  border-top: 1px solid rgba(47, 184, 255, 0.14);
+}
+
+body.page-node-type-articles .site-footer,
+body.page-node-type-articles .site-footer a {
+  color: #d9e8f7;
+}
+
+
+/* =========================================================
+   10. QuickEdit/contextual corrections
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-node .contextual-region {
+  position: relative;
+}
+
+body.page-node-type-articles .ch-research-node [data-quickedit-field-id] {
+  color: inherit;
+}
+
+
+/* =========================================================
+   11. Responsive
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  body.page-node-type-articles .ch-research-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-node-type-articles .ch-research-sidebar {
+    position: static;
+  }
+
+  body.page-node-type-articles .ch-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  body.page-node-type-articles .ch-research-meta-bar__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.page-node-type-articles .ch-research-meta-item:nth-child(odd) {
+    border-left: 1px solid rgba(47, 184, 255, 0.16);
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 480px;
+    background-position: center;
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner,
+  body.page-node-type-articles .ch-research-meta-bar__inner,
+  body.page-node-type-articles .ch-research-layout {
+    width: min(100% - 32px, 1180px);
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner {
+    padding: 3.3rem 0;
+  }
+
+  body.page-node-type-articles .ch-research-title {
+    font-size: clamp(2.15rem, 11vw, 3.4rem);
+  }
+
+  body.page-node-type-articles .ch-research-hero-summary {
+    font-size: 1rem;
+  }
+
+  body.page-node-type-articles .ch-research-hero-actions {
+    flex-direction: column;
+  }
+
+  body.page-node-type-articles .ch-research-button {
+    width: 100%;
+  }
+
+  body.page-node-type-articles .ch-research-meta-bar__inner {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-node-type-articles .ch-research-meta-item,
+  body.page-node-type-articles .ch-research-meta-item:first-child {
+    min-height: auto;
+    border-left: 1px solid rgba(47, 184, 255, 0.16);
+  }
+
+  body.page-node-type-articles .ch-research-layout {
+    padding: 2rem 0 3.2rem;
+  }
+
+  body.page-node-type-articles .ch-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body.page-node-type-articles .ch-research-section,
+  body.page-node-type-articles .ch-research-side-card {
+    border-radius: 6px;
+  }
+
+  body.page-node-type-articles .ch-research-key-findings li {
+    padding-left: 2.8rem;
+  }
+}
+/* =========================================================
+   12. Article node header override
+   Turn Olivero header into dark research header
+   ========================================================= */
+
+body.page-node-type-articles .site-header {
+  position: relative;
+  z-index: 50;
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(47, 184, 255, 0.16);
+}
+
+body.page-node-type-articles .site-header__fixable,
+body.page-node-type-articles .site-header__inner,
+body.page-node-type-articles .site-header__inner__container {
+  background: #05080d !important;
+}
+
+body.page-node-type-articles .site-header__inner__container {
+  max-width: 1180px !important;
+  width: min(1180px, calc(100% - 64px)) !important;
+  margin: 0 auto !important;
+  min-height: 72px;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 !important;
+}
+
+/* Remove Olivero's large left blue branding slab */
+body.page-node-type-articles .site-header__initial,
+body.page-node-type-articles .sticky-header-toggle {
+  display: none !important;
+}
+
+/* Branding */
+body.page-node-type-articles .site-branding {
+  min-height: auto !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .site-branding__inner {
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .site-branding__name a {
+  color: #ffffff !important;
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  text-decoration: none;
+}
+
+body.page-node-type-articles .site-branding__name a:hover {
+  color: #7fd3ff !important;
+}
+
+/* Header nav */
+body.page-node-type-articles .header-nav {
+  position: static !important;
+  visibility: visible !important;
+  transform: none !important;
+  opacity: 1 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto !important;
+  height: auto !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Hide the mobile menu button on desktop */
+body.page-node-type-articles .mobile-buttons,
+body.page-node-type-articles .mobile-nav-button {
+  display: none !important;
+}
+
+/* Main menu horizontal */
+body.page-node-type-articles .primary-nav {
+  display: block !important;
+  margin: 0 !important;
+}
+
+body.page-node-type-articles .primary-nav__menu--level-1 {
+  display: flex !important;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .primary-nav__menu-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .primary-nav__menu-link {
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none !important;
+  padding: 1.6rem 0 !important;
+}
+
+body.page-node-type-articles .primary-nav__menu-link:hover,
+body.page-node-type-articles .primary-nav__menu-link.is-active,
+body.page-node-type-articles .primary-nav__menu-link[data-drupal-link-system-path="articles"] {
+  color: #2fb8ff !important;
+}
+
+/* Remove Olivero menu decoration */
+body.page-node-type-articles .primary-nav__menu-link-inner::after,
+body.page-node-type-articles .primary-nav__menu-link::after {
+  display: none !important;
+}
+
+/* Search icon */
+body.page-node-type-articles .region--secondary-menu {
+  display: flex !important;
+  align-items: center;
+  margin-left: 1.5rem;
+}
+
+body.page-node-type-articles .block-search-wide__button {
+  color: #2fb8ff !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+body.page-node-type-articles .block-search-wide__button:hover {
+  color: #ffffff !important;
+}
+
+/* Hide account menu in the public-style research header */
+body.page-node-type-articles .menu--account,
+body.page-node-type-articles #block-carlhinton-account-menu {
+  display: none !important;
+}
+
+/* Hide narrow search block from slide-out menu */
+body.page-node-type-articles #block-carlhinton-search-form-narrow {
+  display: none !important;
+}
+
+/* Header overlay should not produce white panel */
+body.page-node-type-articles .header-nav-overlay {
+  display: none !important;
+}
+
+/* Logged-in toolbar spacing correction */
+body.toolbar-horizontal.page-node-type-articles .site-header,
+body.toolbar-vertical.page-node-type-articles .site-header {
+  margin-top: 0;
+}
+
+/* Mobile: restore menu button */
+@media (max-width: 900px) {
+  body.page-node-type-articles .site-header__inner__container {
+    width: min(100% - 32px, 1180px) !important;
+  }
+
+  body.page-node-type-articles .mobile-buttons,
+  body.page-node-type-articles .mobile-nav-button {
+    display: flex !important;
+  }
+
+  body.page-node-type-articles .mobile-nav-button {
+    color: #ffffff !important;
+    background: transparent !important;
+    border: 1px solid rgba(47, 184, 255, 0.4) !important;
+  }
+
+  body.page-node-type-articles .header-nav {
+    display: none !important;
+  }
+
+  body.page-node-type-articles .is-active-menu-parent .header-nav,
+  body.page-node-type-articles body.is-always-mobile-nav .header-nav {
+    display: block !important;
+  }
+}
+/* =========================================================
+   13. Remove remaining white gaps on Articles node pages
+   ========================================================= */
+
+/* Make the whole page shell dark */
+body.page-node-type-articles,
+body.page-node-type-articles #page,
+body.page-node-type-articles #page-wrapper,
+body.page-node-type-articles .dialog-off-canvas-main-canvas,
+body.page-node-type-articles .ch-article-node-page-wrapper,
+body.page-node-type-articles .layout-container,
+body.page-node-type-articles .layout-main-wrapper,
+body.page-node-type-articles .layout-main,
+body.page-node-type-articles .main-content {
+  background: #05080d !important;
+}
+
+/* Remove the big white area above the hero caused by Olivero/header spacing */
+body.page-node-type-articles .site-header,
+body.page-node-type-articles .site-header__fixable,
+body.page-node-type-articles .site-header__inner,
+body.page-node-type-articles .site-header__inner__container,
+body.page-node-type-articles .container.site-header__inner__container {
+  background: #05080d !important;
+  min-height: 0 !important;
+}
+
+/* Keep header compact */
+body.page-node-type-articles .site-header {
+  min-height: 76px !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .site-header__inner__container {
+  height: 76px !important;
+  min-height: 76px !important;
+}
+
+/* The admin tabs/messages area should not create a huge white band */
+body.page-node-type-articles .ch-article-node-admin-region {
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0.85rem 1.5rem !important;
+  background: #05080d !important;
+}
+
+/* Hide empty highlighted wrappers */
+body.page-node-type-articles .region--highlighted:empty,
+body.page-node-type-articles .messages-list:empty,
+body.page-node-type-articles [data-drupal-messages-fallback].hidden {
+  display: none !important;
+}
+
+/* Make admin messages dark instead of white */
+body.page-node-type-articles .messages-list,
+body.page-node-type-articles .messages__wrapper,
+body.page-node-type-articles .messages,
+body.page-node-type-articles .messages__container {
+  background: #081421 !important;
+  color: #ffffff !important;
+  border-color: rgba(47, 184, 255, 0.22) !important;
+}
+
+/* Keep local task tabs neat without a giant white block */
+body.page-node-type-articles #block-carlhinton-primary-local-tasks,
+body.page-node-type-articles #block-carlhinton-primary-local-tasks .block__content,
+body.page-node-type-articles .tabs-wrapper {
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .tabs {
+  margin: 0 !important;
+}
+
+/* Optional: if you want to hide View/Edit/Delete/Revisions entirely on styled article pages */
+/*
+body.page-node-type-articles #block-carlhinton-primary-local-tasks {
+  display: none !important;
+}
+*/
+
+/* Remove white strip immediately before hero */
+body.page-node-type-articles .ch-article-node-main {
+  background: #05080d !important;
+}
+
+/* Ensure the hero starts immediately after admin tools */
+body.page-node-type-articles .ch-research-hero {
+  margin-top: 0 !important;
+}
+/* =========================================================
+   14. Final header cleanup for Articles node pages
+   Remove white Olivero header/search/admin gaps
+   ========================================================= */
+
+/* Kill the remaining white header/search panel */
+body.page-node-type-articles .block-search-wide__wrapper,
+body.page-node-type-articles .block-search-wide__container,
+body.page-node-type-articles .block-search-wide__grid,
+body.page-node-type-articles .search-block-form,
+body.page-node-type-articles .search-form,
+body.page-node-type-articles .form-item,
+body.page-node-type-articles .form-actions {
+  background: transparent !important;
+}
+
+/* Hide the wide search block completely for this article design */
+body.page-node-type-articles #block-carlhinton-search-form-wide,
+body.page-node-type-articles .block-search-wide,
+body.page-node-type-articles .block-search-wide__wrapper {
+  display: none !important;
+}
+
+/* Remove the lingering white panel caused by header container inheritance */
+body.page-node-type-articles .site-header .container,
+body.page-node-type-articles .site-header__inner .container,
+body.page-node-type-articles .site-header__inner__container,
+body.page-node-type-articles .region--secondary-menu {
+  background: #05080d !important;
+}
+
+/* Force header to be a single compact dark bar */
+body.page-node-type-articles .site-header {
+  height: auto !important;
+  min-height: 76px !important;
+  background: #05080d !important;
+  overflow: visible !important;
+}
+
+body.page-node-type-articles .site-header__fixable,
+body.page-node-type-articles .site-header__inner {
+  height: auto !important;
+  min-height: 76px !important;
+  background: #05080d !important;
+}
+
+body.page-node-type-articles .site-header__inner__container {
+  height: 76px !important;
+  min-height: 76px !important;
+  max-height: 76px !important;
+  overflow: visible !important;
+}
+
+/* Move navigation into a normal top-row layout */
+body.page-node-type-articles .site-branding {
+  flex: 0 0 auto !important;
+}
+
+body.page-node-type-articles .header-nav {
+  flex: 1 1 auto !important;
+  margin-left: 3rem !important;
+}
+
+/* Stop the Articles menu item dropping onto a second line */
+body.page-node-type-articles .primary-nav__menu--level-1 {
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+}
+
+body.page-node-type-articles .primary-nav__menu-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 76px !important;
+}
+
+/* If the menu is too wide, reduce spacing slightly */
+body.page-node-type-articles .primary-nav__menu--level-1 {
+  gap: 1.25rem !important;
+}
+
+body.page-node-type-articles .primary-nav__menu-link {
+  font-size: 0.82rem !important;
+}
+
+/* Tidy local task tabs */
+body.page-node-type-articles .ch-article-node-admin-region {
+  position: relative;
+  z-index: 60;
+  padding: 0.5rem 1.5rem !important;
+}
+
+body.page-node-type-articles #block-carlhinton-primary-local-tasks {
+  max-width: 1180px;
+  margin: 0 auto !important;
+}
+
+body.page-node-type-articles .tabs-wrapper {
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
+body.page-node-type-articles .tabs {
+  background: transparent !important;
+}
+
+/* Optional: hide the edit tabs entirely on the styled article view.
+   Uncomment if you want the design clean while logged in. */
+/*
+body.page-node-type-articles #block-carlhinton-primary-local-tasks {
+  display: none !important;
+}
+*/
+/* Articles node pages: remove search blocks from Olivero header */
+body.page-node-type-articles #block-carlhinton-search-form-narrow,
+body.page-node-type-articles #block-carlhinton-search-form-wide,
+body.page-node-type-articles .region--secondary-menu,
+body.page-node-type-articles .block-search-wide,
+body.page-node-type-articles .block-search-wide__wrapper,
+body.page-node-type-articles .block-search-wide__container,
+body.page-node-type-articles .block-search-wide__grid {
+  display: none !important;
+}
+
+/* Make sure the remaining dynamic header does not reserve search-overlay space */
+body.page-node-type-articles .header-nav {
+  background: #05080d !important;
+}
+
+body.page-node-type-articles .site-header,
+body.page-node-type-articles .site-header__fixable,
+body.page-node-type-articles .site-header__inner,
+body.page-node-type-articles .site-header__inner__container {
+  background: #05080d !important;
+}
+
+
+
+
+/* =========================================================
+   16. Clean dynamic header for Articles node pages
+   Uses Drupal-managed blocks/menus, but avoids Olivero header JS.
+   ========================================================= */
+
+body.page-node-type-articles .ch-articles-header {
+  width: 100%;
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(47, 184, 255, 0.16);
+  position: relative;
+  z-index: 100;
+}
+
+body.page-node-type-articles .ch-articles-header__inner {
+  width: min(1180px, calc(100% - 64px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+body.page-node-type-articles .ch-articles-header__brand {
+  flex: 0 0 auto;
+}
+
+body.page-node-type-articles .ch-articles-header__brand .site-branding,
+body.page-node-type-articles .ch-articles-header__brand .site-branding__inner,
+body.page-node-type-articles .ch-articles-header__brand .site-branding__text {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+}
+
+body.page-node-type-articles .ch-articles-header__brand .site-branding__name a {
+  color: #ffffff !important;
+  font-size: 1.35rem;
+  font-weight: 900;
+  text-decoration: none !important;
+  letter-spacing: -0.035em;
+}
+
+body.page-node-type-articles .ch-articles-header__brand .site-branding__name a:hover {
+  color: #7fd3ff !important;
+}
+
+body.page-node-type-articles .ch-articles-header__nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Primary menu rendered dynamically by Drupal */
+body.page-node-type-articles .ch-articles-header__nav .primary-nav,
+body.page-node-type-articles .ch-articles-header__nav .block-menu,
+body.page-node-type-articles .ch-articles-header__nav .navigation {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu--level-1,
+body.page-node-type-articles .ch-articles-header__nav .menu {
+  display: flex !important;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 1.05rem;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu-item,
+body.page-node-type-articles .ch-articles-header__nav .menu-item {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu-link,
+body.page-node-type-articles .ch-articles-header__nav .menu a {
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  padding: 0 !important;
+  white-space: nowrap;
+}
+
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu-link:hover,
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu-link.is-active,
+body.page-node-type-articles .ch-articles-header__nav .menu a:hover,
+body.page-node-type-articles .ch-articles-header__nav .menu a.is-active {
+  color: #2fb8ff !important;
+}
+
+/* Remove Olivero menu decoration */
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu-link-inner::after,
+body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu-link::after {
+  display: none !important;
+}
+
+/* Kill any old Olivero header/search elements if cached elsewhere */
+body.page-node-type-articles .site-header__initial,
+body.page-node-type-articles .sticky-header-toggle,
+body.page-node-type-articles .mobile-buttons,
+body.page-node-type-articles .header-nav-overlay,
+body.page-node-type-articles .region--secondary-menu,
+body.page-node-type-articles #block-carlhinton-search-form-narrow,
+body.page-node-type-articles #block-carlhinton-search-form-wide,
+body.page-node-type-articles .block-search-wide,
+body.page-node-type-articles .block-search-wide__wrapper {
+  display: none !important;
+}
+
+/* Remove inherited layout backgrounds */
+body.page-node-type-articles #page,
+body.page-node-type-articles #page-wrapper,
+body.page-node-type-articles .ch-article-node-main-wrapper,
+body.page-node-type-articles .ch-article-node-layout,
+body.page-node-type-articles .ch-article-node-main-content {
+  background: #05080d !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Admin region compact */
+body.page-node-type-articles .ch-article-node-admin-region {
+  background: #05080d !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 0.5rem 1.5rem !important;
+}
+
+@media (max-width: 900px) {
+  body.page-node-type-articles .ch-articles-header__inner {
+    width: min(100% - 32px, 1180px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0;
+  }
+
+  body.page-node-type-articles .ch-articles-header__nav {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  body.page-node-type-articles .ch-articles-header__nav .primary-nav__menu--level-1,
+  body.page-node-type-articles .ch-articles-header__nav .menu {
+    justify-content: flex-start;
+  }
+}
+/* =========================================================
+   17. Align individual Articles node pages with /articles page
+   ========================================================= */
+
+body.page-node-type-articles {
+  --ch-articles-left-edge: 16.5rem;
+  --ch-articles-content-width: 1220px;
+}
+
+/* Header alignment */
+body.page-node-type-articles .ch-articles-header__inner {
+  width: min(var(--ch-articles-content-width), calc(100% - 10.5rem)) !important;
+  margin-left: var(--ch-articles-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* Hero text alignment */
+body.page-node-type-articles .ch-research-hero__inner {
+  width: min(var(--ch-articles-content-width), calc(100% - 10.5rem)) !important;
+  margin-left: var(--ch-articles-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* Meta bar alignment */
+body.page-node-type-articles .ch-research-meta-bar__inner {
+  width: min(var(--ch-articles-content-width), calc(100% - 10.5rem)) !important;
+  margin-left: var(--ch-articles-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* Main content/sidebar alignment */
+body.page-node-type-articles .ch-research-layout {
+  width: min(var(--ch-articles-content-width), calc(100% - 10.5rem)) !important;
+  margin-left: var(--ch-articles-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* The article node page currently has a lot of centred whitespace.
+   This makes the main content feel aligned with the articles index page. */
+body.page-node-type-articles .ch-research-layout {
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 1.6rem;
+}
+
+/* Responsive fallback */
+@media (max-width: 900px) {
+  body.page-node-type-articles {
+    --ch-articles-left-edge: 1rem;
+  }
+
+  body.page-node-type-articles .ch-articles-header__inner,
+  body.page-node-type-articles .ch-research-hero__inner,
+  body.page-node-type-articles .ch-research-meta-bar__inner,
+  body.page-node-type-articles .ch-research-layout {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+}

@@ -1,0 +1,11 @@
+# Ignore paths that contain generated content.
+files/
+sites/*/files
+sites/*/private
+sites/*/translations
+sites/*/files/*
+sites/*/files/php
+
+# Ignore PHPStorm
+.idea/
+sites/default/settings.local.php

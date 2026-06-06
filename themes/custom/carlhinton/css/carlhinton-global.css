@@ -1,0 +1,164 @@
+/*
+ * Intentionally empty.
+ * Carl Hinton currently inherits Olivero without visual changes.
+ */
+/* =========================================================
+   Carl Hinton homepage button repair only
+   ========================================================= */
+
+.path-frontpage .field--name-body a.button,
+.path-frontpage .field--name-body .button,
+.path-frontpage .node__content a.button,
+.path-frontpage .node__content .button,
+.path-frontpage .button,
+.path-frontpage a[href="/cv"],
+.path-frontpage a[href="/articles"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  margin: 0 0.75rem 0.75rem 0;
+  padding: 0.85rem 1.55rem;
+  border: 1px solid #1e9be8;
+  border-radius: 0;
+  background: #0b75bd;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-decoration: none !important;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.path-frontpage .field--name-body a.button:hover,
+.path-frontpage .field--name-body .button:hover,
+.path-frontpage .node__content a.button:hover,
+.path-frontpage .node__content .button:hover,
+.path-frontpage .button:hover,
+.path-frontpage a[href="/cv"]:hover,
+.path-frontpage a[href="/articles"]:hover,
+.path-frontpage .field--name-body a.button:focus,
+.path-frontpage .field--name-body .button:focus,
+.path-frontpage .node__content a.button:focus,
+.path-frontpage .node__content .button:focus,
+.path-frontpage .button:focus,
+.path-frontpage a[href="/cv"]:focus,
+.path-frontpage a[href="/articles"]:focus {
+  background: #005f9e;
+  border-color: #37a8ff;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Secondary homepage button, usually "Read Articles" */
+.path-frontpage a[href="/articles"] {
+  background: #ffffff;
+  color: #0b5d91 !important;
+  border-color: #c7d7e5;
+}
+
+.path-frontpage a[href="/articles"]:hover,
+.path-frontpage a[href="/articles"]:focus {
+  background: #f0f7ff;
+  color: #003f6b !important;
+  border-color: #37a8ff;
+}
+
+/* Keep buttons side by side when possible */
+.path-frontpage .field--name-body p:has(a[href="/cv"]),
+.path-frontpage .field--name-body p:has(a[href="/articles"]) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* =========================================================
+   Homepage button repair
+   Targets the actual homepage button classes.
+   ========================================================= */
+
+.path-frontpage .home-hero .site-button-primary,
+.path-frontpage .home-hero .site-button-secondary,
+.path-frontpage .node__content .site-button-primary,
+.path-frontpage .node__content .site-button-secondary,
+.path-frontpage a.site-button-primary,
+.path-frontpage a.site-button-secondary {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.85rem 1.45rem;
+  border: 1px solid #0b83cc;
+  border-radius: 0;
+  font-family: var(--font-sans, "Metropolis", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.035em;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+/* Primary: View CV */
+.path-frontpage .home-hero .site-button-primary,
+.path-frontpage .node__content .site-button-primary,
+.path-frontpage a.site-button-primary {
+  background: #0b75bd !important;
+  border-color: #0b83cc !important;
+  color: #ffffff !important;
+}
+
+.path-frontpage .home-hero .site-button-primary:hover,
+.path-frontpage .home-hero .site-button-primary:focus,
+.path-frontpage .node__content .site-button-primary:hover,
+.path-frontpage .node__content .site-button-primary:focus,
+.path-frontpage a.site-button-primary:hover,
+.path-frontpage a.site-button-primary:focus {
+  background: #005f9e !important;
+  border-color: #37a8ff !important;
+  color: #ffffff !important;
+}
+
+/* Secondary: Read Articles */
+.path-frontpage .home-hero .site-button-secondary,
+.path-frontpage .node__content .site-button-secondary,
+.path-frontpage a.site-button-secondary {
+  background: #ffffff !important;
+  border-color: #c7d7e5 !important;
+  color: #0b5d91 !important;
+}
+
+.path-frontpage .home-hero .site-button-secondary:hover,
+.path-frontpage .home-hero .site-button-secondary:focus,
+.path-frontpage .node__content .site-button-secondary:hover,
+.path-frontpage .node__content .site-button-secondary:focus,
+.path-frontpage a.site-button-secondary:hover,
+.path-frontpage a.site-button-secondary:focus {
+  background: #f0f7ff !important;
+  border-color: #37a8ff !important;
+  color: #003f6b !important;
+}
+
+/* Keep the two homepage buttons aligned */
+.path-frontpage .home-hero div:has(.site-button-primary),
+.path-frontpage .home-hero div:has(.site-button-secondary) {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 1.6rem 0 2rem 0;
+}
+
+/* Prevent Olivero/text-content link styles from underlining or altering them */
+.path-frontpage .text-content a.site-button-primary,
+.path-frontpage .text-content a.site-button-secondary {
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+
+

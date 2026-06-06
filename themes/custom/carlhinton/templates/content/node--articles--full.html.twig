@@ -1,0 +1,283 @@
+{#
+/**
+ * @file
+ * Custom full node template for Articles content type.
+ *
+ * File:
+ * themes/custom/carlhinton/templates/content/node--articles--full.html.twig
+ */
+#}
+
+<!-- CARLHINTON ARTICLE NODE FULL TEMPLATE ACTIVE -->
+{{ attach_library('carlhinton/articles-node') }}
+{% set hero_image_url = '' %}
+{% if node.field_hero_image.entity is not empty %}
+  {% set hero_image_url = file_url(node.field_hero_image.entity.uri.value) %}
+{% endif %}
+
+{% set publication_date = '' %}
+{% if node.field_publication_date.value is not empty %}
+  {% set publication_date = node.field_publication_date.value|date('F j, Y') %}
+{% endif %}
+
+{% set reading_time = '' %}
+{% if node.field_reading_time.value is not empty %}
+  {% set reading_time = node.field_reading_time.value ~ ' min read' %}
+{% endif %}
+
+{% set research_type = 'Research Paper' %}
+{% if node.field_research_type.value is not empty %}
+  {% set research_type = node.field_research_type.value %}
+{% endif %}
+
+{% set pdf_url = '' %}
+{% if node.field_research_pdf.entity is not empty %}
+  {% set pdf_url = file_url(node.field_research_pdf.entity.uri.value) %}
+{% endif %}
+
+{% set external_url = '' %}
+{% set external_title = 'View academic version' %}
+{% if node.field_full_paper_link.uri is not empty %}
+  {% set external_url = node.field_full_paper_link.uri %}
+  {% if node.field_full_paper_link.title is not empty %}
+    {% set external_title = node.field_full_paper_link.title %}
+  {% endif %}
+{% endif %}
+
+<article{{ attributes.addClass('ch-research-node') }}>
+
+  <section
+    class="ch-research-hero"
+    {% if hero_image_url %}
+      style="background-image:
+        linear-gradient(90deg, rgba(3,7,18,0.98) 0%, rgba(3,7,18,0.88) 38%, rgba(3,7,18,0.45) 72%, rgba(3,7,18,0.18) 100%),
+        url('{{ hero_image_url }}');"
+    {% endif %}
+  >
+    <div class="ch-research-hero__inner">
+
+      <nav class="ch-research-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>/</span>
+        <a href="/articles">Research &amp; Articles</a>
+        <span>/</span>
+        <span>{{ label }}</span>
+      </nav>
+
+      <div class="ch-research-kicker">
+        {{ research_type }}
+      </div>
+
+      <h1 class="ch-research-title">
+        {{ label }}
+      </h1>
+
+      {% if node.field_summary_abstract.value is not empty %}
+        <div class="ch-research-hero-summary">
+          {{ node.field_summary_abstract.value|striptags|slice(0, 260) }}…
+        </div>
+      {% endif %}
+
+      <div class="ch-research-hero-actions">
+        {% if pdf_url %}
+          <a class="ch-research-button ch-research-button--primary" href="{{ pdf_url }}" download>
+            Download PDF
+          </a>
+        {% endif %}
+
+        {% if external_url %}
+          <a class="ch-research-button ch-research-button--secondary" href="{{ external_url }}" target="_blank" rel="noopener">
+            {{ external_title }}
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </section>
+
+  <section class="ch-research-meta-bar">
+    <div class="ch-research-meta-bar__inner">
+
+      <div class="ch-research-meta-item">
+        <span class="ch-research-meta-icon">👤</span>
+        <span>By Carl Hinton</span>
+      </div>
+
+      {% if publication_date %}
+        <div class="ch-research-meta-item">
+          <span class="ch-research-meta-icon">📅</span>
+          <span>{{ publication_date }}</span>
+        </div>
+      {% endif %}
+
+      {% if reading_time %}
+        <div class="ch-research-meta-item">
+          <span class="ch-research-meta-icon">🕒</span>
+          <span>{{ reading_time }}</span>
+        </div>
+      {% endif %}
+
+      <div class="ch-research-meta-item">
+        <span class="ch-research-meta-icon">📘</span>
+        <span>{{ research_type }}</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="ch-research-layout">
+
+    <main class="ch-research-main">
+
+      {% if node.field_summary_abstract.value is not empty %}
+        <section id="overview" class="ch-research-section ch-research-overview">
+          <h2>Overview</h2>
+          <div class="ch-research-rich-text">
+            {{ content.field_summary_abstract }}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if node.field_key_findings.value is not empty %}
+        <section id="key-findings" class="ch-research-section ch-research-key-findings">
+          <h2>Key Findings</h2>
+          <div class="ch-research-rich-text">
+            {{ content.field_key_findings }}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if node.field_implications.value is not empty %}
+        <section id="implications" class="ch-research-section ch-research-implications">
+          <h2>Implications</h2>
+          <div class="ch-research-rich-text">
+            {{ content.field_implications }}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if node.body.value is not empty %}
+        <section id="article" class="ch-research-section ch-research-article-body">
+          <h2>Article</h2>
+          <div class="ch-research-rich-text">
+            {{ content.body }}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if node.field_related_research is not empty %}
+        <section id="related-research" class="ch-research-section ch-research-related">
+          <h2>Related Research</h2>
+
+          <div class="ch-related-grid">
+            {% for item in node.field_related_research %}
+              {% set related = item.entity %}
+
+              {% if related %}
+                {% set related_url = path('entity.node.canonical', {'node': related.id}) %}
+                {% set related_image_url = '' %}
+
+                {% if related.field_hero_image.entity is not empty %}
+                  {% set related_image_url = file_url(related.field_hero_image.entity.uri.value) %}
+                {% endif %}
+
+                <article class="ch-related-card">
+                  <a href="{{ related_url }}" class="ch-related-card__image-wrap">
+                    {% if related_image_url %}
+                      <img src="{{ related_image_url }}" alt="{{ related.label }}" class="ch-related-card__image">
+                    {% else %}
+                      <div class="ch-related-card__image-placeholder"></div>
+                    {% endif %}
+                  </a>
+
+                  <div class="ch-related-card__body">
+                    <h3>
+                      <a href="{{ related_url }}">{{ related.label }}</a>
+                    </h3>
+
+                    {% if related.field_summary_abstract.value is not empty %}
+                      <p>
+                        {{ related.field_summary_abstract.value|striptags|slice(0, 135) }}…
+                      </p>
+                    {% endif %}
+                  </div>
+                </article>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+    </main>
+
+    <aside class="ch-research-sidebar" aria-label="Research page sidebar">
+
+      <div class="ch-research-side-card">
+        <h2>On this page</h2>
+
+        <nav class="ch-research-toc">
+          {% if node.field_summary_abstract.value is not empty %}
+            <a href="#overview">Overview</a>
+          {% endif %}
+          {% if node.field_key_findings.value is not empty %}
+            <a href="#key-findings">Key Findings</a>
+          {% endif %}
+          {% if node.field_implications.value is not empty %}
+            <a href="#implications">Implications</a>
+          {% endif %}
+          {% if node.body.value is not empty %}
+            <a href="#article">Article</a>
+          {% endif %}
+          {% if node.field_related_research is not empty %}
+            <a href="#related-research">Related Research</a>
+          {% endif %}
+        </nav>
+      </div>
+
+      {% if pdf_url or external_url %}
+        <div class="ch-research-side-card ch-research-download-card">
+          <h2>Read the Paper</h2>
+          <p>Access the full research version or download the PDF.</p>
+
+          {% if pdf_url %}
+            <a class="ch-research-download-button" href="{{ pdf_url }}" download>
+              Download PDF
+            </a>
+          {% endif %}
+
+          {% if external_url %}
+            <a class="ch-research-external-link" href="{{ external_url }}" target="_blank" rel="noopener">
+              {{ external_title }}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if node.field_tags_themes is not empty %}
+        <div class="ch-research-side-card">
+          <h2>Themes</h2>
+
+          <div class="ch-research-theme-list">
+            {% for item in node.field_tags_themes %}
+              {% if item.entity %}
+                <span>{{ item.entity.label }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="ch-research-side-card">
+        <h2>About this Research</h2>
+        <p>
+          This research forms part of Carl Hinton’s wider work on systems thinking,
+          infrastructure, technology, environmental design and human health.
+        </p>
+        <a href="/articles">View all research →</a>
+      </div>
+
+    </aside>
+
+  </div>
+
+</article>
