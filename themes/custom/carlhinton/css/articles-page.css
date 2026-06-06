@@ -1,11 +1,13 @@
 /* =========================================================
-   Carl Hinton — Articles & Research page only
-   Loaded from page--articles.html.twig only
+   Carl Hinton — Articles & Research landing page
+   File: themes/custom/carlhinton/css/articles-page.css
+   Applies to: /articles only
    ========================================================= */
 
-/* ---------------------------------------------------------
-   Design tokens
-   --------------------------------------------------------- */
+
+/* =========================================================
+   1. Design tokens
+   ========================================================= */
 
 body.path-articles {
   --ch-bg: #05080d;
@@ -21,15 +23,19 @@ body.path-articles {
   --ch-blue-soft: #a9d8ff;
   --ch-gold: #d4a64a;
   --ch-max: 1220px;
+  --ch-left-edge: 16.5rem;
 }
 
-/* ---------------------------------------------------------
-   Page background and global page reset
-   --------------------------------------------------------- */
+
+/* =========================================================
+   2. Page background and global reset
+   ========================================================= */
 
 body.path-articles,
 .path-articles .dialog-off-canvas-main-canvas,
 .path-articles .page-wrapper,
+.path-articles #page,
+.path-articles #page-wrapper,
 .path-articles .layout-main-wrapper,
 .path-articles .layout-main,
 .path-articles .main-content,
@@ -59,11 +65,15 @@ body.path-articles,
   color: var(--ch-blue-soft);
 }
 
-/* Hide Olivero defaults that the custom page hero replaces */
+/* Hide Olivero defaults replaced by the custom page layout */
 .path-articles .region--breadcrumb,
 .path-articles .region--content-above,
-.path-articles .block-page-title-block {
+.path-articles .block-page-title-block,
+.path-articles .region--highlighted {
   display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
 }
 
 /* Remove earlier experimental pseudo content */
@@ -78,154 +88,223 @@ body.path-articles,
   display: none !important;
 }
 
-/* ---------------------------------------------------------
-   Header / navigation on this dark page
-   --------------------------------------------------------- */
 
-.path-articles .site-header,
-.path-articles .site-header__fixable,
-.path-articles .site-header__inner,
-.path-articles .site-header__inner__container,
-.path-articles .site-header__initial {
-  background: rgba(5, 8, 13, 0.97) !important;
-  background-image: none !important;
+/* =========================================================
+   3. Clean dynamic header for /articles
+   Uses Drupal-rendered page.header and page.primary_menu.
+   ========================================================= */
+
+body.path-articles .ch-articles-header {
+  width: 100% !important;
+  min-height: 92px !important;
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(47, 184, 255, 0.16) !important;
+  position: relative;
+  z-index: 100;
 }
 
-.path-articles .site-branding,
-.path-articles .site-branding--bg-primary,
-.path-articles .site-branding--bg-gray {
+/* Header grid: brand left, dynamic menu right */
+body.path-articles .ch-articles-header__inner {
+  width: min(var(--ch-max), calc(100% - 33rem)) !important;
+  min-height: 92px !important;
+  margin-left: var(--ch-left-edge) !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+
+  display: grid !important;
+  grid-template-columns: 240px minmax(0, 1fr) !important;
+  column-gap: 6rem !important;
+  align-items: center !important;
+}
+
+/* Brand */
+body.path-articles .ch-articles-header__brand {
+  grid-column: 1 !important;
+  align-self: center !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 240px !important;
+  height: 92px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-articles .ch-articles-header__brand .site-branding,
+body.path-articles .ch-articles-header__brand .site-branding__inner,
+body.path-articles .ch-articles-header__brand .site-branding__text,
+body.path-articles .ch-articles-header__brand .site-branding__name {
+  display: flex !important;
+  align-items: center !important;
+  height: auto !important;
+  min-height: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
   background: transparent !important;
 }
 
-.path-articles .site-branding__name a {
-  color: var(--ch-text) !important;
-  text-decoration: none;
+body.path-articles .ch-articles-header__brand .site-branding__name a {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: #ffffff !important;
+  font-size: 1.75rem !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
 }
 
-.path-articles .primary-nav__menu-link,
-.path-articles .primary-nav__menu-link-inner,
-.path-articles .secondary-nav__menu-link {
-  color: var(--ch-text) !important;
+body.path-articles .ch-articles-header__brand .site-branding__name a:hover {
+  color: var(--ch-blue-soft) !important;
 }
 
-.path-articles .primary-nav__menu-link:hover,
-.path-articles .primary-nav__menu-link:focus,
-.path-articles .primary-nav__menu-link--active-trail,
-.path-articles .primary-nav__menu-item--active-trail .primary-nav__menu-link-inner,
-.path-articles .secondary-nav__menu-link:hover,
-.path-articles .secondary-nav__menu-link:focus {
-  color: var(--ch-blue) !important;
+/* Navigation wrapper */
+body.path-articles .ch-articles-header__nav {
+  grid-column: 2 !important;
+  align-self: center !important;
+  justify-self: end !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 92px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
 }
 
-/* Olivero mobile menu overlay */
-.path-articles .header-nav {
-  background: rgba(5, 10, 18, 0.98) !important;
-  color: var(--ch-text) !important;
-}
-
-.path-articles .header-nav.is-active,
-.path-articles .header-nav[data-drupal-selector="header-nav"] {
-  background: rgba(5, 10, 18, 0.98) !important;
-}
-
-.path-articles .header-nav a,
-.path-articles .header-nav .primary-nav__menu-link,
-.path-articles .header-nav .primary-nav__menu-link-inner,
-.path-articles .header-nav .secondary-nav__menu-link {
-  color: var(--ch-text) !important;
-}
-
-.path-articles .header-nav a:hover,
-.path-articles .header-nav a:focus,
-.path-articles .header-nav .primary-nav__menu-link--active-trail,
-.path-articles .header-nav .primary-nav__menu-item--active-trail .primary-nav__menu-link-inner {
-  color: var(--ch-blue) !important;
-}
-
-.path-articles .mobile-nav-button {
-  color: var(--ch-text) !important;
-  border-color: var(--ch-blue) !important;
-  background: rgba(5, 10, 18, 0.88) !important;
-}
-
-.path-articles .mobile-nav-button__label {
-  color: var(--ch-text) !important;
-}
-
-.path-articles .mobile-nav-button__icon,
-.path-articles .mobile-nav-button__icon::before,
-.path-articles .mobile-nav-button__icon::after {
-  border-color: var(--ch-blue) !important;
-  background-color: var(--ch-blue) !important;
-}
-
-/* Search block inside menu */
-.path-articles .block-search-wide__wrapper,
-.path-articles .block-search-wide__container,
-.path-articles .block-search-wide__grid,
-.path-articles .block-search-narrow,
-.path-articles .search-block-form {
-  background: #050a12 !important;
-  color: var(--ch-text) !important;
-}
-
-.path-articles .search-form input[type="search"],
-.path-articles .form-search {
-  background: #ffffff !important;
-  color: #111827 !important;
-  border-color: rgba(91, 176, 255, 0.45) !important;
-}
-
-.path-articles .captcha-admin-links,
-.path-articles .captcha-admin-links summary,
-.path-articles .captcha-admin-links a {
-  color: var(--ch-blue) !important;
+/* Drupal menu wrappers */
+body.path-articles .ch-articles-header__nav .block,
+body.path-articles .ch-articles-header__nav .block__content,
+body.path-articles .ch-articles-header__nav .navigation,
+body.path-articles .ch-articles-header__nav .primary-nav {
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
   background: transparent !important;
 }
 
-/* ---------------------------------------------------------
-   Status messages while logged in
-   --------------------------------------------------------- */
-
-.path-articles .region--highlighted {
-  max-width: var(--ch-max) !important;
-  width: calc(100% - 4rem) !important;
-  margin: 1rem auto !important;
+/* Actual menu list */
+body.path-articles .ch-articles-header__nav .primary-nav__menu--level-1,
+body.path-articles .ch-articles-header__nav ul.menu {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1.15rem !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
 }
 
-.path-articles .messages-list,
-.path-articles .messages__wrapper {
-  max-width: var(--ch-max) !important;
+body.path-articles .ch-articles-header__nav .primary-nav__menu-item,
+body.path-articles .ch-articles-header__nav .menu-item {
+  display: block !important;
+  width: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
 }
 
-/* ---------------------------------------------------------
-   Real hero section from page--articles.html.twig
-   --------------------------------------------------------- */
+/* Menu links */
+body.path-articles .ch-articles-header__nav a,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link-inner,
+body.path-articles .ch-articles-header__nav .menu a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 0.82rem !important;
+  line-height: 1 !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Active/hover state */
+body.path-articles .ch-articles-header__nav a:hover,
+body.path-articles .ch-articles-header__nav a.is-active,
+body.path-articles .ch-articles-header__nav .is-active > a,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link:hover,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link.is-active,
+body.path-articles .ch-articles-header__nav a[href="/articles"],
+body.path-articles .ch-articles-header__nav a[data-drupal-link-system-path="articles"] {
+  color: var(--ch-blue) !important;
+}
+
+/* Active Articles underline */
+body.path-articles .ch-articles-header__nav a[href="/articles"]::after,
+body.path-articles .ch-articles-header__nav a[data-drupal-link-system-path="articles"]::after {
+  content: "";
+  display: block !important;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.45rem;
+  height: 2px;
+  background: var(--ch-blue);
+}
+
+/* Remove Olivero decoration */
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link-inner::after,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link::after {
+  display: none !important;
+}
+
+/* Remove Olivero/mobile/search header fragments */
+body.path-articles .site-header__initial,
+body.path-articles .sticky-header-toggle,
+body.path-articles .mobile-buttons,
+body.path-articles .header-nav-overlay,
+body.path-articles .region--secondary-menu,
+body.path-articles #block-carlhinton-search-form-narrow,
+body.path-articles #block-carlhinton-search-form-wide,
+body.path-articles .block-search-wide,
+body.path-articles .block-search-wide__wrapper {
+  display: none !important;
+}
+
+
+/* =========================================================
+   4. Hero section
+   ========================================================= */
 
 .path-articles .ch-articles-hero-panel {
   position: relative;
   overflow: hidden;
-  padding: 4rem 0 2.75rem 0;
+  padding: 4.5rem 0 1.25rem 0 !important;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 8, 13, 0.98) 0%,
+      rgba(5, 8, 13, 0.88) 34%,
+      rgba(5, 8, 13, 0.35) 68%,
+      rgba(5, 8, 13, 0.18) 100%
+    ),
+    url("../images/articles-earth-hero.png") right top / auto 100% no-repeat,
+    linear-gradient(180deg, #05080d 0%, #081421 100%) !important;
 }
 
 .path-articles .ch-articles-hero-panel::before {
-  content: "";
-  position: absolute;
-  top: -14rem;
-  right: -8rem;
-  width: 58rem;
-  height: 34rem;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.7), transparent 3.5rem),
-    radial-gradient(ellipse at 58% 46%, rgba(91, 176, 255, 0.35), transparent 20rem),
-    radial-gradient(ellipse at 58% 70%, rgba(212, 166, 74, 0.16), transparent 15rem);
-  opacity: 0.85;
+  display: none !important;
 }
 
 .path-articles .ch-articles-hero-panel__inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: var(--ch-max);
   width: calc(100% - 4rem);
   margin: 0 auto;
@@ -243,15 +322,19 @@ body.path-articles,
   text-decoration: none;
 }
 
+.path-articles .ch-articles-breadcrumb a:hover {
+  color: var(--ch-blue-soft) !important;
+}
+
 .path-articles .ch-articles-breadcrumb span {
   margin-left: 0.45rem;
 }
 
 .path-articles .ch-articles-hero-title {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0;
   color: var(--ch-text);
-  font-size: clamp(3rem, 5vw, 5.1rem);
+  font-size: clamp(3.1rem, 5vw, 5rem);
   line-height: 1.02;
   font-weight: 850;
   letter-spacing: -0.045em;
@@ -274,19 +357,26 @@ body.path-articles,
   line-height: 1.75;
 }
 
-/* Four feature blocks */
+
+/* =========================================================
+   5. Feature strip
+   ========================================================= */
+
 .path-articles .ch-articles-feature-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 2.6rem;
   border-top: 1px solid var(--ch-border);
   border-bottom: 1px solid var(--ch-border);
+  background: rgba(5, 13, 23, 0.45);
+  backdrop-filter: blur(2px);
 }
 
 .path-articles .ch-articles-feature-strip > div {
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: 1rem;
-  padding: 1.2rem 1.35rem;
+  column-gap: 1.15rem;
+  padding: 1.35rem 1.45rem;
   border-right: 1px solid var(--ch-border);
 }
 
@@ -296,49 +386,64 @@ body.path-articles,
 
 .path-articles .ch-feature-icon {
   grid-row: 1 / span 2;
+  width: 2.4rem;
+  min-width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: var(--ch-blue);
-  font-size: 1.45rem;
+  font-size: 2rem !important;
   line-height: 1;
 }
 
 .path-articles .ch-articles-feature-strip strong {
   color: var(--ch-text);
-  font-size: 0.96rem;
+  font-size: 1rem;
   line-height: 1.3;
+  font-weight: 800;
 }
 
 .path-articles .ch-articles-feature-strip small {
   margin-top: 0.25rem;
   color: var(--ch-muted);
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   line-height: 1.45;
 }
 
-/* ---------------------------------------------------------
-   Main articles view wrapper
-   --------------------------------------------------------- */
+
+/* =========================================================
+   6. Main articles view wrapper
+   ========================================================= */
 
 .path-articles .view-display-id-page_1 {
   max-width: var(--ch-max) !important;
   width: calc(100% - 4rem) !important;
   margin: 0 auto !important;
-  padding: 1.5rem 0 5.5rem 0 !important;
+  padding: 0 0 5.5rem 0 !important;
 }
 
-/* ---------------------------------------------------------
-   Featured article
-   --------------------------------------------------------- */
+.path-articles .block-system-main-block,
+.path-articles .views-element-container,
+.path-articles .view-articles {
+  margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   7. Featured article
+   ========================================================= */
 
 .path-articles .view-display-id-page_1 > .attachment-before {
   display: block !important;
-  margin-bottom: 3rem;
+  margin: 0 0 3rem 0 !important;
   padding: 0 !important;
 }
 
 .path-articles .view-display-id-page_1 > .attachment-before::before {
   content: "Featured article" !important;
   display: block !important;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.9rem 0 !important;
   color: var(--ch-blue);
   font-size: 0.78rem;
   font-weight: 800;
@@ -358,7 +463,7 @@ body.path-articles,
 
 .path-articles .view-display-id-attachment_1 .views-row {
   display: grid;
-  grid-template-columns: minmax(0, 58%) minmax(320px, 42%);
+  grid-template-columns: minmax(0, 54%) minmax(360px, 46%) !important;
   align-items: stretch;
   overflow: hidden;
   min-height: 0 !important;
@@ -390,8 +495,8 @@ body.path-articles,
 .path-articles .view-display-id-attachment_1 .views-field-title,
 .path-articles .view-display-id-attachment_1 .views-field-field-summary-abstract {
   background: rgba(12, 27, 44, 0.98);
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 1.75rem !important;
+  padding-right: 1.75rem !important;
 }
 
 .path-articles .view-display-id-attachment_1 .views-field-title {
@@ -401,8 +506,9 @@ body.path-articles,
 
 .path-articles .view-display-id-attachment_1 .views-field-title::before {
   content: "Featured";
-  display: inline-block;
-  margin-bottom: 1rem;
+  display: table !important;
+  width: auto !important;
+  margin: 0 0 1rem 0 !important;
   padding: 0.36rem 0.68rem;
   border: 1px solid rgba(212, 166, 74, 0.55);
   color: var(--ch-gold);
@@ -413,11 +519,13 @@ body.path-articles,
 }
 
 .path-articles .view-display-id-attachment_1 .views-field-title a {
+  display: block !important;
+  max-width: 100%;
   color: var(--ch-text) !important;
-  font-size: clamp(1.9rem, 2.8vw, 2.7rem);
-  line-height: 1.08;
+  font-size: clamp(1.8rem, 2.35vw, 2.45rem) !important;
+  line-height: 1.12 !important;
   font-weight: 850;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.035em !important;
   text-decoration: none !important;
 }
 
@@ -442,9 +550,10 @@ body.path-articles,
   display: none !important;
 }
 
-/* ---------------------------------------------------------
-   All articles list
-   --------------------------------------------------------- */
+
+/* =========================================================
+   8. All articles list
+   ========================================================= */
 
 .path-articles .view-display-id-page_1 > .view-content {
   display: grid !important;
@@ -535,14 +644,15 @@ body.path-articles,
   margin: 0;
 }
 
-/* Hide list tags for the cleaner list layout */
+/* Hide list tags for cleaner layout */
 .path-articles .view-display-id-page_1 > .view-content .views-field-field-tags-themes {
   display: none !important;
 }
 
-/* ---------------------------------------------------------
-   Social/RSS and footer
-   --------------------------------------------------------- */
+
+/* =========================================================
+   9. Social/RSS and footer
+   ========================================================= */
 
 .path-articles .social-bar {
   display: none !important;
@@ -553,23 +663,49 @@ body.path-articles,
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ---------------------------------------------------------
-   Responsive
-   --------------------------------------------------------- */
 
-@media (min-width: 1200px) {
-  .path-articles .header-nav {
-    background: transparent !important;
+/* =========================================================
+   10. Responsive
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  body.path-articles .ch-articles-header {
+    height: auto !important;
+    min-height: 92px !important;
   }
 
-  .path-articles .block-search-wide__wrapper,
-  .path-articles .block-search-wide__container,
-  .path-articles .block-search-wide__grid {
-    background: #050a12 !important;
+  body.path-articles .ch-articles-header__inner {
+    width: calc(100% - 2rem) !important;
+    min-height: auto !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 0.85rem !important;
+    column-gap: 0 !important;
+    padding: 1rem 0 !important;
   }
-}
 
-@media (max-width: 1000px) {
+  body.path-articles .ch-articles-header__brand {
+    height: auto !important;
+    min-width: 0 !important;
+  }
+
+  body.path-articles .ch-articles-header__brand .site-branding__name a {
+    font-size: 1.45rem !important;
+  }
+
+  body.path-articles .ch-articles-header__nav {
+    height: auto !important;
+    justify-self: start !important;
+    justify-content: flex-start !important;
+  }
+
+  body.path-articles .ch-articles-header__nav .primary-nav__menu--level-1,
+  body.path-articles .ch-articles-header__nav ul.menu {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+  }
+
   .path-articles .ch-articles-feature-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -584,7 +720,7 @@ body.path-articles,
   }
 
   .path-articles .view-display-id-attachment_1 .views-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .path-articles .view-display-id-attachment_1 .views-field-field-hero-image {
@@ -602,16 +738,35 @@ body.path-articles,
     aspect-ratio: 16 / 9;
     object-fit: cover;
   }
+
+  .path-articles .ch-articles-hero-panel {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5, 8, 13, 0.98) 0%,
+        rgba(5, 8, 13, 0.92) 55%,
+        rgba(5, 8, 13, 0.72) 100%
+      ),
+      url("../images/articles-earth-hero.png") right top / auto 100% no-repeat,
+      linear-gradient(180deg, #05080d 0%, #081421 100%) !important;
+  }
 }
 
 @media (max-width: 700px) {
   .path-articles .ch-articles-hero-panel {
-    padding: 3rem 0 2rem 0;
+    padding: 3rem 0 2rem 0 !important;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 8, 13, 0.96) 0%,
+        rgba(5, 8, 13, 0.94) 100%
+      ),
+      url("../images/articles-earth-hero.png") center top / cover no-repeat,
+      linear-gradient(180deg, #05080d 0%, #081421 100%) !important;
   }
 
   .path-articles .ch-articles-hero-panel__inner,
-  .path-articles .view-display-id-page_1,
-  .path-articles .region--highlighted {
+  .path-articles .view-display-id-page_1 {
     width: calc(100% - 2rem) !important;
   }
 
@@ -632,6 +787,13 @@ body.path-articles,
     border-bottom: 0;
   }
 
+  .path-articles .ch-feature-icon {
+    width: 2.1rem;
+    min-width: 2.1rem;
+    height: 2.1rem;
+    font-size: 1.75rem !important;
+  }
+
   .path-articles .view-display-id-page_1 {
     padding-bottom: 4rem !important;
   }
@@ -643,8 +805,8 @@ body.path-articles,
 
   .path-articles .view-display-id-attachment_1 .views-field-title,
   .path-articles .view-display-id-attachment_1 .views-field-field-summary-abstract {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
   }
 
   .path-articles .view-display-id-attachment_1 .views-field-title {
@@ -653,852 +815,188 @@ body.path-articles,
 }
 
 /* =========================================================
-   Articles page — featured title wrap fix
+   Articles page header final corrections
+   - Lower Carl Hinton
+   - Push menu to the right
+   - Highlight active Articles link
    ========================================================= */
 
-/* Give the text side a little more space */
-.path-articles .view-display-id-attachment_1 .views-row {
-  grid-template-columns: minmax(0, 54%) minmax(360px, 46%) !important;
+/* Header container */
+body.path-articles .ch-articles-header {
+  min-height: 104px !important;
+  background: #05080d !important;
 }
 
-/* Make the Featured label sit above the title, not beside it */
-.path-articles .view-display-id-attachment_1 .views-field-title::before {
-  display: table !important;
-  width: auto !important;
-  margin: 0 0 1rem 0 !important;
+/* Use a wider internal header row so the menu can sit further right */
+body.path-articles .ch-articles-header__inner {
+  width: min(1380px, calc(100% - 12rem)) !important;
+  min-height: 104px !important;
+  margin-left: 10rem !important;
+  margin-right: auto !important;
+  display: grid !important;
+  grid-template-columns: 260px minmax(0, 1fr) !important;
+  column-gap: 6rem !important;
+  align-items: center !important;
+  padding: 0 !important;
 }
 
-/* Ensure the title starts cleanly on its own line */
-.path-articles .view-display-id-attachment_1 .views-field-title a {
-  display: block !important;
-  max-width: 100%;
-  font-size: clamp(1.8rem, 2.35vw, 2.45rem) !important;
-  line-height: 1.12 !important;
-  letter-spacing: -0.035em !important;
+/* Lower and enlarge the name */
+body.path-articles .ch-articles-header__brand {
+  height: 104px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-top: 1.15rem !important;
 }
 
-/* Slightly reduce side padding so the title has room */
-.path-articles .view-display-id-attachment_1 .views-field-title,
-.path-articles .view-display-id-attachment_1 .views-field-field-summary-abstract {
-  padding-left: 1.75rem !important;
-  padding-right: 1.75rem !important;
-}
-
-/* Keep mobile stacked */
-@media (max-width: 1000px) {
-  .path-articles .view-display-id-attachment_1 .views-row {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-
-
-/* =========================================================
-   Articles page — globe hero background and larger icons
-   ========================================================= */
-
-/* Add the earth/globe background image to the hero area */
-.path-articles .ch-articles-hero-panel {
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5, 8, 13, 0.98) 0%,
-      rgba(5, 8, 13, 0.88) 34%,
-      rgba(5, 8, 13, 0.35) 68%,
-      rgba(5, 8, 13, 0.18) 100%
-    ),
-    url("../images/articles-earth-hero.png") right top / auto 100% no-repeat,
-    linear-gradient(180deg, #05080d 0%, #081421 100%) !important;
-}
-
-/* Remove the previous artificial glow so it does not fight the real image */
-.path-articles .ch-articles-hero-panel::before {
-  display: none !important;
-}
-
-/* Give the hero enough height for the background to breathe */
-.path-articles .ch-articles-hero-panel {
-  padding-top: 4.5rem !important;
-  padding-bottom: 3rem !important;
-}
-
-/* Keep hero text readable over the image */
-.path-articles .ch-articles-hero-panel__inner {
-  position: relative;
-  z-index: 2;
-}
-
-/* Slightly tighten the title against the design */
-.path-articles .ch-articles-hero-title {
-  max-width: 760px;
-  font-size: clamp(3.1rem, 5vw, 5rem);
-}
-
-/* Make the four icons much more visible */
-.path-articles .ch-feature-icon {
-  width: 2.4rem;
-  min-width: 2.4rem;
-  height: 2.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ch-blue);
-  font-size: 2rem !important;
-  line-height: 1;
-}
-
-/* Give the feature strip a slightly more designed feel */
-.path-articles .ch-articles-feature-strip {
-  margin-top: 2.6rem;
-  background: rgba(5, 13, 23, 0.45);
-  backdrop-filter: blur(2px);
-}
-
-.path-articles .ch-articles-feature-strip__item {
-  column-gap: 1.15rem;
-  padding: 1.35rem 1.45rem;
-}
-
-.path-articles .ch-articles-feature-strip strong {
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.path-articles .ch-articles-feature-strip small {
-  font-size: 0.88rem;
-}
-
-/* On narrower screens, soften the image so it does not clash with text */
-@media (max-width: 1000px) {
-  .path-articles .ch-articles-hero-panel {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(5, 8, 13, 0.98) 0%,
-        rgba(5, 8, 13, 0.92) 55%,
-        rgba(5, 8, 13, 0.72) 100%
-      ),
-      url("../images/articles-earth-hero.png") right top / auto 100% no-repeat,
-      linear-gradient(180deg, #05080d 0%, #081421 100%) !important;
-  }
-}
-
-@media (max-width: 700px) {
-  .path-articles .ch-articles-hero-panel {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(5, 8, 13, 0.96) 0%,
-        rgba(5, 8, 13, 0.94) 100%
-      ),
-      url("../images/articles-earth-hero.png") center top / cover no-repeat,
-      linear-gradient(180deg, #05080d 0%, #081421 100%) !important;
-  }
-
-  .path-articles .ch-feature-icon {
-    width: 2.1rem;
-    min-width: 2.1rem;
-    height: 2.1rem;
-    font-size: 1.75rem !important;
-  }
-}
-
-
-/* =========================================================
-   Articles page — reduce gap between hero and featured article
-   ========================================================= */
-
-/* Tighten the bottom of the static hero block */
-.path-articles .ch-articles-hero-panel {
-  padding-bottom: 1.25rem !important;
-}
-
-/* Remove extra top padding before the View starts */
-.path-articles .view-display-id-page_1 {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* Remove extra spacing before the featured article section */
-.path-articles .view-display-id-page_1 > .attachment-before {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Pull the featured section slightly closer to the hero */
-.path-articles .view-display-id-page_1 > .attachment-before::before {
-  margin-top: 0 !important;
-  margin-bottom: 0.9rem !important;
-}
-
-/* If Olivero/View wrapper is adding a first-child margin, neutralise it */
-.path-articles .block-system-main-block,
-.path-articles .views-element-container,
-.path-articles .view-articles {
-  margin-top: 0 !important;
-}
-
-/* =========================================================
-   Articles page — remove empty/highlighted messages gap
-   ========================================================= */
-
-.path-articles .region--highlighted {
-  display: none !important;
+body.path-articles .ch-articles-header__brand .site-branding,
+body.path-articles .ch-articles-header__brand .site-branding__inner,
+body.path-articles .ch-articles-header__brand .site-branding__text,
+body.path-articles .ch-articles-header__brand .site-branding__name {
   margin: 0 !important;
   padding: 0 !important;
-  min-height: 0 !important;
+  background: transparent !important;
 }
 
-
-/* =========================================================
-   Carl Hinton - Research Article Node Pages
-   Applies to: body.page-node-type-articles
-   ========================================================= */
-
-/* Page wrapper reset for article nodes */
-body.page-node-type-articles .ch-article-node-main-wrapper {
-  background: #f3f5f8;
+body.path-articles .ch-articles-header__brand .site-branding__name a {
+  font-size: 1.8rem !important;
+  line-height: 1 !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
 }
 
-body.page-node-type-articles .ch-article-node-main-content {
-  padding: 0;
+/* Push the menu to the right-hand side */
+body.path-articles .ch-articles-header__nav {
+  height: 104px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  justify-self: end !important;
+  width: 100% !important;
+  padding-top: 1.15rem !important;
 }
 
-body.page-node-type-articles .ch-article-node-main {
-  margin: 0;
-  padding: 0;
+/* Ensure menu wrappers do not shrink or stack strangely */
+body.path-articles .ch-articles-header__nav .block,
+body.path-articles .ch-articles-header__nav .block__content,
+body.path-articles .ch-articles-header__nav .navigation,
+body.path-articles .ch-articles-header__nav .primary-nav {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
-body.page-node-type-articles #block-carlhinton-content,
-body.page-node-type-articles #block-carlhinton-content .block__content {
-  margin: 0;
-  padding: 0;
+/* Menu row */
+body.path-articles .ch-articles-header__nav .primary-nav__menu--level-1,
+body.path-articles .ch-articles-header__nav ul.menu {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 1.15rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
 }
 
-/* Keep admin messages/tabs usable but not destructive */
-body.page-node-type-articles .ch-article-node-admin-region {
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 1rem 1.5rem;
+/* Menu links */
+body.path-articles .ch-articles-header__nav a,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link-inner,
+body.path-articles .ch-articles-header__nav .menu a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 0.82rem !important;
+  line-height: 1 !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  background: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Remove Olivero node defaults inside our custom article template */
-body.page-node-type-articles .ch-research-node header,
-body.page-node-type-articles .ch-research-node .node__meta,
-body.page-node-type-articles .ch-research-node .node__content {
-  margin: 0;
-  padding: 0;
+/* Highlight active Articles link - covers relative and absolute paths */
+body.path-articles .ch-articles-header__nav a[href="/articles"],
+body.path-articles .ch-articles-header__nav a[href="https://www.carlhinton.com/articles"],
+body.path-articles .ch-articles-header__nav a[href="http://www.carlhinton.com/articles"],
+body.path-articles .ch-articles-header__nav a[data-drupal-link-system-path="articles"],
+body.path-articles .ch-articles-header__nav a.is-active,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link.is-active,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link--active-trail,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-item--active-trail > a,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-item--active-trail .primary-nav__menu-link-inner {
+  color: #37a8ff !important;
 }
 
-/* =========================================================
-   Hero
-   ========================================================= */
-
-.ch-research-node {
-  background: #f3f5f8;
-  color: #172033;
-}
-
-.ch-research-hero {
-  position: relative;
-  min-height: 520px;
-  display: flex;
-  align-items: center;
-  background-color: #07111f;
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
-  color: #ffffff;
-  overflow: hidden;
-}
-
-.ch-research-hero::after {
+/* Blue underline for Articles */
+body.path-articles .ch-articles-header__nav a[href="/articles"]::after,
+body.path-articles .ch-articles-header__nav a[href="https://www.carlhinton.com/articles"]::after,
+body.path-articles .ch-articles-header__nav a[href="http://www.carlhinton.com/articles"]::after,
+body.path-articles .ch-articles-header__nav a[data-drupal-link-system-path="articles"]::after,
+body.path-articles .ch-articles-header__nav a.is-active::after,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link.is-active::after,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link--active-trail::after {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 75% 35%, rgba(80, 170, 255, 0.16), transparent 34%),
-    linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+  left: 0;
+  right: 0;
+  bottom: -0.55rem;
+  height: 2px;
+  background: #37a8ff;
+  display: block !important;
 }
 
-.ch-research-hero__inner {
-  position: relative;
-  z-index: 2;
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 4.5rem 0;
-  max-width: 1180px;
+/* Keep hover blue too */
+body.path-articles .ch-articles-header__nav a:hover,
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link:hover {
+  color: #37a8ff !important;
 }
 
-.ch-research-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  align-items: center;
-  margin-bottom: 2rem;
-  font-size: 0.92rem;
-  color: rgba(255,255,255,0.72);
+/* Disable Olivero's own underline/decorations */
+body.path-articles .ch-articles-header__nav .primary-nav__menu-link-inner::after {
+  display: none !important;
 }
 
-.ch-research-breadcrumb a {
-  color: rgba(255,255,255,0.84);
-  text-decoration: none;
-}
-
-.ch-research-breadcrumb a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-.ch-research-kicker {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  margin-bottom: 1.15rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 999px;
-  background: rgba(255,255,255,0.10);
-  color: #d7ecff;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.ch-research-title {
-  max-width: 760px;
-  margin: 0;
-  color: #ffffff;
-  font-size: clamp(2.25rem, 5vw, 5rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  font-weight: 800;
-}
-
-.ch-research-hero-summary {
-  max-width: 720px;
-  margin-top: 1.4rem;
-  color: rgba(255,255,255,0.86);
-  font-size: clamp(1.04rem, 1.5vw, 1.28rem);
-  line-height: 1.65;
-}
-
-.ch-research-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-  margin-top: 2rem;
-}
-
-.ch-research-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  padding: 0.75rem 1.15rem;
-  border-radius: 999px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-}
-
-.ch-research-button:hover {
-  transform: translateY(-1px);
-  text-decoration: none;
-}
-
-.ch-research-button--primary {
-  background: #ffffff;
-  color: #07111f;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.24);
-}
-
-.ch-research-button--primary:hover {
-  background: #eef7ff;
-  color: #07111f;
-}
-
-.ch-research-button--secondary {
-  border: 1px solid rgba(255,255,255,0.36);
-  background: rgba(255,255,255,0.10);
-  color: #ffffff;
-}
-
-.ch-research-button--secondary:hover {
-  background: rgba(255,255,255,0.18);
-  color: #ffffff;
-}
-
-/* =========================================================
-   Meta bar
-   ========================================================= */
-
-.ch-research-meta-bar {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(20, 33, 61, 0.10);
-  box-shadow: 0 8px 24px rgba(10, 18, 32, 0.05);
-}
-
-.ch-research-meta-bar__inner {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem 1.6rem;
-  align-items: center;
-  padding: 1rem 0;
-}
-
-.ch-research-meta-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  color: #425066;
-  font-size: 0.95rem;
-  font-weight: 650;
-}
-
-.ch-research-meta-icon {
-  font-size: 1rem;
-}
-
-/* =========================================================
-   Layout
-   ========================================================= */
-
-.ch-research-layout {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 3rem 0 4.5rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 330px;
-  gap: 2rem;
-  align-items: start;
-}
-
-.ch-research-main {
-  min-width: 0;
-}
-
-.ch-research-sidebar {
-  position: sticky;
-  top: 105px;
-}
-
-/* =========================================================
-   Main content sections
-   ========================================================= */
-
-.ch-research-section {
-  margin-bottom: 1.6rem;
-  padding: clamp(1.45rem, 3vw, 2.2rem);
-  border: 1px solid rgba(20, 33, 61, 0.09);
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 18px 45px rgba(20, 33, 61, 0.075);
-}
-
-.ch-research-section h2 {
-  margin: 0 0 1rem;
-  color: #101827;
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
-  line-height: 1.15;
-  letter-spacing: -0.035em;
-  font-weight: 800;
-}
-
-.ch-research-rich-text {
-  color: #28354a;
-  font-size: 1.05rem;
-  line-height: 1.78;
-}
-
-.ch-research-rich-text p {
-  margin: 0 0 1.15rem;
-}
-
-.ch-research-rich-text p:last-child {
-  margin-bottom: 0;
-}
-
-.ch-research-rich-text h2,
-.ch-research-rich-text h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-  color: #101827;
-  letter-spacing: -0.03em;
-}
-
-.ch-research-rich-text h2:first-child,
-.ch-research-rich-text h3:first-child {
-  margin-top: 0;
-}
-
-.ch-research-rich-text a {
-  color: #1266a8;
-  font-weight: 700;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-
-/* Key findings card */
-.ch-research-key-findings {
-  background:
-    linear-gradient(135deg, rgba(7, 17, 31, 0.98), rgba(16, 37, 67, 0.96));
-  color: #ffffff;
-}
-
-.ch-research-key-findings h2 {
-  color: #ffffff;
-}
-
-.ch-research-key-findings .ch-research-rich-text {
-  color: rgba(255,255,255,0.88);
-}
-
-.ch-research-key-findings ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.85rem;
-}
-
-.ch-research-key-findings li {
-  position: relative;
-  margin: 0;
-  padding: 0.95rem 1rem 0.95rem 3rem;
-  border-radius: 16px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.13);
-  line-height: 1.55;
-}
-
-.ch-research-key-findings li::before {
-  content: "✓";
-  position: absolute;
-  left: 1rem;
-  top: 0.95rem;
-  width: 1.35rem;
-  height: 1.35rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #102543;
-  font-size: 0.78rem;
-  font-weight: 900;
-}
-
-/* Implications */
-.ch-research-implications {
-  border-left: 6px solid #1d76b8;
-}
-
-/* Article body */
-.ch-research-article-body .ch-research-rich-text {
-  max-width: 76ch;
-}
-
-.ch-research-article-body .ch-research-rich-text h2 {
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(20, 33, 61, 0.08);
-}
-
-.ch-research-article-body .ch-research-rich-text h2:first-child {
-  padding-top: 0;
-  border-top: 0;
-}
-
-/* Prevent Drupal field wrappers adding odd spacing */
-.ch-research-rich-text .field,
-.ch-research-rich-text .field__item {
-  margin: 0;
-  padding: 0;
-}
-
-.ch-research-rich-text .field__label {
-  display: none;
-}
-
-/* =========================================================
-   Sidebar
-   ========================================================= */
-
-.ch-research-side-card {
-  margin-bottom: 1rem;
-  padding: 1.25rem;
-  border-radius: 20px;
-  background: #ffffff;
-  border: 1px solid rgba(20, 33, 61, 0.09);
-  box-shadow: 0 14px 35px rgba(20, 33, 61, 0.07);
-}
-
-.ch-research-side-card h2 {
-  margin: 0 0 0.85rem;
-  color: #101827;
-  font-size: 1.05rem;
-  line-height: 1.25;
-  font-weight: 850;
-  letter-spacing: -0.02em;
-}
-
-.ch-research-side-card p {
-  margin: 0 0 1rem;
-  color: #59667a;
-  line-height: 1.58;
-  font-size: 0.95rem;
-}
-
-.ch-research-side-card a {
-  color: #1266a8;
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.ch-research-side-card a:hover {
-  text-decoration: underline;
-}
-
-.ch-research-toc {
-  display: grid;
-  gap: 0.4rem;
-}
-
-.ch-research-toc a {
-  display: block;
-  padding: 0.65rem 0.75rem;
-  border-radius: 12px;
-  background: #f3f7fb;
-  color: #253047;
-  font-weight: 750;
-  text-decoration: none;
-}
-
-.ch-research-toc a:hover {
-  background: #e7f2fb;
-  color: #0d5d99;
-  text-decoration: none;
-}
-
-.ch-research-download-card {
-  background:
-    linear-gradient(135deg, #081221, #132844);
-  color: #ffffff;
-}
-
-.ch-research-download-card h2,
-.ch-research-download-card p {
-  color: #ffffff;
-}
-
-.ch-research-download-button,
-.ch-research-external-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 44px;
-  margin-top: 0.7rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: 999px;
-  text-align: center;
-  font-weight: 850;
-  text-decoration: none;
-}
-
-.ch-research-download-button {
-  background: #ffffff;
-  color: #081221 !important;
-}
-
-.ch-research-download-button:hover {
-  background: #eaf6ff;
-  text-decoration: none !important;
-}
-
-.ch-research-external-link {
-  border: 1px solid rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.1);
-  color: #ffffff !important;
-}
-
-.ch-research-external-link:hover {
-  background: rgba(255,255,255,0.18);
-  text-decoration: none !important;
-}
-
-.ch-research-theme-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.ch-research-theme-list span {
-  display: inline-flex;
-  padding: 0.42rem 0.65rem;
-  border-radius: 999px;
-  background: #eef5fb;
-  color: #24415d;
-  font-size: 0.83rem;
-  font-weight: 800;
-}
-
-/* =========================================================
-   Related research
-   ========================================================= */
-
-.ch-related-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.ch-related-card {
-  overflow: hidden;
-  border-radius: 18px;
-  background: #f7f9fc;
-  border: 1px solid rgba(20, 33, 61, 0.09);
-}
-
-.ch-related-card__image-wrap {
-  display: block;
-  aspect-ratio: 16 / 9;
-  background: #dbe5ef;
-  overflow: hidden;
-}
-
-.ch-related-card__image {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.2s ease;
-}
-
-.ch-related-card:hover .ch-related-card__image {
-  transform: scale(1.035);
-}
-
-.ch-related-card__image-placeholder {
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(circle at 70% 30%, rgba(29, 118, 184, 0.35), transparent 35%),
-    linear-gradient(135deg, #0a1424, #243e5c);
-}
-
-.ch-related-card__body {
-  padding: 1rem;
-}
-
-.ch-related-card__body h3 {
-  margin: 0 0 0.55rem;
-  font-size: 1rem;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
-}
-
-.ch-related-card__body h3 a {
-  color: #111827;
-  text-decoration: none;
-}
-
-.ch-related-card__body h3 a:hover {
-  color: #1266a8;
-  text-decoration: underline;
-}
-
-.ch-related-card__body p {
-  margin: 0;
-  color: #59667a;
-  font-size: 0.92rem;
-  line-height: 1.5;
-}
-
-/* =========================================================
-   Hide default Drupal field labels where they sneak through
-   ========================================================= */
-
-body.page-node-type-articles .ch-research-node .field--label-above > .field__label,
-body.page-node-type-articles .ch-research-node .field--label-inline > .field__label {
-  display: none;
-}
-
-/* =========================================================
-   Responsive
-   ========================================================= */
-
-@media (max-width: 1050px) {
-  .ch-research-layout {
-    grid-template-columns: 1fr;
+/* Responsive */
+@media (max-width: 1100px) {
+  body.path-articles .ch-articles-header {
+    min-height: auto !important;
   }
 
-  .ch-research-sidebar {
-    position: static;
+  body.path-articles .ch-articles-header__inner {
+    width: calc(100% - 2rem) !important;
+    min-height: auto !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    grid-template-columns: 1fr !important;
+    row-gap: 0.85rem !important;
+    column-gap: 0 !important;
+    padding: 1rem 0 !important;
   }
 
-  .ch-related-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 760px) {
-  .ch-research-hero {
-    min-height: 460px;
-    background-position: center;
+  body.path-articles .ch-articles-header__brand,
+  body.path-articles .ch-articles-header__nav {
+    height: auto !important;
+    padding-top: 0 !important;
   }
 
-  .ch-research-hero__inner,
-  .ch-research-meta-bar__inner,
-  .ch-research-layout {
-    width: min(100% - 32px, 1180px);
+  body.path-articles .ch-articles-header__brand .site-branding__name a {
+    font-size: 1.45rem !important;
   }
 
-  .ch-research-hero__inner {
-    padding: 3rem 0;
+  body.path-articles .ch-articles-header__nav {
+    justify-content: flex-start !important;
   }
 
-  .ch-research-title {
-    font-size: clamp(2rem, 11vw, 3.2rem);
-  }
-
-  .ch-research-hero-summary {
-    font-size: 1rem;
-  }
-
-  .ch-research-meta-bar__inner {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.55rem;
-  }
-
-  .ch-research-layout {
-    padding: 2rem 0 3rem;
-  }
-
-  .ch-related-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ch-research-section {
-    border-radius: 18px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ch-research-hero-actions {
-    flex-direction: column;
-  }
-
-  .ch-research-button {
-    width: 100%;
-  }
-
-  .ch-research-key-findings li {
-    padding-left: 2.75rem;
+  body.path-articles .ch-articles-header__nav .primary-nav__menu--level-1,
+  body.path-articles .ch-articles-header__nav ul.menu {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
   }
 }
