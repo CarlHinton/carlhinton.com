@@ -1,0 +1,25 @@
+{#
+/**
+ * Hobbies full node template.
+ */
+#}
+
+<!-- CARLHINTON HOBBIES FULL NODE TEMPLATE ACTIVE -->
+
+<article{{ attributes.addClass('ch-hobby-node-entry') }}>
+  {% if content.field_photo %}
+    <div class="ch-hobby-node-hero-image">
+      {{ content.field_photo }}
+    </div>
+  {% endif %}
+
+  <div class="ch-hobby-node-body">
+    {{ content.body }}
+  </div>
+
+  {% if content.field_featured %}
+    <div class="ch-hobby-node-featured sr-only">
+      {{ content.field_featured }}
+    </div>
+  {% endif %}
+</article>

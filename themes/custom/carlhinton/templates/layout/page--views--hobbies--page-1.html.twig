@@ -1,0 +1,209 @@
+{#
+/**
+ * @file
+ * Custom page wrapper for the Hobbies landing page.
+ *
+ * File:
+ * themes/custom/carlhinton/templates/layout/page--views--hobbies--page-1.html.twig
+ *
+ * Intended for:
+ * View: hobbies
+ * Display: page_1
+ * URL: /hobbies
+ *
+ * Purpose:
+ * - Replace the default Olivero-style /hobbies layout.
+ * - Match the dark Research & Articles design system.
+ * - Keep Drupal site branding and menu dynamic.
+ * - Hide the default breadcrumb and page title regions.
+ * - Render the Hobbies View inside a custom designed page.
+ */
+#}
+
+{{ attach_library('carlhinton/hobbies-page') }}
+
+<!-- CARLHINTON HOBBIES VIEW PAGE TEMPLATE ACTIVE -->
+
+<div id="page-wrapper" class="page-wrapper ch-hobbies-page-wrapper">
+  <div id="page" class="ch-hobbies-page">
+
+    {# =========================
+       Header
+       ========================= #}
+    {% if page.header or page.primary_menu or page.secondary_menu %}
+      <header id="header"
+              class="site-header ch-hobbies-header"
+              data-drupal-selector="site-header"
+              role="banner">
+
+        <div class="ch-hobbies-header__inner">
+
+          <div class="ch-hobbies-header__brand">
+            {{ page.header }}
+          </div>
+
+          {% if page.primary_menu %}
+            <nav id="header-nav"
+                 class="ch-hobbies-header__nav"
+                 aria-label="{{ 'Main navigation'|t }}">
+              {{ page.primary_menu }}
+            </nav>
+          {% endif %}
+
+          {% if page.secondary_menu %}
+            <div class="ch-hobbies-header__secondary">
+              {{ page.secondary_menu }}
+            </div>
+          {% endif %}
+
+        </div>
+
+      </header>
+    {% endif %}
+
+
+    {# =========================
+       Main content
+       ========================= #}
+    <div id="main-wrapper" class="layout-main-wrapper layout-container ch-hobbies-main-wrapper">
+      <div id="main" class="layout-main ch-hobbies-layout-main">
+
+        <div class="main-content ch-hobbies-main-content">
+
+          <a id="main-content" tabindex="-1"></a>
+
+          {#
+          Keep admin/system messages visible for logged-in users.
+          These are useful when saving content, clearing cache, etc.
+          #}
+          {% if page.highlighted %}
+            <div class="ch-hobbies-admin-region">
+              {{ page.highlighted }}
+            </div>
+          {% endif %}
+
+          <main role="main" class="ch-hobbies-main">
+
+            {# =========================
+               Hero
+               ========================= #}
+            <section class="ch-hobbies-hero" aria-labelledby="ch-hobbies-title">
+
+              <div class="ch-hobbies-hero__inner">
+
+                <nav class="ch-hobbies-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+                  <a href="/">{{ 'Home'|t }}</a>
+                  <span aria-hidden="true">/</span>
+                  <span>{{ 'Hobbies'|t }}</span>
+                </nav>
+
+                <div class="ch-hobbies-hero__content">
+
+                  <h1 id="ch-hobbies-title">Hobbies &amp; Interests</h1>
+
+                  <div class="ch-hobbies-title-rule" aria-hidden="true"></div>
+
+                  <p class="ch-hobbies-hero__intro">
+                    Beyond technology and research, I value interests that ground me,
+                    fuel creativity, and connect me with people and purpose. From
+                    heritage railways to music, writing, and teaching, these pursuits
+                    shape who I am and how I contribute.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </section>
+
+
+            {# =========================
+               Theme strip
+               ========================= #}
+            <section class="ch-hobbies-feature-strip" aria-label="{{ 'Hobby themes'|t }}">
+
+              <div class="ch-hobbies-feature">
+                <span class="ch-hobbies-feature__icon" aria-hidden="true">▣</span>
+                <div class="ch-hobbies-feature__text">
+                  <strong>Heritage &amp; Preservation</strong>
+                  <small>Keeping history on track</small>
+                </div>
+              </div>
+
+              <div class="ch-hobbies-feature">
+                <span class="ch-hobbies-feature__icon" aria-hidden="true">✎</span>
+                <div class="ch-hobbies-feature__text">
+                  <strong>Writing &amp; Publishing</strong>
+                  <small>Sharing truth through words</small>
+                </div>
+              </div>
+
+              <div class="ch-hobbies-feature">
+                <span class="ch-hobbies-feature__icon" aria-hidden="true">▤</span>
+                <div class="ch-hobbies-feature__text">
+                  <strong>Teaching &amp; Discipleship</strong>
+                  <small>Equipping others to learn</small>
+                </div>
+              </div>
+
+              <div class="ch-hobbies-feature">
+                <span class="ch-hobbies-feature__icon" aria-hidden="true">♪</span>
+                <div class="ch-hobbies-feature__text">
+                  <strong>Music &amp; Worship</strong>
+                  <small>Creating and sharing hymns</small>
+                </div>
+              </div>
+
+            </section>
+
+
+            {# =========================
+               Hobbies View output
+               ========================= #}
+            <section class="ch-hobbies-view-section" aria-label="{{ 'Hobbies list'|t }}">
+              {{ page.content }}
+            </section>
+
+          </main>
+
+        </div>
+
+
+        {# Hide or suppress the RSS social bar visually via CSS, but leave region safe. #}
+        {% if page.social %}
+          <div class="social-bar ch-hobbies-social-bar">
+            {{ page.social }}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+
+    {# =========================
+       Footer
+       ========================= #}
+    {% if page.footer_top or page.footer_bottom %}
+      <footer class="site-footer ch-hobbies-footer" role="contentinfo">
+        <div class="ch-hobbies-footer__inner">
+
+          {% if page.footer_top %}
+            <div class="ch-hobbies-footer__top">
+              {{ page.footer_top }}
+            </div>
+          {% endif %}
+
+          {% if page.footer_bottom %}
+            <div class="ch-hobbies-footer__bottom-region">
+              {{ page.footer_bottom }}
+            </div>
+          {% endif %}
+
+        </div>
+      </footer>
+    {% endif %}
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+
+  </div>
+</div>

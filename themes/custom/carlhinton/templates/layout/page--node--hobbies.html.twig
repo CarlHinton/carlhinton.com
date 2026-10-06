@@ -1,0 +1,54 @@
+<!-- CARLHINTON HOBBIES NODE PAGE TEMPLATE ACTIVE -->
+ {{ attach_library('carlhinton/hobbies-node') }}
+<div id="page-wrapper" class="page-wrapper ch-hobby-node-page-wrapper">
+  <div id="page" class="ch-hobby-node-page">
+
+    {% if page.header or page.primary_menu %}
+      <header id="header" class="site-header ch-hobby-node-header" role="banner">
+        <div class="ch-hobby-node-header__inner">
+          <a class="ch-hobby-node-brand" href="/">Carl Hinton</a>
+
+          {% if page.primary_menu %}
+            <nav class="ch-hobby-node-nav" aria-label="{{ 'Main navigation'|t }}">
+              {{ page.primary_menu }}
+            </nav>
+          {% endif %}
+        </div>
+      </header>
+    {% endif %}
+
+    <main id="main" class="ch-hobby-node-main" role="main">
+      <a id="main-content" tabindex="-1"></a>
+
+      {% if page.highlighted %}
+        <div class="ch-hobby-node-admin">
+          {{ page.highlighted }}
+        </div>
+      {% endif %}
+
+      <section class="ch-hobby-node-hero">
+        <div class="ch-hobby-node-hero__inner">
+          <div class="ch-hobby-node-hero__content">
+            <nav class="ch-hobby-node-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+              <a href="/">Home</a>
+              <span aria-hidden="true">/</span>
+              <a href="/hobbies">Hobbies</a>
+            </nav>
+
+            <p class="ch-hobby-node-eyebrow">Hobbies &amp; Interests</p>
+
+            {{ page.content_above }}
+          </div>
+        </div>
+      </section>
+
+      <section class="ch-hobby-node-content-wrap">
+        <div class="ch-hobby-node-content-inner">
+          {{ page.content }}
+        </div>
+      </section>
+    </main>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+  </div>
+</div>

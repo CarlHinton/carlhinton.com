@@ -1,0 +1,83 @@
+{{ attach_library('carlhinton/experience-node') }}
+
+<!-- CARLHINTON EXPERIENCE NODE PAGE TEMPLATE ACTIVE -->
+
+<div id="page-wrapper" class="page-wrapper ch-experience-node-wrapper">
+  <div id="page" class="ch-experience-node-page">
+
+    <header id="header" class="site-header ch-experience-node-header" role="banner">
+      <div class="ch-experience-node-header__inner">
+        <a class="ch-experience-node-brand" href="/">Carl Hinton</a>
+
+        {% if page.primary_menu %}
+          <nav class="ch-experience-node-nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper ch-experience-node-main-wrapper">
+      <div id="main" class="layout-main ch-experience-node-main">
+
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+
+          <div class="main-content__container container ch-experience-node-container">
+
+            {% if page.highlighted %}
+              <div class="ch-experience-node-highlighted">
+                {{ page.highlighted }}
+              </div>
+            {% endif %}
+
+            <main role="main" class="ch-experience-node-content-area">
+
+              <section class="ch-experience-node-hero">
+                <div class="ch-experience-node-hero__inner">
+
+                  <div class="ch-experience-node-hero__content">
+
+                    <nav class="ch-experience-node-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+                      <a href="/">Home</a>
+                      <span aria-hidden="true">/</span>
+                      <a href="/experience">Experience</a>
+                    </nav>
+
+                    <p class="ch-experience-node-eyebrow">
+                      Professional Experience
+                    </p>
+
+                    {% if page.content_above %}
+                      {{ page.content_above }}
+                    {% endif %}
+
+                    <div class="ch-experience-node-divider" aria-hidden="true"></div>
+
+                  </div>
+
+                  <div class="ch-experience-node-hero__media" aria-hidden="true">
+                    <div class="ch-experience-node-hero__media-inner"></div>
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="ch-experience-node-body-wrap">
+                <div class="ch-experience-node-body">
+                  {{ page.content }}
+                </div>
+              </section>
+
+            </main>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+
+  </div>
+</div>

@@ -1,78 +1,1249 @@
-/* =========================================================
-   Carl Hinton — front page only
-   Loaded only from page--front.html.twig
-   ========================================================= */
+:root {
+  --home-bg: #05080d;
+  --home-panel: #081624;
+  --home-panel-2: #0b1d30;
+  --home-line: rgba(91, 176, 255, .18);
+  --home-text: #d9e8f7;
+  --home-muted: #9eb0c3;
+  --home-blue: #37a8ff;
+  --home-blue-light: #72c3ff;
+  --home-gold: #d5a642;
+  --home-width: 1520px;
+}
 
-body.path-frontpage .home-hero a.site-button-primary,
-body.path-frontpage .home-hero a.site-button-secondary {
-  display: inline-flex !important;
+/* ========================================================
+   PAGE
+   ======================================================== */
+
+body.path-frontpage {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 75% 10%,
+      rgba(55,168,255,.10),
+      transparent 32rem
+    ),
+    linear-gradient(
+      180deg,
+      #05080d 0%,
+      #06101b 100%
+    ) !important;
+
+  color: var(--home-text);
+}
+
+body.path-frontpage .dialog-off-canvas-main-canvas,
+body.path-frontpage #page-wrapper,
+body.path-frontpage #page,
+body.path-frontpage #main-wrapper,
+body.path-frontpage #main,
+body.path-frontpage .main-content,
+body.path-frontpage .main-content__container {
+  background: transparent !important;
+}
+
+body.path-frontpage .ch-home-header__inner,
+body.path-frontpage .ch-home-container {
+  width: min(var(--home-width), calc(100% - 3rem));
+  max-width: var(--home-width);
+  margin: 0 auto;
+}
+
+/* Hide old Olivero leftovers */
+body.path-frontpage .social-bar,
+body.path-frontpage .region--breadcrumb,
+body.path-frontpage .site-footer {
+  display: none !important;
+}
+
+/* ========================================================
+   HEADER
+   ======================================================== */
+
+body.path-frontpage .ch-home-header {
+  margin: 0;
+  padding: 0;
+  background: #05080d;
+  border-bottom: 1px solid rgba(91,176,255,.14);
+}
+
+body.path-frontpage .ch-home-header__inner {
+  min-height: 108px;
+
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+body.path-frontpage .ch-home-brand {
+  color: #fff !important;
+
+  font-family: "Metropolis", Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.04em;
+
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+body.path-frontpage .ch-home-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+/* Hide narrow search block from primary-menu region */
+body.path-frontpage .ch-home-nav .search-block-form,
+body.path-frontpage .ch-home-nav #block-carlhinton-search-form-narrow,
+body.path-frontpage .ch-home-nav .captcha-admin-links {
+  display: none !important;
+}
+
+body.path-frontpage .ch-home-nav ul.primary-nav__menu {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  gap: .95rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  list-style: none !important;
+}
+
+body.path-frontpage .ch-home-nav li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-frontpage .ch-home-nav a,
+body.path-frontpage .ch-home-nav .primary-nav__menu-link-inner {
+  color: #fff !important;
+
+  font-size: .78rem !important;
+  font-weight: 800 !important;
+
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+body.path-frontpage
+.ch-home-nav
+a[data-drupal-link-system-path="<front>"] {
+  color: var(--home-blue) !important;
+}
+
+/* ========================================================
+   ADMIN TABS
+   ======================================================== */
+
+body.path-frontpage .ch-home-highlighted {
+  margin: 1rem 0;
+}
+
+body.path-frontpage .ch-home-highlighted .tabs {
+  margin-bottom: 0;
+}
+
+/* ========================================================
+   HOME HERO
+   ======================================================== */
+
+body.path-frontpage .ch-home-intro {
+  display: grid;
+  grid-template-columns: minmax(0,1.08fr) minmax(380px,.92fr);
+
+  min-height: 33rem;
+
+  margin: 1.5rem 0 2.5rem;
+
+  overflow: hidden;
+
+  border: 1px solid var(--home-line);
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5,8,13,.98),
+      rgba(8,22,38,.94)
+    );
+
+  box-shadow: 0 20px 50px rgba(0,0,0,.28);
+}
+
+body.path-frontpage .ch-home-intro__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 3.5rem;
+}
+
+body.path-frontpage .ch-home-eyebrow {
+  margin: 0 0 1rem;
+
+  color: var(--home-blue);
+
+  font-size: .95rem;
+  font-weight: 800;
+
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+body.path-frontpage .ch-home-title {
+  max-width: 10ch;
+
+  margin: 0;
+
+  color: #fff;
+
+  font-family: "Metropolis", Arial, sans-serif;
+  font-size: clamp(4rem,7vw,7rem);
+  font-weight: 900;
+  line-height: .88;
+  letter-spacing: -.07em;
+}
+
+body.path-frontpage .ch-home-lead {
+  max-width: 48rem;
+
+  margin: 1.6rem 0 0;
+
+  color: var(--home-text);
+
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+body.path-frontpage .ch-home-divider {
+  width: 4rem;
+  height: 3px;
+
+  margin-top: 1.8rem;
+
+  border-radius: 99px;
+  background: var(--home-gold);
+}
+
+/* ========================================================
+   HERO VISUAL
+   ======================================================== */
+
+body.path-frontpage .ch-home-intro__visual {
+  position: relative;
+  overflow: hidden;
+
+  border-left: 1px solid rgba(91,176,255,.13);
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(55,168,255,.19),
+      transparent 12rem
+    ),
+    linear-gradient(
+      135deg,
+      #081321,
+      #0b2744
+    );
+}
+
+body.path-frontpage .ch-home-orbit {
+  position: absolute;
+
+  border: 1px solid rgba(55,168,255,.22);
+  border-radius: 50%;
+}
+
+body.path-frontpage .ch-home-orbit--one {
+  width: 420px;
+  height: 420px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+}
+
+body.path-frontpage .ch-home-orbit--two {
+  width: 300px;
+  height: 300px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+}
+
+body.path-frontpage .ch-home-orbit--three {
+  width: 170px;
+  height: 170px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%,-50%);
+}
+
+body.path-frontpage .ch-home-node {
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+
+  background: var(--home-blue);
+
+  box-shadow:
+    0 0 0 4px rgba(55,168,255,.12),
+    0 0 25px rgba(55,168,255,.4);
+}
+
+body.path-frontpage .ch-home-node--one {
+  top: 24%;
+  left: 48%;
+}
+
+body.path-frontpage .ch-home-node--two {
+  top: 54%;
+  left: 73%;
+}
+
+body.path-frontpage .ch-home-node--three {
+  top: 74%;
+  left: 38%;
+}
+
+/* ========================================================
+   DRUPAL CONTENT REGION
+   ======================================================== */
+
+body.path-frontpage .ch-home-body,
+body.path-frontpage .ch-home-body > .region,
+body.path-frontpage #block-carlhinton-content,
+body.path-frontpage #block-carlhinton-content .block__content,
+body.path-frontpage article.node--type-page,
+body.path-frontpage article.node--type-page .node__content,
+body.path-frontpage .field--name-body {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+}
+
+/* Remove duplicate Drupal node title/header */
+body.path-frontpage article.node--type-page > header {
+  display: none !important;
+}
+
+/* ========================================================
+   EXISTING HOME BODY
+   ======================================================== */
+
+body.path-frontpage .home-hero {
+  display: grid;
+  grid-template-columns: minmax(230px,.32fr) minmax(0,1fr);
+
+  gap: 2.75rem;
+
+  margin: 0 0 3rem;
+  padding: 2.75rem 3rem;
+
+  border: 1px solid var(--home-line);
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle at 88% 0%,
+      rgba(55,168,255,.10),
+      transparent 24rem
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10,28,46,.95),
+      rgba(5,13,24,.99)
+    );
+
+  box-shadow: 0 18px 40px rgba(0,0,0,.22);
+}
+
+/* Existing profile photo */
+body.path-frontpage .home-hero > p:first-child {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+
+  margin: 0;
+}
+
+body.path-frontpage .home-hero > p:first-child img {
+  width: 100% !important;
+  max-width: 250px !important;
+  height: auto !important;
+
+  margin: 0 !important;
+
+  border: 1px solid rgba(91,176,255,.22);
+  border-radius: 10px;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,.28);
+}
+
+/* First body heading */
+body.path-frontpage .home-hero > h2:first-of-type {
+  grid-column: 2;
+
+  margin: 0 0 .75rem;
+
+  color: #fff;
+
+  font-family: "Metropolis", Arial, sans-serif;
+  font-size: clamp(2rem,3vw,3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* General copy */
+body.path-frontpage .home-hero p {
+  color: var(--home-text);
+
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+body.path-frontpage .home-hero a {
+  color: var(--home-blue);
+}
+
+/* Buttons already present in body */
+body.path-frontpage .site-button-primary,
+body.path-frontpage .site-button-secondary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: .8rem 1.4rem;
+
+  border-radius: 6px;
+
+  font-weight: 800;
+
+  text-decoration: none !important;
+}
+
+body.path-frontpage .site-button-primary {
+  border: 1px solid var(--home-blue);
+
+  background: var(--home-blue);
+
+  color: #04101b !important;
+}
+
+body.path-frontpage .site-button-secondary {
+  border: 1px solid rgba(55,168,255,.45);
+
+  background: rgba(55,168,255,.06);
+
+  color: #fff !important;
+}
+
+/* Separators */
+body.path-frontpage .home-hero hr {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  margin: 2rem 0;
+
+  border: 0;
+  border-top: 1px solid rgba(91,176,255,.15);
+}
+
+/* ========================================================
+   LEGACY TABLES -> MODERN PANELS
+   ======================================================== */
+
+body.path-frontpage .home-hero table {
+  grid-column: 1 / -1;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 1.5rem 0 !important;
+
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(91,176,255,.16) !important;
+  border-radius: 8px;
+
+  background: rgba(5,13,24,.65);
+}
+
+body.path-frontpage .home-hero table td {
+  padding: .8rem 1rem !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid rgba(91,176,255,.10) !important;
+
+  color: var(--home-text);
+}
+
+body.path-frontpage .home-hero table tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+body.path-frontpage .home-hero table img {
+  max-width: 38px;
+  height: auto;
+}
+
+/* ========================================================
+   RESEARCH FOOTER
+   ======================================================== */
+
+body.path-frontpage #block-carlhinton-researchfooter {
+  width: 100%;
+  max-width: none;
+
+  margin: 4rem 0 0;
+
+  clear: both;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.block__content,
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.field,
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.field__item,
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.text-content {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer {
+  overflow: hidden;
+
+  border: 1px solid var(--home-line);
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle at 85% 0%,
+      rgba(55,168,255,.14),
+      transparent 24rem
+    ),
+    linear-gradient(
+      180deg,
+      #081624,
+      #05080d
+    );
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer__inner {
+  display: grid;
+
+  grid-template-columns:
+    minmax(250px,1.2fr)
+    minmax(170px,.8fr)
+    minmax(210px,1fr)
+    minmax(220px,1fr);
+
+  gap: 2.25rem;
+
+  padding: 2.5rem;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+h2,
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+h3 {
+  margin: 0 0 1rem;
+
+  color: #fff;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer p {
+  margin: 0;
+
+  color: #aebed0;
+
+  line-height: 1.7;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer__nav p,
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer__topics p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: .65rem;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer a {
+  color: var(--home-blue);
+
+  text-decoration: none;
+  font-weight: 700;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer__button {
+  display: inline-flex;
+
+  margin-top: 1rem;
+  padding: .8rem 1.25rem;
+
+  border: 1px solid rgba(55,168,255,.5);
+  border-radius: 6px;
+
+  color: #fff !important;
+}
+
+body.path-frontpage
+#block-carlhinton-researchfooter
+.ch-research-footer__bottom {
+  margin: 0 2.5rem;
+  padding: 1.1rem 0 1.5rem;
+
+  border-top: 1px solid rgba(91,176,255,.14);
+
+  color: #7f91a5;
+  font-size: .82rem;
+}
+
+/* ========================================================
+   RESPONSIVE
+   ======================================================== */
+
+@media (max-width: 1100px) {
+
+  body.path-frontpage .ch-home-intro {
+    grid-template-columns: 1fr;
+  }
+
+  body.path-frontpage .ch-home-intro__visual {
+    min-height: 18rem;
+
+    border-left: 0;
+    border-top: 1px solid rgba(91,176,255,.13);
+  }
+
+  body.path-frontpage .home-hero {
+    grid-template-columns: 1fr;
+  }
+
+  body.path-frontpage .home-hero > p:first-child {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  body.path-frontpage .home-hero > h2:first-of-type {
+    grid-column: 1;
+  }
+
+  body.path-frontpage
+  #block-carlhinton-researchfooter
+  .ch-research-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+
+  body.path-frontpage .ch-home-header__inner {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+
+    padding: 1rem 0;
+  }
+
+  body.path-frontpage .ch-home-nav {
+    justify-content: flex-start;
+  }
+
+  body.path-frontpage .ch-home-nav ul.primary-nav__menu {
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+  }
+
+  body.path-frontpage .ch-home-intro__content {
+    padding: 2rem 1.5rem;
+  }
+
+  body.path-frontpage .home-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  body.path-frontpage
+  #block-carlhinton-researchfooter
+  .ch-research-footer__inner {
+    grid-template-columns: 1fr;
+
+    padding: 2rem;
+  }
+}
+
+/* ========================================================
+   REMOVE OLIVERO VERTICAL SPACING
+   ======================================================== */
+
+body.path-frontpage .ch-home-main-wrapper,
+body.path-frontpage .ch-home-main,
+body.path-frontpage .main-content,
+body.path-frontpage .main-content__container,
+body.path-frontpage .ch-home-container,
+body.path-frontpage .ch-home-content-area {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.path-frontpage .ch-home-header {
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-frontpage .ch-home-header__inner {
+  min-height: 82px !important;
+  height: 82px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+body.path-frontpage .ch-home-intro {
+  margin: 0 0 2.5rem !important;
+}
+
+/* ========================================================
+   HOMEPAGE LEGACY BODY CLEANUP
+   Keeps Drupal body fully editable
+   ======================================================== */
+
+/*
+ * Stop treating every paragraph/table/hr as a grid item.
+ * Let the old Drupal body flow naturally.
+ */
+body.path-frontpage .home-hero {
+  display: flow-root !important;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 0 0 3rem !important;
+  padding: 2.75rem 3rem !important;
+
+  border: 1px solid rgba(91,176,255,.18) !important;
+  border-radius: 12px !important;
+
+  background:
+    radial-gradient(
+      circle at 88% 0%,
+      rgba(55,168,255,.08),
+      transparent 24rem
+    ),
+    linear-gradient(
+      180deg,
+      #091a2a 0%,
+      #06111d 100%
+    ) !important;
+
+  box-shadow: 0 18px 40px rgba(0,0,0,.22) !important;
+}
+
+/* Profile photograph */
+body.path-frontpage .home-hero > p:first-child {
+  float: left !important;
+
+  width: 220px !important;
+
+  margin: 0 2.5rem 1.5rem 0 !important;
+  padding: 0 !important;
+}
+
+body.path-frontpage .home-hero > p:first-child img {
+  display: block !important;
+
+  width: 220px !important;
+  max-width: 220px !important;
+  height: auto !important;
+
+  margin: 0 !important;
+
+  border: 1px solid rgba(91,176,255,.22) !important;
+  border-radius: 10px !important;
+
+  box-shadow: 0 14px 30px rgba(0,0,0,.28) !important;
+}
+
+/* Main body heading */
+body.path-frontpage .home-hero > h2:first-of-type {
+  margin: 0 0 1rem !important;
+
+  color: #fff !important;
+
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+
+  font-size: clamp(2.1rem,3vw,3rem) !important;
+  font-weight: 800 !important;
+
+  line-height: 1.1 !important;
+}
+
+/* Normal paragraph rhythm */
+body.path-frontpage .home-hero p {
+  margin: 0 0 1.15rem !important;
+
+  color: #d5e3f0 !important;
+
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+}
+
+/* The first separator ends the portrait/introduction area */
+body.path-frontpage .home-hero hr {
+  clear: both !important;
+
+  width: 100% !important;
+
+  margin: 2.25rem 0 !important;
+
+  border: 0 !important;
+  border-top: 1px solid rgba(91,176,255,.15) !important;
+}
+
+/* ========================================================
+   LANGUAGES / CONTACT TABLES
+   ======================================================== */
+
+body.path-frontpage .home-hero table {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 1.25rem 0 2rem !important;
+
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid rgba(91,176,255,.16) !important;
+  border-radius: 8px !important;
+
+  background: rgba(3,11,19,.38) !important;
+}
+
+body.path-frontpage .home-hero table td,
+body.path-frontpage .home-hero table th {
+  padding: .85rem 1rem !important;
+
+  border: 0 !important;
+  border-bottom: 1px solid rgba(91,176,255,.09) !important;
+
+  color: #d5e3f0 !important;
+
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+
+  line-height: 1.5 !important;
+}
+
+body.path-frontpage .home-hero table tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+/* Kill old fixed widths embedded in HTML */
+body.path-frontpage .home-hero table[style] {
+  width: 100% !important;
+}
+
+/* ========================================================
+   SOCIAL / PROFILE TABLE
+   ======================================================== */
+
+/*
+ * The final table is the social/profile table.
+ */
+body.path-frontpage .home-hero table:last-of-type {
+  max-width: 760px !important;
+
+  margin: 1.5rem 0 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+}
+
+body.path-frontpage .home-hero table:last-of-type tr {
+  display: grid !important;
+
+  grid-template-columns: 54px minmax(0,1fr) !important;
+
+  align-items: center !important;
+
+  min-height: 58px !important;
+
+  border-bottom: 1px solid rgba(91,176,255,.10) !important;
+}
+
+body.path-frontpage .home-hero table:last-of-type tr:last-child {
+  border-bottom: 0 !important;
+}
+
+body.path-frontpage .home-hero table:last-of-type td {
+  padding: .65rem .8rem !important;
+
+  border: 0 !important;
+}
+
+/*
+ * Hide the mismatched legacy icon images.
+ */
+body.path-frontpage
+.home-hero
+table:last-of-type
+td:first-child
+img {
+  display: none !important;
+}
+
+/*
+ * Replace them with consistent modern icon tiles.
+ */
+body.path-frontpage
+.home-hero
+table:last-of-type
+td:first-child::before {
+  display: flex !important;
+
   align-items: center !important;
   justify-content: center !important;
-  min-height: 46px !important;
-  padding: 0.85rem 1.45rem !important;
-  margin: 0 !important;
-  border-radius: 4px !important;
-  font-family: "Metropolis", sans-serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
+
+  width: 34px !important;
+  height: 34px !important;
+
+  border: 1px solid rgba(55,168,255,.35) !important;
+  border-radius: 7px !important;
+
+  background: rgba(55,168,255,.07) !important;
+
+  color: #37a8ff !important;
+
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  font-size: .72rem !important;
+  font-weight: 900 !important;
+
   line-height: 1 !important;
-  letter-spacing: 0.015em !important;
+}
+
+/* Drupal */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(1)
+td:first-child::before {
+  content: "D";
+}
+
+/* Email */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(2)
+td:first-child::before {
+  content: "@";
+}
+
+/* LinkedIn */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(3)
+td:first-child::before {
+  content: "in";
+}
+
+/* Slack */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(4)
+td:first-child::before {
+  content: "S";
+}
+
+/* Docker */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(5)
+td:first-child::before {
+  content: "Dk";
+}
+
+/* Substack */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(6)
+td:first-child::before {
+  content: "S";
+}
+
+/* Instagram */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(7)
+td:first-child::before {
+  content: "IG";
+}
+
+/* X */
+body.path-frontpage
+.home-hero
+table:last-of-type
+tr:nth-child(8)
+td:first-child::before {
+  content: "X";
+}
+
+body.path-frontpage
+.home-hero
+table:last-of-type
+a {
+  color: #37a8ff !important;
+
+  font-weight: 650 !important;
+
   text-decoration: none !important;
-  box-shadow: none !important;
 }
 
-/* View CV */
-body.path-frontpage .home-hero a.site-button-primary {
-  min-width: 130px !important;
-  background: #0d5cab !important;
-  border: 1px solid #0d5cab !important;
-  color: #ffffff !important;
+body.path-frontpage
+.home-hero
+table:last-of-type
+a:hover {
+  color: #76c8ff !important;
+  text-decoration: underline !important;
 }
 
-body.path-frontpage .home-hero a.site-button-primary:visited {
-  color: #ffffff !important;
+/* ========================================================
+   MOBILE
+   ======================================================== */
+
+@media (max-width: 700px) {
+
+  body.path-frontpage .home-hero {
+    padding: 2rem 1.5rem !important;
+  }
+
+  body.path-frontpage .home-hero > p:first-child {
+    float: none !important;
+
+    width: auto !important;
+
+    margin: 0 0 1.5rem !important;
+  }
+
+  body.path-frontpage .home-hero > p:first-child img {
+    width: 180px !important;
+  }
+
+  body.path-frontpage .home-hero table {
+    display: block !important;
+
+    overflow-x: auto !important;
+  }
 }
 
-body.path-frontpage .home-hero a.site-button-primary:hover,
-body.path-frontpage .home-hero a.site-button-primary:focus {
-  background: #084a8c !important;
-  border-color: #084a8c !important;
-  color: #ffffff !important;
+
+/* ========================================================
+   HOMEPAGE LANGUAGE STRIP
+   ======================================================== */
+
+/* First table in the editable homepage body = languages */
+body.path-frontpage .home-hero table:first-of-type {
+  display: block !important;
+
+  width: 100% !important;
+  max-width: none !important;
+
+  margin: 1.5rem 0 2rem !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid rgba(91,176,255,.16) !important;
+  border-radius: 9px !important;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,24,39,.80),
+      rgba(4,13,23,.80)
+    ) !important;
 }
 
-/* Read Articles */
-body.path-frontpage .home-hero a.site-button-secondary {
-  min-width: 145px !important;
-  background: transparent !important;
-  border: 1px solid #c9d8ea !important;
-  color: #0d5cab !important;
+/* Turn the single table row into a proper grid */
+body.path-frontpage .home-hero table:first-of-type tbody,
+body.path-frontpage .home-hero table:first-of-type tr {
+  display: grid !important;
+  grid-template-columns: 1.25fr repeat(3, 1fr) !important;
+
+  width: 100% !important;
 }
 
-body.path-frontpage .home-hero a.site-button-secondary:visited {
-  color: #0d5cab !important;
-}
-
-body.path-frontpage .home-hero a.site-button-secondary:hover,
-body.path-frontpage .home-hero a.site-button-secondary:focus {
-  background: #f3f8ff !important;
-  border-color: #0d5cab !important;
-  color: #084a8c !important;
-}
-
-/* Button row */
-body.path-frontpage .home-hero div:has(a.site-button-primary),
-body.path-frontpage .home-hero div:has(a.site-button-secondary) {
+/* All cells */
+body.path-frontpage .home-hero table:first-of-type td {
   display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 12px !important;
+
   align-items: center !important;
-  margin: 1.6rem 0 2rem 0 !important;
+  justify-content: center !important;
+
+  gap: .7rem !important;
+
+  min-height: 64px !important;
+
+  padding: .9rem 1rem !important;
+
+  border: 0 !important;
+  border-right: 1px solid rgba(91,176,255,.10) !important;
+
+  color: #d9e8f7 !important;
+
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  font-size: .92rem !important;
+  font-weight: 650 !important;
+
+  white-space: nowrap !important;
 }
 
-/* Remove Olivero text-link treatment from these two links */
-body.path-frontpage .text-content .home-hero a.site-button-primary,
-body.path-frontpage .text-content .home-hero a.site-button-secondary {
-  text-decoration: none !important;
-  background-image: none !important;
-  box-shadow: none !important;
+body.path-frontpage .home-hero table:first-of-type td:last-child {
+  border-right: 0 !important;
+}
+
+/* "Languages Spoken:" label */
+body.path-frontpage
+.home-hero
+table:first-of-type
+td:first-child {
+  justify-content: flex-start !important;
+
+  padding-left: 1.4rem !important;
+
+  color: #91a5b9 !important;
+
+  font-size: .8rem !important;
+  font-weight: 800 !important;
+
+  letter-spacing: .05em !important;
+  text-transform: uppercase !important;
+}
+
+/* Make flags consistent */
+body.path-frontpage
+.home-hero
+table:first-of-type
+td:not(:first-child)
+img {
+  order: -1 !important;
+
+  display: block !important;
+
+  width: 32px !important;
+  height: 22px !important;
+  max-width: 32px !important;
+
+  margin: 0 !important;
+
+  object-fit: cover !important;
+
+  border: 1px solid rgba(255,255,255,.22) !important;
+  border-radius: 3px !important;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.35) !important;
+}
+
+/* Slight hover polish */
+body.path-frontpage
+.home-hero
+table:first-of-type
+td:not(:first-child) {
+  transition:
+    background .18s ease,
+    color .18s ease !important;
+}
+
+body.path-frontpage
+.home-hero
+table:first-of-type
+td:not(:first-child):hover {
+  background: rgba(55,168,255,.06) !important;
+  color: #ffffff !important;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  body.path-frontpage .home-hero table:first-of-type tr {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.path-frontpage .home-hero table:first-of-type td {
+    justify-content: flex-start !important;
+
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(91,176,255,.10) !important;
+  }
+
+  body.path-frontpage
+  .home-hero
+  table:first-of-type
+  td:last-child {
+    border-bottom: 0 !important;
+  }
 }

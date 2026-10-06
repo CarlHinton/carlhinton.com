@@ -25,10 +25,12 @@
         "drupal/core-recommended": "^10.1",
         "drupal/core-vendor-hardening": "^9",
         "drupal/google_analytics": "^4.0",
+        "drupal/metatag": "^2.1",
         "drupal/quickedit": "^1.0",
         "drupal/rdf": "^2.1",
         "drupal/recaptcha": "^3.0",
         "drupal/redis": "^1.5",
+        "drupal/schema_metatag": "^3.0",
         "drupal/seven": "^1.0",
         "drush/drush": "^12"
     },

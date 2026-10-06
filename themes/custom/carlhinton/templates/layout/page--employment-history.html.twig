@@ -1,0 +1,102 @@
+{{ attach_library('carlhinton/employment-page') }}
+
+<!-- CARLHINTON EMPLOYMENT PAGE TEMPLATE ACTIVE -->
+
+<div id="page-wrapper" class="page-wrapper ch-employment-page-wrapper">
+  <div id="page" class="ch-employment-page">
+
+    <header id="header" class="site-header ch-employment-header" role="banner">
+      <div class="ch-employment-header__inner">
+
+        <a class="ch-employment-brand" href="/">Carl Hinton</a>
+
+        {% if page.primary_menu %}
+          <nav class="ch-employment-nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper ch-employment-main-wrapper">
+      <div id="main" class="layout-main ch-employment-main">
+
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+
+          <div class="main-content__container ch-employment-container">
+
+            {% if page.highlighted %}
+              <div class="ch-employment-highlighted">
+                {{ page.highlighted }}
+              </div>
+            {% endif %}
+
+            <main role="main" class="ch-employment-content-area">
+
+              <section class="ch-employment-hero">
+                <div class="ch-employment-hero__inner">
+
+                  <div class="ch-employment-hero__content">
+
+                    <nav
+                      class="ch-employment-breadcrumb"
+                      aria-label="{{ 'Breadcrumb'|t }}"
+                    >
+                      <a href="/">Home</a>
+                      <span aria-hidden="true">/</span>
+                      <span>Employment</span>
+                    </nav>
+
+                    <p class="ch-employment-eyebrow">
+                      Professional career
+                    </p>
+
+                    <h1 class="ch-employment-title">
+                      Employment<br>
+                      History
+                    </h1>
+
+                    <div
+                      class="ch-employment-divider"
+                      aria-hidden="true"
+                    ></div>
+
+                    <p class="ch-employment-intro">
+                      More than three decades working across technology,
+                      infrastructure, development and leadership — from
+                      hands-on engineering to senior technology management.
+                    </p>
+
+                  </div>
+
+                  <div
+                    class="ch-employment-hero__media"
+                    aria-hidden="true"
+                  >
+                    <div class="ch-employment-hero__media-inner"></div>
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="ch-employment-listing">
+                {{ page.content }}
+              </section>
+
+            </main>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div
+      class="overlay"
+      data-drupal-selector="overlay"
+    ></div>
+
+  </div>
+</div>

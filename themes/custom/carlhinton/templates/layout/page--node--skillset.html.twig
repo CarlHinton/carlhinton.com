@@ -1,0 +1,83 @@
+{{ attach_library('carlhinton/skillset-node') }}
+
+<!-- CARLHINTON SKILLSET NODE PAGE TEMPLATE ACTIVE -->
+
+<div id="page-wrapper" class="page-wrapper ch-skillset-node-wrapper">
+  <div id="page" class="ch-skillset-node-page">
+
+    <header id="header" class="site-header ch-skillset-node-header" role="banner">
+      <div class="ch-skillset-node-header__inner">
+        <a class="ch-skillset-node-brand" href="/">Carl Hinton</a>
+
+        {% if page.primary_menu %}
+          <nav class="ch-skillset-node-nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper ch-skillset-node-main-wrapper">
+      <div id="main" class="layout-main ch-skillset-node-main">
+
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+
+          <div class="main-content__container container ch-skillset-node-container">
+
+            {% if page.highlighted %}
+              <div class="ch-skillset-node-highlighted">
+                {{ page.highlighted }}
+              </div>
+            {% endif %}
+
+            <main role="main" class="ch-skillset-node-content-area">
+
+              <section class="ch-skillset-node-hero">
+                <div class="ch-skillset-node-hero__inner">
+
+                  <div class="ch-skillset-node-hero__content">
+
+                    <nav class="ch-skillset-node-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+                      <a href="/">Home</a>
+                      <span aria-hidden="true">/</span>
+                      <a href="/skillset">skillset</a>
+                    </nav>
+
+                    <p class="ch-skillset-node-eyebrow">
+                      Professional skillset
+                    </p>
+
+                    {% if page.content_above %}
+                      {{ page.content_above }}
+                    {% endif %}
+
+                    <div class="ch-skillset-node-divider" aria-hidden="true"></div>
+
+                  </div>
+
+                  <div class="ch-skillset-node-hero__media" aria-hidden="true">
+                    <div class="ch-skillset-node-hero__media-inner"></div>
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="ch-skillset-node-body-wrap">
+                <div class="ch-skillset-node-body">
+                  {{ page.content }}
+                </div>
+              </section>
+
+            </main>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+
+  </div>
+</div>

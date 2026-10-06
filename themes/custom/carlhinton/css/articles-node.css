@@ -115,7 +115,7 @@ body.page-node-type-articles .ch-research-node a:hover {
 body.page-node-type-articles .ch-research-hero {
   position: relative;
   width: 100% !important;
-  min-height: 560px;
+  min-height: 680px;
   display: flex;
   align-items: center;
   background-color: #05080d;
@@ -703,7 +703,7 @@ body.page-node-type-articles .ch-research-node [data-quickedit-field-id] {
 
 @media (max-width: 700px) {
   body.page-node-type-articles .ch-research-hero {
-    min-height: 480px;
+    min-height: 680px;
     background-position: center;
   }
 
@@ -1392,4 +1392,1068 @@ body.page-node-type-articles .ch-research-layout {
     margin-left: 1rem !important;
     margin-right: 1rem !important;
   }
+}
+/* Hide Olivero RSS/social side tab on research pages */
+body.path-articles .feed-icon,
+body.path-articles .rss-feed,
+body.path-articles .social-bar,
+body.path-articles [href*="/rss.xml"],
+body.path-articles [href*="/feed"],
+body.path-articles a.feed-icon,
+body.path-articles .block-system-powered-by-block,
+
+body.page-node-type-articles .feed-icon,
+body.page-node-type-articles .rss-feed,
+body.page-node-type-articles .social-bar,
+body.page-node-type-articles [href*="/rss.xml"],
+body.page-node-type-articles [href*="/feed"],
+body.page-node-type-articles a.feed-icon,
+body.page-node-type-articles .block-system-powered-by-block {
+  display: none !important;
+}
+
+/* =========================================================
+   Research Footer Block
+   Used by custom Drupal block: Research Footer
+   ========================================================= */
+
+/* Hide the older Olivero/footer artefacts on research pages */
+body.path-articles .feed-icon,
+body.path-articles .rss-feed,
+body.path-articles .social-bar,
+body.path-articles [href*="/rss.xml"],
+body.path-articles [href*="/feed"],
+body.path-articles a.feed-icon,
+body.path-articles .block-system-powered-by-block,
+body.page-node-type-articles .feed-icon,
+body.page-node-type-articles .rss-feed,
+body.page-node-type-articles .social-bar,
+body.page-node-type-articles [href*="/rss.xml"],
+body.page-node-type-articles [href*="/feed"],
+body.page-node-type-articles a.feed-icon,
+body.page-node-type-articles .block-system-powered-by-block {
+  display: none !important;
+}
+
+/* Neutralise Drupal block wrapper around the custom footer */
+body.path-articles .site-footer,
+body.page-node-type-articles .site-footer {
+  background: transparent !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-articles .site-footer__inner,
+body.page-node-type-articles .site-footer__inner {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-articles .site-footer .block,
+body.page-node-type-articles .site-footer .block {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Main footer */
+.ch-research-footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.18), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%);
+  border-top: 1px solid rgba(91, 176, 255, 0.16);
+  color: #d9e8f7;
+}
+
+/* Match the article/research page alignment */
+.ch-research-footer__inner {
+  width: min(1220px, calc(100% - 33rem));
+  margin-left: 16.5rem;
+  margin-right: auto;
+  padding: 3rem 0 2.4rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.25fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.ch-research-footer h2,
+.ch-research-footer h3 {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.ch-research-footer h2 {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.ch-research-footer h3 {
+  font-size: 0.92rem;
+  font-weight: 850;
+  letter-spacing: 0.03em;
+  text-transform: none;
+}
+
+.ch-research-footer p {
+  margin: 0;
+  color: #b9c6d4;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.ch-research-footer nav a,
+.ch-research-footer__cta a {
+  display: block;
+  margin: 0.45rem 0;
+  color: #37a8ff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ch-research-footer nav a:hover,
+.ch-research-footer__cta a:hover {
+  color: #a9d8ff;
+  text-decoration: underline;
+}
+
+.ch-research-footer__button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 1rem !important;
+  padding: 0.72rem 1rem;
+  border: 1px solid rgba(55, 168, 255, 0.65);
+  border-radius: 6px;
+  background: rgba(55, 168, 255, 0.1);
+  color: #ffffff !important;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.ch-research-footer__button:hover {
+  background: #37a8ff;
+  color: #03111f !important;
+  text-decoration: none !important;
+}
+
+.ch-research-footer__bottom {
+  width: min(1220px, calc(100% - 33rem));
+  margin-left: 16.5rem;
+  margin-right: auto;
+  padding: 1.2rem 0 1.8rem;
+  border-top: 1px solid rgba(91, 176, 255, 0.12);
+  color: #8393a7;
+  font-size: 0.85rem;
+}
+
+/* Remove unwanted field/block labels around footer if Drupal shows them */
+.ch-research-footer .field__label,
+.site-footer .block__title {
+  display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .ch-research-footer__inner,
+  .ch-research-footer__bottom {
+    width: calc(100% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .ch-research-footer__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .ch-research-footer__inner {
+    grid-template-columns: 1fr;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .ch-research-footer__bottom {
+    padding-bottom: 1.5rem;
+  }
+}
+/* =========================================================
+   Article node image sizing corrections
+   Prevent body/field images becoming oversized
+   ========================================================= */
+
+/* Do not affect the large hero background */
+body.page-node-type-articles .ch-research-hero img {
+  max-width: none;
+}
+
+/* Article body images should be readable, not massive */
+body.page-node-type-articles .ch-research-article-body img,
+body.page-node-type-articles .ch-research-rich-text img,
+body.page-node-type-articles .ch-research-section img {
+  display: block;
+  max-width: min(100%, 720px) !important;
+  height: auto !important;
+  margin: 1.5rem auto !important;
+  border-radius: 10px;
+}
+
+/* If Drupal wraps images in media elements */
+body.page-node-type-articles .ch-research-article-body .media,
+body.page-node-type-articles .ch-research-rich-text .media,
+body.page-node-type-articles .ch-research-section .media {
+  max-width: 720px !important;
+  margin: 1.5rem auto !important;
+}
+
+/* Image captions */
+body.page-node-type-articles .ch-research-article-body figcaption,
+body.page-node-type-articles .ch-research-rich-text figcaption,
+body.page-node-type-articles .ch-research-section figcaption {
+  max-width: 720px;
+  margin: 0.5rem auto 1.5rem;
+  color: #8393a7;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Related research cards should stay compact */
+body.page-node-type-articles .ch-related-card__image-wrap {
+  aspect-ratio: 16 / 9 !important;
+  max-height: 150px !important;
+}
+
+body.page-node-type-articles .ch-related-card__image {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 150px !important;
+  object-fit: cover !important;
+}
+
+/* If the related card image is output without the expected class */
+body.page-node-type-articles .ch-related-card img {
+  width: 100% !important;
+  height: 150px !important;
+  max-height: 150px !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Mobile: allow images to use the available width */
+@media (max-width: 700px) {
+  body.page-node-type-articles .ch-research-article-body img,
+  body.page-node-type-articles .ch-research-rich-text img,
+  body.page-node-type-articles .ch-research-section img,
+  body.page-node-type-articles .ch-research-article-body .media,
+  body.page-node-type-articles .ch-research-rich-text .media,
+  body.page-node-type-articles .ch-research-section .media {
+    max-width: 100% !important;
+  }
+
+  body.page-node-type-articles .ch-related-card__image-wrap,
+  body.page-node-type-articles .ch-related-card__image,
+  body.page-node-type-articles .ch-related-card img {
+    max-height: 180px !important;
+    height: 180px !important;
+  }
+}
+/* =========================================================
+   Article node hero correction
+   Fix oversized hero caused by narrow text column
+   ========================================================= */
+
+/* Stop inherited desktop alignment making the hero text column too narrow */
+body.page-node-type-articles {
+  --ch-node-left-edge: clamp(2rem, 10vw, 16.5rem);
+}
+
+/* Keep hero cinematic but not enormous */
+body.page-node-type-articles .ch-research-hero {
+  min-height: 520px !important;
+  max-height: none !important;
+  align-items: center !important;
+  background-size: cover !important;
+  background-position: center right !important;
+}
+
+/* Give the hero text enough width */
+body.page-node-type-articles .ch-research-hero__inner {
+  width: min(760px, calc(100% - 4rem)) !important;
+  max-width: 760px !important;
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Stop long titles becoming vertical columns */
+body.page-node-type-articles .ch-research-title {
+  max-width: 760px !important;
+  font-size: clamp(2.4rem, 4.2vw, 4.4rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.05em !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+/* Keep summary readable */
+body.page-node-type-articles .ch-research-hero-summary {
+  max-width: 680px !important;
+  font-size: 1.05rem !important;
+  line-height: 1.62 !important;
+  margin-top: 1.15rem !important;
+}
+
+/* Buttons should not add excessive height */
+body.page-node-type-articles .ch-research-hero-actions {
+  margin-top: 1.4rem !important;
+}
+
+/* Medium screens / devtools split view */
+@media (max-width: 1280px) {
+  body.page-node-type-articles {
+    --ch-node-left-edge: 2rem;
+  }
+
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 390px !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner {
+    width: min(720px, calc(100% - 4rem)) !important;
+    margin-left: 2rem !important;
+    margin-right: auto !important;
+  }
+
+  body.page-node-type-articles .ch-research-title {
+    font-size: clamp(2.2rem, 5vw, 3.7rem) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 340px !important;
+    background-position: center center !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    padding-top: 2.3rem !important;
+    padding-bottom: 2.3rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-title {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero-summary {
+    font-size: 0.98rem !important;
+  }
+}
+
+/* =========================================================
+   Article node: contain hero image and align footer
+   ========================================================= */
+
+body.page-node-type-articles {
+  --ch-node-left-edge: clamp(2rem, 10vw, 16.5rem);
+  --ch-node-content-width: 1220px;
+}
+
+/* Stop the hero image going full browser width */
+body.page-node-type-articles .ch-research-hero {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+
+  min-height: 420px !important;
+  max-height: 520px !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.18);
+  border-radius: 0;
+  overflow: hidden;
+
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Keep the text aligned inside the now-contained hero */
+body.page-node-type-articles .ch-research-hero__inner {
+  width: min(760px, calc(100% - 4rem)) !important;
+  max-width: 760px !important;
+  margin-left: 2rem !important;
+  margin-right: auto !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Prevent long titles forcing excessive height */
+body.page-node-type-articles .ch-research-title {
+  max-width: 760px !important;
+  font-size: clamp(2.3rem, 4vw, 4.2rem) !important;
+  line-height: 1.04 !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+/* Meta bar should match the contained hero width */
+body.page-node-type-articles .ch-research-meta-bar {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* Footer block should align with the rest of the article layout */
+body.page-node-type-articles .site-footer,
+body.page-node-type-articles .site-footer__inner,
+body.page-node-type-articles .region--footer-bottom {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-articles .ch-research-footer {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+  margin-top: 3.5rem !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.16);
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+}
+
+/* Because the footer itself is now the aligned container,
+   the inner footer should not add another left margin. */
+body.page-node-type-articles .ch-research-footer__inner,
+body.page-node-type-articles .ch-research-footer__bottom {
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+body.page-node-type-articles .ch-research-footer__inner {
+  padding: 3rem 3rem 2.4rem !important;
+}
+
+body.page-node-type-articles .ch-research-footer__bottom {
+  margin: 0 3rem !important;
+  padding: 1.2rem 0 1.8rem !important;
+}
+
+/* Mobile fallback */
+@media (max-width: 700px) {
+  body.page-node-type-articles {
+    --ch-node-left-edge: 1rem;
+  }
+
+  body.page-node-type-articles .ch-research-hero,
+  body.page-node-type-articles .ch-research-meta-bar,
+  body.page-node-type-articles .ch-research-footer {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 340px !important;
+    max-height: none !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-footer__inner {
+    padding: 2rem 1.25rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-footer__bottom {
+    margin: 0 1.25rem !important;
+  }
+}
+
+
+
+/* =========================================================
+   Article node final layout correction
+   - Stop hero text being cut off
+   - Align meta bar below hero
+   - Move footer left to match article layout
+   ========================================================= */
+
+body.page-node-type-articles {
+  --ch-node-left-edge: 10rem;
+  --ch-node-content-width: 1220px;
+}
+
+/* Hero: contained, but tall enough for long titles */
+body.page-node-type-articles .ch-research-hero {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+  margin-top: 0 !important;
+
+  min-height: 520px !important;
+  max-height: none !important;
+  height: auto !important;
+
+  overflow: visible !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.18);
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+/* Inner hero text area */
+body.page-node-type-articles .ch-research-hero__inner {
+  width: min(760px, calc(100% - 4rem)) !important;
+  max-width: 760px !important;
+
+  margin-left: 2rem !important;
+  margin-right: auto !important;
+
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Long titles need room, but should not force vertical wrapping */
+body.page-node-type-articles .ch-research-title {
+  max-width: 760px !important;
+  font-size: clamp(2.2rem, 3.7vw, 4rem) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.045em !important;
+
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+/* Summary should not be clipped */
+body.page-node-type-articles .ch-research-hero-summary {
+  max-width: 700px !important;
+  font-size: 1rem !important;
+  line-height: 1.58 !important;
+  margin-top: 1.15rem !important;
+  overflow: visible !important;
+}
+
+/* Keep action buttons inside the hero comfortably */
+body.page-node-type-articles .ch-research-hero-actions {
+  margin-top: 1.35rem !important;
+  padding-bottom: 0.2rem !important;
+}
+
+/* Meta bar: match hero left edge and width */
+body.page-node-type-articles .ch-research-meta-bar {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+
+  border-left: 1px solid rgba(91, 176, 255, 0.18);
+  border-right: 1px solid rgba(91, 176, 255, 0.18);
+}
+
+body.page-node-type-articles .ch-research-meta-bar__inner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+/* Main content: keep aligned with the same left edge */
+body.page-node-type-articles .ch-research-layout {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* Footer wrapper: break out of Drupal's centred footer container */
+body.page-node-type-articles .site-footer {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+body.page-node-type-articles .site-footer__inner,
+body.page-node-type-articles .region--footer-bottom,
+body.page-node-type-articles .region--footer-bottom.grid-full,
+body.page-node-type-articles .site-footer .block,
+body.page-node-type-articles .site-footer .block__content,
+body.page-node-type-articles .site-footer .field,
+body.page-node-type-articles .site-footer .field__item {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Footer itself: align to the article content left edge */
+body.page-node-type-articles .ch-research-footer {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 0 !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.16);
+}
+
+/* Footer inner should not add another large left margin */
+body.page-node-type-articles .ch-research-footer__inner,
+body.page-node-type-articles .ch-research-footer__bottom {
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+body.page-node-type-articles .ch-research-footer__inner {
+  padding: 3rem 3rem 2.4rem !important;
+}
+
+body.page-node-type-articles .ch-research-footer__bottom {
+  margin: 0 3rem !important;
+  padding: 1.2rem 0 1.8rem !important;
+}
+
+/* Mobile/tablet */
+@media (max-width: 1100px) {
+  body.page-node-type-articles {
+    --ch-node-left-edge: 2rem;
+  }
+
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 680px !important;
+  }
+
+  body.page-node-type-articles .ch-research-title {
+    font-size: clamp(2rem, 5vw, 3.4rem) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-node-type-articles {
+    --ch-node-left-edge: 1rem;
+  }
+
+  body.page-node-type-articles .ch-research-hero,
+  body.page-node-type-articles .ch-research-meta-bar,
+  body.page-node-type-articles .ch-research-layout,
+  body.page-node-type-articles .ch-research-footer {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 680px;
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    padding-top: 2.4rem !important;
+    padding-bottom: 2.4rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-meta-bar__inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.page-node-type-articles .ch-research-footer__inner {
+    padding: 2rem 1.25rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-footer__bottom {
+    margin: 0 1.25rem !important;
+  }
+}
+
+/* =========================================================
+   Article node alignment lock
+   Restore correct left alignment after hero/footer experiments
+   ========================================================= */
+
+body.page-node-type-articles {
+  --ch-node-left-edge: 16.5rem !important;
+  --ch-node-content-width: 1220px !important;
+}
+
+/* Keep the node hero aligned with the articles landing page */
+body.page-node-type-articles .ch-research-hero,
+body.page-node-type-articles .ch-research-meta-bar,
+body.page-node-type-articles .ch-research-layout {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+}
+
+/* Hero: contained, but not clipping text */
+body.page-node-type-articles .ch-research-hero {
+  min-height: 520px !important;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  border: 1px solid rgba(91, 176, 255, 0.18);
+}
+
+/* Hero text stays inside the contained hero */
+body.page-node-type-articles .ch-research-hero__inner {
+  width: min(760px, calc(100% - 4rem)) !important;
+  max-width: 760px !important;
+  margin-left: 2rem !important;
+  margin-right: auto !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Prevent long titles collapsing or being clipped */
+body.page-node-type-articles .ch-research-title {
+  max-width: 760px !important;
+  font-size: clamp(2.2rem, 3.7vw, 4rem) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.045em !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  hyphens: none !important;
+}
+
+/* Meta bar contents should not create an extra offset */
+body.page-node-type-articles .ch-research-meta-bar__inner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Remove the 100vw breakout that caused horizontal scroll / bad footer positioning */
+body.page-node-type-articles .site-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+body.page-node-type-articles .site-footer__inner,
+body.page-node-type-articles .region--footer-bottom,
+body.page-node-type-articles .site-footer .block,
+body.page-node-type-articles .site-footer .block__content,
+body.page-node-type-articles .site-footer .field,
+body.page-node-type-articles .site-footer .field__item {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Footer aligns with the same page grid as hero and content */
+body.page-node-type-articles .ch-research-footer {
+  width: min(
+    var(--ch-node-content-width),
+    calc(100% - (var(--ch-node-left-edge) * 2))
+  ) !important;
+
+  margin-left: var(--ch-node-left-edge) !important;
+  margin-right: auto !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 0 !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.16);
+}
+
+/* Footer inner content should not add another left offset */
+body.page-node-type-articles .ch-research-footer__inner,
+body.page-node-type-articles .ch-research-footer__bottom {
+  width: auto !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+body.page-node-type-articles .ch-research-footer__inner {
+  padding: 3rem 3rem 2.4rem !important;
+}
+
+body.page-node-type-articles .ch-research-footer__bottom {
+  margin: 0 3rem !important;
+  padding: 1.2rem 0 1.8rem !important;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  body.page-node-type-articles {
+    --ch-node-left-edge: 2rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-title {
+    font-size: clamp(2rem, 5vw, 3.4rem) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  body.page-node-type-articles {
+    --ch-node-left-edge: 1rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero,
+  body.page-node-type-articles .ch-research-meta-bar,
+  body.page-node-type-articles .ch-research-layout,
+  body.page-node-type-articles .ch-research-footer {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero {
+    min-height: 680px !important;
+  }
+
+  body.page-node-type-articles .ch-research-hero__inner {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    padding-top: 2.4rem !important;
+    padding-bottom: 2.4rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-footer__inner {
+    padding: 2rem 1.25rem !important;
+  }
+
+  body.page-node-type-articles .ch-research-footer__bottom {
+    margin: 0 1.25rem !important;
+  }
+}
+
+
+/* Research footer only — do not touch Drupal footer wrappers */
+body.page-node-type-articles .ch-research-footer {
+  width: min(1320px, calc(100% - 13rem)) !important;
+  margin-left: -1.5rem !important;
+  margin-right: auto !important;
+}
+
+body.page-node-type-articles .ch-research-footer__inner {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 3rem 3rem 2.4rem !important;
+}
+
+body.page-node-type-articles .ch-research-footer__bottom {
+  width: auto !important;
+  margin: 0 3rem !important;
+  padding: 1.2rem 0 1.8rem !important;
+}
+
+/* =========================================================
+   Research footer block when placed in CONTENT region
+   Do not place this block in the Drupal footer region.
+   ========================================================= */
+
+body.page-node-type-articles .block:has(.ch-research-footer) {
+  width: min(1220px, calc(100% - 10.5rem)) !important;
+  margin-left: 16.5rem !important;
+  margin-right: auto !important;
+  margin-top: 0 !important;
+  margin-bottom: 4rem !important;
+  padding: 0 !important;
+}
+
+/* The footer itself fills its containing block */
+body.page-node-type-articles .block:has(.ch-research-footer) .ch-research-footer {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove the old internal left offset */
+body.page-node-type-articles .block:has(.ch-research-footer) .ch-research-footer__inner {
+  width: auto !important;
+  margin: 0 !important;
+  padding: 3rem 3rem 2.4rem !important;
+}
+
+/* Copyright row stays inside the same footer box */
+body.page-node-type-articles .block:has(.ch-research-footer) .ch-research-footer__bottom {
+  width: auto !important;
+  margin: 0 3rem !important;
+  padding: 1.2rem 0 1.8rem !important;
+}
+
+/* Hide the block title if Drupal outputs one */
+body.page-node-type-articles .block:has(.ch-research-footer) .block__title,
+body.page-node-type-articles .block:has(.ch-research-footer) .field__label {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  body.page-node-type-articles .block:has(.ch-research-footer) {
+    width: calc(100% - 2rem) !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+  }
+
+  body.page-node-type-articles .block:has(.ch-research-footer) .ch-research-footer__inner {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 1.25rem !important;
+  }
+
+  body.page-node-type-articles .block:has(.ch-research-footer) .ch-research-footer__bottom {
+    margin: 0 1.25rem !important;
+  }
+}
+
+/* =========================================================
+   Research footer link cleanup
+   Fix heavy underlines inherited from article/body link styles
+   ========================================================= */
+
+body.page-node-type-articles .ch-research-footer a,
+body.page-node-type-articles .block:has(.ch-research-footer) a {
+  color: #37a8ff !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
+  background-image: none !important;
+  background-size: 0 !important;
+  text-underline-offset: 0 !important;
+}
+
+/* Footer navigation links */
+body.page-node-type-articles .ch-research-footer nav a,
+body.page-node-type-articles .ch-research-footer__topics a,
+body.page-node-type-articles .ch-research-footer__nav a {
+  display: inline-block !important;
+  width: auto !important;
+  margin: 0.35rem 0 !important;
+  padding: 0 !important;
+  color: #37a8ff !important;
+  font-size: 0.95rem !important;
+  line-height: 1.35 !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+}
+
+/* Hover state: subtle, not a full-width underline */
+body.page-node-type-articles .ch-research-footer nav a:hover,
+body.page-node-type-articles .ch-research-footer__topics a:hover,
+body.page-node-type-articles .ch-research-footer__nav a:hover {
+  color: #a9d8ff !important;
+  text-decoration: none !important;
+}
+
+/* Small animated underline only under the text */
+body.page-node-type-articles .ch-research-footer nav a::after,
+body.page-node-type-articles .ch-research-footer__topics a::after,
+body.page-node-type-articles .ch-research-footer__nav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  margin-top: 0.18rem;
+  background: #37a8ff;
+  transition: width 0.18s ease;
+}
+
+body.page-node-type-articles .ch-research-footer nav a:hover::after,
+body.page-node-type-articles .ch-research-footer__topics a:hover::after,
+body.page-node-type-articles .ch-research-footer__nav a:hover::after {
+  width: 100%;
+}
+
+/* Keep the button looking like a button, not a text link */
+body.page-node-type-articles .ch-research-footer__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: fit-content !important;
+  margin-top: 1rem !important;
+  padding: 0.72rem 1rem !important;
+  border: 1px solid rgba(55, 168, 255, 0.65) !important;
+  border-radius: 6px !important;
+  background: rgba(55, 168, 255, 0.1) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-articles .ch-research-footer__button::after {
+  display: none !important;
+}
+
+body.page-node-type-articles .ch-research-footer__button:hover {
+  background: #37a8ff !important;
+  border-color: #37a8ff !important;
+  color: #03111f !important;
+  text-decoration: none !important;
 }

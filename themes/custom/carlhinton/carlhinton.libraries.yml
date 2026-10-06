@@ -22,3 +22,57 @@ front-page:
   css:
     theme:
       css/front-page.css: {}
+
+hobbies-page:
+  version: 1.x
+  css:
+    theme:
+      css/hobbies-page.css: {}
+
+hobbies-node:
+  version: 1.x
+  css:
+    theme:
+      css/hobbies-node.css: {}
+
+basic-page:
+  version: 1.x
+  css:
+    theme:
+      css/basic-page.css: {}
+  js:
+    js/basic-page.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+experience-page:
+  version: 1.x
+  css:
+    theme:
+      css/experience-page.css: {}
+
+experience-node:
+  version: 1.x
+  css:
+    theme:
+      css/experience-node.css: {}
+
+
+skillset-node:
+  version: 1.x
+  css:
+    theme:
+      css/skillset-node.css: {}
+
+employment-page:
+  version: 1.x
+  css:
+    theme:
+      css/employment-page.css: {}
+
+legacy-node:
+  version: 1.x
+  css:
+    theme:
+      css/legacy-node.css: {}

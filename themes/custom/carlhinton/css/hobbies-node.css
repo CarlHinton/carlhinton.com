@@ -1,0 +1,1449 @@
+/*
+ * Carl Hinton — Hobbies node pages
+ * File: themes/custom/carlhinton/css/hobbies-node.css
+ */
+
+/* =========================================================
+   Base page
+   ========================================================= */
+
+body.page-node-type-hobbies {
+  background: #05080d !important;
+  color: #d9e8f7 !important;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+}
+
+body.page-node-type-hobbies,
+body.page-node-type-hobbies .dialog-off-canvas-main-canvas,
+body.page-node-type-hobbies #page-wrapper,
+body.page-node-type-hobbies #page,
+body.page-node-type-hobbies .layout-main-wrapper,
+body.page-node-type-hobbies .layout-main,
+body.page-node-type-hobbies .main-content,
+body.page-node-type-hobbies .main-content__container,
+body.page-node-type-hobbies main,
+body.page-node-type-hobbies .region--content,
+body.page-node-type-hobbies #block-carlhinton-content {
+  background: #05080d !important;
+}
+
+/* Hide unwanted Olivero side/RSS clutter */
+body.page-node-type-hobbies .social-bar,
+body.page-node-type-hobbies .feed-icon,
+body.page-node-type-hobbies #block-carlhinton-syndicate {
+  display: none !important;
+}
+
+/* =========================================================
+   Header — match Articles/Hobbies landing page direction
+   ========================================================= */
+
+body.page-node-type-hobbies .site-header {
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-hobbies .site-header__initial,
+body.page-node-type-hobbies .sticky-header-toggle,
+body.page-node-type-hobbies .mobile-buttons,
+body.page-node-type-hobbies .header-nav-overlay,
+body.page-node-type-hobbies .region--secondary-menu {
+  display: none !important;
+}
+
+body.page-node-type-hobbies .site-header__fixable,
+body.page-node-type-hobbies .site-header__inner,
+body.page-node-type-hobbies .site-header__inner__container {
+  background: #05080d !important;
+  position: relative !important;
+  max-width: none !important;
+  width: 100% !important;
+}
+
+body.page-node-type-hobbies .site-header__inner__container {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  min-height: 104px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+}
+
+body.page-node-type-hobbies .site-branding {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-hobbies .site-branding__name a {
+  color: #ffffff !important;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+  text-decoration: none !important;
+}
+
+/* Menu */
+body.page-node-type-hobbies #header-nav {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  margin-left: auto !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-main-menu {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-main-menu ul.menu,
+body.page-node-type-hobbies #block-carlhinton-main-menu .primary-nav__menu--level-1 {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1.25rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-main-menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-main-menu a,
+body.page-node-type-hobbies #block-carlhinton-main-menu .primary-nav__menu-link,
+body.page-node-type-hobbies #block-carlhinton-main-menu .primary-nav__menu-link-inner {
+  position: relative !important;
+  display: inline-flex !important;
+  color: #ffffff !important;
+  font-size: 0.82rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-main-menu a[href="/hobbies"],
+body.page-node-type-hobbies #block-carlhinton-main-menu a[data-drupal-link-system-path="hobbies"] {
+  color: #37a8ff !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-main-menu a[href="/hobbies"]::after,
+body.page-node-type-hobbies #block-carlhinton-main-menu a[data-drupal-link-system-path="hobbies"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1.1rem !important;
+  height: 3px !important;
+  background: #37a8ff !important;
+  border-radius: 999px !important;
+}
+
+/* =========================================================
+   Admin tabs
+   ========================================================= */
+
+body.page-node-type-hobbies .region--highlighted {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  margin: 1.5rem auto 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* =========================================================
+   Hero/title area
+   ========================================================= */
+
+body.page-node-type-hobbies .main-content__container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide default breadcrumb; we will style the title area cleanly */
+body.page-node-type-hobbies .region--breadcrumb {
+  display: none !important;
+}
+
+body.page-node-type-hobbies .region--content-above {
+  position: relative !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background:
+    linear-gradient(90deg, #05080d 0%, #071523 44%, rgba(5, 8, 13, 0.72) 70%, #05080d 100%) !important;
+
+  border-bottom: 1px solid rgba(91, 176, 255, 0.14) !important;
+  overflow: hidden !important;
+}
+
+body.page-node-type-hobbies .region--content-above::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 58% !important;
+
+  background:
+    linear-gradient(90deg, #05080d 0%, rgba(5, 8, 13, 0.72) 24%, rgba(5, 8, 13, 0.18) 60%, #05080d 100%),
+    url("/sites/default/files/2026-06/CarlSteamS.png") center center / cover no-repeat !important;
+
+  opacity: 0.75 !important;
+  pointer-events: none !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-page-title {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(1220px, calc(100% - 4rem)) !important;
+  min-height: 28rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-page-title::before {
+  content: "Home / Hobbies" !important;
+  position: absolute !important;
+  top: 6rem !important;
+  left: 0 !important;
+
+  color: #37a8ff !important;
+  font-size: 0.95rem !important;
+  font-weight: 850 !important;
+}
+
+body.page-node-type-hobbies .page-title {
+  max-width: 52rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+  font-size: clamp(3.8rem, 5.8vw, 6.2rem) !important;
+  font-weight: 950 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.075em !important;
+}
+
+body.page-node-type-hobbies .page-title::after {
+  content: "" !important;
+  display: block !important;
+  width: 4.2rem !important;
+  height: 3px !important;
+  margin: 1.45rem 0 0 !important;
+  background: #d5a642 !important;
+  border-radius: 999px !important;
+}
+
+/* =========================================================
+   Node content
+   ========================================================= */
+
+body.page-node-type-hobbies .region--content {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+  padding: 4rem 0 5rem !important;
+  background: transparent !important;
+}
+
+body.page-node-type-hobbies article.node--type-hobbies {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+body.page-node-type-hobbies article.node--type-hobbies > header {
+  display: none !important;
+}
+
+body.page-node-type-hobbies .node__content {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 360px !important;
+  gap: 2.5rem !important;
+  align-items: start !important;
+}
+
+/* Put image on the right */
+body.page-node-type-hobbies .field--name-field-photo {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.22) !important;
+  border-radius: 8px !important;
+  background: #07111f !important;
+}
+
+body.page-node-type-hobbies .field--name-field-photo img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  border: 0 !important;
+}
+
+/* Body card */
+body.page-node-type-hobbies .field--name-body {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+
+  margin: 0 !important;
+  padding: 2.4rem 2.6rem !important;
+
+  background:
+    radial-gradient(circle at 88% 0%, rgba(55, 168, 255, 0.12), transparent 18rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94), rgba(5, 13, 24, 0.98)) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.2) !important;
+  border-radius: 8px !important;
+  color: #d9e8f7 !important;
+}
+
+body.page-node-type-hobbies .field--name-body p {
+  margin: 0 0 1.35rem !important;
+  color: #d9e8f7 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.75 !important;
+}
+
+body.page-node-type-hobbies .field--name-body p:last-child {
+  margin-bottom: 0 !important;
+}
+
+body.page-node-type-hobbies .field--name-body a {
+  color: #37a8ff !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+
+/* Hide Featured field */
+body.page-node-type-hobbies .field--name-field-featured {
+  display: none !important;
+}
+
+/* =========================================================
+   Footer block
+   ========================================================= */
+
+body.page-node-type-hobbies #block-carlhinton-researchfooter {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin: 4rem 0 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer {
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+  border: 1px solid rgba(91, 176, 255, 0.18) !important;
+  color: #d9e8f7 !important;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  body.page-node-type-hobbies .node__content {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.page-node-type-hobbies .field--name-body,
+  body.page-node-type-hobbies .field--name-field-photo {
+    grid-column: 1 !important;
+  }
+
+  body.page-node-type-hobbies .field--name-field-photo {
+    grid-row: 1 !important;
+  }
+
+  body.page-node-type-hobbies .field--name-body {
+    grid-row: 2 !important;
+  }
+
+  body.page-node-type-hobbies .region--content-above::before {
+    width: 100% !important;
+    opacity: 0.25 !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.page-node-type-hobbies .site-header__inner__container,
+  body.page-node-type-hobbies .region--highlighted,
+  body.page-node-type-hobbies #block-carlhinton-page-title,
+  body.page-node-type-hobbies .region--content {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.page-node-type-hobbies .site-header__inner__container {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+    padding: 1.25rem 0 !important;
+    min-height: auto !important;
+  }
+
+  body.page-node-type-hobbies .page-title {
+    font-size: 3.4rem !important;
+  }
+
+  body.page-node-type-hobbies .field--name-body {
+    padding: 1.5rem !important;
+  }
+}
+
+/* =========================================================
+   Hobbies node correction pass
+   Remove duplicated hero image and tighten page alignment
+   ========================================================= */
+
+/* Use a clean dark hero instead of repeating the node image */
+body.page-node-type-hobbies .ch-hobby-node-hero::before {
+  content: none !important;
+  display: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero {
+  min-height: 22rem !important;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(55, 168, 255, 0.16), transparent 28rem),
+    linear-gradient(90deg, #05080d 0%, #071523 54%, #05080d 100%) !important;
+}
+
+/* Bring the whole node page back left and match the articles rhythm */
+body.page-node-type-hobbies .ch-hobby-node-header__inner,
+body.page-node-type-hobbies .ch-hobby-node-hero__inner,
+body.page-node-type-hobbies .ch-hobby-node-content-grid,
+body.page-node-type-hobbies #block-carlhinton-researchfooter {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Reduce excessive vertical hero height */
+body.page-node-type-hobbies .ch-hobby-node-hero__inner {
+  min-height: 22rem !important;
+  align-items: center !important;
+}
+
+/* Keep the heading smaller and cleaner on hobby node pages */
+body.page-node-type-hobbies .ch-hobby-node-hero h1,
+body.page-node-type-hobbies .page-title {
+  max-width: 48rem !important;
+  font-size: clamp(3.4rem, 5vw, 5.4rem) !important;
+  line-height: 0.95 !important;
+}
+
+/* Main content: make text wider and image less dominant */
+body.page-node-type-hobbies .ch-hobby-node-content-grid {
+  grid-template-columns: minmax(0, 1fr) 440px !important;
+  gap: 2rem !important;
+}
+
+/* Body card should not be such a narrow column */
+body.page-node-type-hobbies .field--name-body {
+  padding: 2.2rem 2.4rem !important;
+}
+
+/* Image card */
+body.page-node-type-hobbies .field--name-field-photo {
+  align-self: start !important;
+}
+
+/* If page.content is still not inside ch-hobby-node-content-grid, target default region too */
+body.page-node-type-hobbies .region--content {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 3rem !important;
+}
+
+/* Remove small duplicate breadcrumb/eyebrow clutter above hero if present */
+body.page-node-type-hobbies > .ch-hobby-node-page-wrapper .region--breadcrumb,
+body.page-node-type-hobbies > .ch-hobby-node-page-wrapper .region--content-above {
+  display: none !important;
+}
+
+/* =========================================================
+   Hobbies node: use existing page--node--hobbies.html.twig
+   Remove duplicate image, make text full width, fix footer
+   ========================================================= */
+
+/* The image is already used in the hero, so hide the node field image */
+body.page-node-type-hobbies .field--name-field-photo {
+  display: none !important;
+}
+
+/* Hide Featured field */
+body.page-node-type-hobbies .field--name-field-featured {
+  display: none !important;
+}
+
+/* Remove old two-column layout */
+body.page-node-type-hobbies .ch-hobby-node-content-grid,
+body.page-node-type-hobbies .node__content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Main content area */
+body.page-node-type-hobbies .ch-hobby-node-content-wrap {
+  background:
+    radial-gradient(circle at 72% 0%, rgba(55, 168, 255, 0.12), transparent 30rem),
+    #05080d !important;
+  padding: 4rem 0 5rem !important;
+}
+
+/* Text container */
+body.page-node-type-hobbies .ch-hobby-node-content-inner,
+body.page-node-type-hobbies .ch-hobby-node-article,
+body.page-node-type-hobbies #block-carlhinton-content,
+body.page-node-type-hobbies article.node--type-hobbies {
+  width: min(980px, calc(100% - 4rem)) !important;
+  max-width: 980px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Hide default node meta/header */
+body.page-node-type-hobbies article.node--type-hobbies > header,
+body.page-node-type-hobbies .node__meta {
+  display: none !important;
+}
+
+/* Full-width body card */
+body.page-node-type-hobbies .field--name-body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 2.6rem 3rem !important;
+  box-sizing: border-box !important;
+
+  background:
+    radial-gradient(circle at 88% 0%, rgba(55, 168, 255, 0.12), transparent 20rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94), rgba(5, 13, 24, 0.98)) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.22) !important;
+  border-radius: 8px !important;
+  color: #d9e8f7 !important;
+}
+
+body.page-node-type-hobbies .field--name-body p {
+  margin: 0 0 1.4rem !important;
+  color: #d9e8f7 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.75 !important;
+}
+
+body.page-node-type-hobbies .field--name-body p:last-child {
+  margin-bottom: 0 !important;
+}
+
+body.page-node-type-hobbies .field--name-body a {
+  color: #37a8ff !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+}
+
+/* Footer must sit below the body and use the wider site width */
+body.page-node-type-hobbies #block-carlhinton-researchfooter {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin: 4rem auto 0 !important;
+  padding: 0 !important;
+  clear: both !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-researchfooter .block__content,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .field,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .field__item,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .text-content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.18) !important;
+  color: #d9e8f7 !important;
+}
+
+/* Footer grid */
+body.page-node-type-hobbies .ch-research-footer__inner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 3rem 3rem 2.4rem !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(240px, 1.35fr)
+    minmax(170px, 0.9fr)
+    minmax(190px, 1fr)
+    minmax(220px, 1.15fr) !important;
+  gap: 2.5rem !important;
+  align-items: start !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  body.page-node-type-hobbies .ch-hobby-node-content-inner,
+  body.page-node-type-hobbies .ch-hobby-node-article,
+  body.page-node-type-hobbies #block-carlhinton-content,
+  body.page-node-type-hobbies article.node--type-hobbies,
+  body.page-node-type-hobbies #block-carlhinton-researchfooter {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.page-node-type-hobbies .field--name-body {
+    padding: 1.6rem !important;
+  }
+
+  body.page-node-type-hobbies .ch-research-footer__inner {
+    grid-template-columns: 1fr !important;
+    padding: 2rem !important;
+  }
+}
+
+/* =========================================================
+   Hobbies node page final layout fixes
+   ========================================================= */
+
+/* Overall page */
+body.page-node-type-hobbies {
+  background: #05080d !important;
+  color: #d9e8f7 !important;
+}
+
+/* Header */
+body.page-node-type-hobbies .ch-hobby-node-header {
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-header__inner {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  min-height: 104px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+}
+
+/* Top-left Carl Hinton link */
+body.page-node-type-hobbies .ch-hobby-node-brand {
+  display: inline-block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+  text-decoration: none !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-brand:hover,
+body.page-node-type-hobbies .ch-hobby-node-brand:focus {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+/* Header nav */
+body.page-node-type-hobbies .ch-hobby-node-nav {
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-nav ul.menu,
+body.page-node-type-hobbies .ch-hobby-node-nav .primary-nav__menu--level-1 {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 1.2rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-nav a,
+body.page-node-type-hobbies .ch-hobby-node-nav .primary-nav__menu-link,
+body.page-node-type-hobbies .ch-hobby-node-nav .primary-nav__menu-link-inner {
+  color: #ffffff !important;
+  font-size: 0.82rem !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Hero */
+body.page-node-type-hobbies .ch-hobby-node-hero {
+  background:
+    linear-gradient(90deg, #05080d 0%, #071523 44%, rgba(5, 8, 13, 0.72) 70%, #05080d 100%) !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.14) !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero__inner {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  min-height: 22rem !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero__content {
+  width: 100% !important;
+  max-width: 54rem !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-breadcrumb {
+  display: flex !important;
+  gap: 0.65rem !important;
+  margin: 0 0 1rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 850 !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-breadcrumb a {
+  color: #37a8ff !important;
+  text-decoration: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-eyebrow {
+  margin: 0 0 1rem !important;
+  color: #d9e8f7 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+body.page-node-type-hobbies .page-title {
+  max-width: 44rem !important;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(3rem, 5vw, 5rem) !important;
+  font-weight: 950 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.07em !important;
+}
+
+body.page-node-type-hobbies .page-title::after {
+  content: "" !important;
+  display: block !important;
+  width: 4rem !important;
+  height: 3px !important;
+  margin: 1.25rem 0 0 !important;
+  background: #d5a642 !important;
+  border-radius: 999px !important;
+}
+
+/* Content area */
+body.page-node-type-hobbies .ch-hobby-node-content-wrap {
+  padding: 3rem 0 4rem !important;
+  background: #05080d !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-content-inner {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* Node content full width */
+body.page-node-type-hobbies #block-carlhinton-content,
+body.page-node-type-hobbies article.node--type-hobbies,
+body.page-node-type-hobbies .node__content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Hide duplicate image and featured field */
+body.page-node-type-hobbies .field--name-field-photo,
+body.page-node-type-hobbies .field--name-field-featured,
+body.page-node-type-hobbies .node__meta,
+body.page-node-type-hobbies article.node--type-hobbies > header {
+  display: none !important;
+}
+
+/* Wider body text */
+body.page-node-type-hobbies .field--name-body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 2.5rem 3rem !important;
+  box-sizing: border-box !important;
+
+  background:
+    radial-gradient(circle at 88% 0%, rgba(55, 168, 255, 0.12), transparent 20rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94), rgba(5, 13, 24, 0.98)) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.22) !important;
+  border-radius: 8px !important;
+  color: #d9e8f7 !important;
+}
+
+body.page-node-type-hobbies .field--name-body p {
+  max-width: none !important;
+  margin: 0 0 1.4rem !important;
+  color: #d9e8f7 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.8 !important;
+}
+
+body.page-node-type-hobbies .field--name-body a {
+  color: #37a8ff !important;
+  text-decoration: none !important;
+}
+
+/* Footer block */
+body.page-node-type-hobbies #block-carlhinton-researchfooter {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 3rem 0 0 !important;
+  padding: 0 !important;
+  clear: both !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-researchfooter .block__content,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .field,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .field__item,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .text-content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Themed footer */
+body.page-node-type-hobbies .ch-research-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.18) !important;
+  color: #d9e8f7 !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__inner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 2.5rem 2.75rem 2rem !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(220px, 1.35fr)
+    minmax(160px, 0.9fr)
+    minmax(180px, 1fr)
+    minmax(220px, 1.15fr) !important;
+  gap: 2.2rem !important;
+  align-items: start !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__bottom {
+  margin: 0 2.75rem !important;
+  padding: 1rem 0 1.5rem !important;
+  border-top: 1px solid rgba(91, 176, 255, 0.12) !important;
+  color: #8393a7 !important;
+  font-size: 0.85rem !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  body.page-node-type-hobbies .ch-hobby-node-header__inner,
+  body.page-node-type-hobbies .ch-hobby-node-hero__inner,
+  body.page-node-type-hobbies .ch-hobby-node-content-inner {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.page-node-type-hobbies .field--name-body {
+    padding: 1.6rem !important;
+  }
+
+  body.page-node-type-hobbies .ch-research-footer__inner {
+    grid-template-columns: 1fr !important;
+    padding: 2rem !important;
+  }
+
+  body.page-node-type-hobbies .ch-research-footer__bottom {
+    margin: 0 2rem !important;
+  }
+}
+
+/* =========================================================
+   Hobbies node footer — match Articles footer exactly
+   ========================================================= */
+
+body.page-node-type-hobbies #block-carlhinton-researchfooter {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin: 4rem auto 0 !important;
+  padding: 0 !important;
+  clear: both !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-hobbies #block-carlhinton-researchfooter .block__content,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .field,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .field__item,
+body.page-node-type-hobbies #block-carlhinton-researchfooter .text-content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.18) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #d9e8f7 !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__inner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 3rem 3rem 2.4rem !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(240px, 1.35fr)
+    minmax(170px, 0.9fr)
+    minmax(190px, 1fr)
+    minmax(220px, 1.15fr) !important;
+  gap: 2.5rem !important;
+  align-items: start !important;
+  box-sizing: border-box !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__brand,
+body.page-node-type-hobbies .ch-research-footer__nav,
+body.page-node-type-hobbies .ch-research-footer__topics,
+body.page-node-type-hobbies .ch-research-footer__cta {
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer h2,
+body.page-node-type-hobbies .ch-research-footer h3 {
+  margin: 0 0 1rem !important;
+  color: #ffffff !important;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer h2 {
+  font-size: 2rem !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer h3 {
+  font-size: 1rem !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer p {
+  margin: 0 !important;
+  color: #b9c6d4 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__nav p,
+body.page-node-type-hobbies .ch-research-footer__topics p {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.55rem !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__cta p + p {
+  margin-top: 1rem !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer a {
+  color: #37a8ff !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+  text-decoration: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer a:hover {
+  color: #a9d8ff !important;
+  text-decoration: none !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 46px !important;
+  padding: 0.85rem 1.35rem !important;
+
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.45) !important;
+  border-radius: 4px !important;
+  background: rgba(7, 17, 31, 0.35) !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__button:hover {
+  background: rgba(55, 168, 255, 0.12) !important;
+  border-color: rgba(91, 176, 255, 0.65) !important;
+}
+
+body.page-node-type-hobbies .ch-research-footer__bottom {
+  margin: 0 3rem !important;
+  padding: 1.2rem 0 1.8rem !important;
+  border-top: 1px solid rgba(91, 176, 255, 0.12) !important;
+  color: #8393a7 !important;
+  font-size: 0.85rem !important;
+  line-height: 1.4 !important;
+  box-sizing: border-box !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  body.page-node-type-hobbies #block-carlhinton-researchfooter {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.page-node-type-hobbies .ch-research-footer__inner {
+    grid-template-columns: 1fr !important;
+    padding: 2rem !important;
+    gap: 1.75rem !important;
+  }
+
+  body.page-node-type-hobbies .ch-research-footer__bottom {
+    margin: 0 2rem !important;
+  }
+}
+/* =========================================================
+   Hobbies node page corrections
+   ========================================================= */
+
+/* 1. Remove duplicated breadcrumb/eyebrow/title output coming from content_above */
+body.page-node-type-hobbies .ch-hobby-node-hero__content .region--content-above,
+body.page-node-type-hobbies .ch-hobby-node-hero__content #block-carlhinton-page-title,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .block-page-title-block,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .page-title-block {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+/* Hide the duplicated breadcrumb and eyebrow text inside content_above */
+body.page-node-type-hobbies .ch-hobby-node-hero__content .region--content-above::before,
+body.page-node-type-hobbies .ch-hobby-node-hero__content #block-carlhinton-page-title::before,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .page-title-block::before,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .field--name-field-subtitle,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .node__submitted,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .breadcrumbs,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .breadcrumb,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .block-system-breadcrumb-block {
+  display: none !important;
+}
+
+/* 2. The custom breadcrumb should be the only one shown */
+body.page-node-type-hobbies .ch-hobby-node-breadcrumb {
+  position: relative !important;
+  z-index: 5 !important;
+  display: flex !important;
+  gap: 0.65rem !important;
+  margin: 0 0 1rem !important;
+}
+
+/* 3. Stop forcing the steam locomotive hero on every hobbies node */
+body.page-node-type-hobbies .ch-hobby-node-hero::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* 4. Use the node photo itself as the hero image if available */
+body.page-node-type-hobbies .ch-hobby-node-hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(90deg, #05080d 0%, #071523 40%, rgba(5, 8, 13, 0.72) 68%, #05080d 100%) !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero .field--name-field-photo {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 0 0 auto !important;
+  width: 58% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  z-index: 1 !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero .field--name-field-photo .field__item,
+body.page-node-type-hobbies .ch-hobby-node-hero .field--name-field-photo picture,
+body.page-node-type-hobbies .ch-hobby-node-hero .field--name-field-photo img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero .field--name-field-photo img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* darken hero image for readability */
+body.page-node-type-hobbies .ch-hobby-node-hero .field--name-field-photo::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(90deg, #05080d 0%, rgba(5, 8, 13, 0.82) 22%, rgba(5, 8, 13, 0.3) 58%, #05080d 100%) !important;
+}
+
+/* 5. Keep hero text above the image */
+body.page-node-type-hobbies .ch-hobby-node-hero__inner,
+body.page-node-type-hobbies .ch-hobby-node-hero__content {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* 6. Hide the body-area duplicate image, since it is now used in the hero */
+body.page-node-type-hobbies .ch-hobby-node-content-inner .field--name-field-photo,
+body.page-node-type-hobbies .ch-hobby-node-content-wrap .field--name-field-photo {
+  display: none !important;
+}
+
+/* 7. Make sure the page title itself remains visible and clean */
+body.page-node-type-hobbies .ch-hobby-node-hero__content h1,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .page-title {
+  position: relative !important;
+  z-index: 5 !important;
+  margin: 0 !important;
+}
+
+/* Put the node image into the hero */
+body.page-node-type-hobbies .ch-hobby-node-hero {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(90deg, #05080d 0%, #071523 40%, rgba(5, 8, 13, 0.72) 68%, #05080d 100%) !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-entry {
+  position: static !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 58% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+  border: 0 !important;
+  background: transparent !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image .field,
+body.page-node-type-hobbies .ch-hobby-node-hero-image .field__item,
+body.page-node-type-hobbies .ch-hobby-node-hero-image picture,
+body.page-node-type-hobbies .ch-hobby-node-hero-image img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(90deg, #05080d 0%, rgba(5, 8, 13, 0.82) 22%, rgba(5, 8, 13, 0.3) 58%, #05080d 100%) !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero__inner,
+body.page-node-type-hobbies .ch-hobby-node-hero__content {
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* Body stays below and full width */
+body.page-node-type-hobbies .ch-hobby-node-body {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-body .field--name-body {
+  width: 100% !important;
+}
+
+/* Hide featured field */
+body.page-node-type-hobbies .ch-hobby-node-featured,
+body.page-node-type-hobbies .field--name-field-featured {
+  display: none !important;
+}
+
+/* Hobbies node hero image sizing fix */
+body.page-node-type-hobbies .ch-hobby-node-hero {
+  min-height: 20rem !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image {
+  width: 52% !important;
+  max-width: 760px !important;
+  right: 0 !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Give the text side a little more room */
+body.page-node-type-hobbies .ch-hobby-node-hero__content {
+  max-width: 46rem !important;
+}
+
+/* Slightly reduce title scale on hobbies nodes */
+body.page-node-type-hobbies .ch-hobby-node-hero__content h1,
+body.page-node-type-hobbies .ch-hobby-node-hero__content .page-title {
+  font-size: clamp(2.8rem, 4.6vw, 4.6rem) !important;
+}
+
+/* =========================================================
+   Hobbies node production-safe correction
+   Keep hero text-only, show node image once below hero
+   ========================================================= */
+
+/* Hero should be text only */
+body.page-node-type-hobbies .ch-hobby-node-hero {
+  min-height: 15rem !important;
+  background:
+    linear-gradient(90deg, #05080d 0%, #071523 48%, #05080d 100%) !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero__inner {
+  min-height: 15rem !important;
+  width: min(1220px, calc(100% - 4rem)) !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero__content {
+  max-width: 52rem !important;
+}
+
+/* Stop using the node image as a fake hero background */
+body.page-node-type-hobbies .ch-hobby-node-hero-image {
+  position: static !important;
+  inset: auto !important;
+  width: min(760px, 100%) !important;
+  max-width: 760px !important;
+  height: auto !important;
+  margin: 0 0 2rem auto !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  z-index: auto !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.22) !important;
+  border-radius: 8px !important;
+  background: #07111f !important;
+  box-shadow: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image::after {
+  content: none !important;
+  display: none !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image .field,
+body.page-node-type-hobbies .ch-hobby-node-hero-image .field__item,
+body.page-node-type-hobbies .ch-hobby-node-hero-image picture,
+body.page-node-type-hobbies .ch-hobby-node-hero-image img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-hero-image img {
+  object-fit: cover !important;
+  object-position: center center !important;
+}
+
+/* Content width */
+body.page-node-type-hobbies .ch-hobby-node-content-inner,
+body.page-node-type-hobbies #block-carlhinton-content,
+body.page-node-type-hobbies article.node--type-hobbies {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* Body below image and wider */
+body.page-node-type-hobbies .ch-hobby-node-body,
+body.page-node-type-hobbies .node__content {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.page-node-type-hobbies .field--name-body {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 2.5rem 2.75rem !important;
+  box-sizing: border-box !important;
+
+  background:
+    radial-gradient(circle at 88% 0%, rgba(55, 168, 255, 0.12), transparent 20rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94), rgba(5, 13, 24, 0.98)) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.22) !important;
+  border-radius: 8px !important;
+  color: #d9e8f7 !important;
+}
+
+/* Prevent duplicated raw field output */
+body.page-node-type-hobbies .field--name-field-photo,
+body.page-node-type-hobbies .field--name-field-featured {
+  display: none !important;
+}
+
+/* But keep the image inside our custom wrapper visible */
+body.page-node-type-hobbies .ch-hobby-node-hero-image .field--name-field-photo,
+body.page-node-type-hobbies .ch-hobby-node-hero-image .field {
+  display: block !important;
+}
+
+/* Clean title area */
+body.page-node-type-hobbies .ch-hobby-node-breadcrumb {
+  margin: 0 0 1rem !important;
+}
+
+body.page-node-type-hobbies .ch-hobby-node-eyebrow {
+  margin: 0 0 0.9rem !important;
+}
+
+body.page-node-type-hobbies .page-title {
+  margin: 0 !important;
+  font-size: clamp(2.8rem, 4.8vw, 4.6rem) !important;
+  line-height: 0.95 !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  body.page-node-type-hobbies .ch-hobby-node-hero__inner,
+  body.page-node-type-hobbies .ch-hobby-node-content-inner,
+  body.page-node-type-hobbies #block-carlhinton-content,
+  body.page-node-type-hobbies article.node--type-hobbies {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.page-node-type-hobbies .ch-hobby-node-hero-image {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 1.5rem 0 !important;
+  }
+
+  body.page-node-type-hobbies .field--name-body {
+    padding: 1.6rem !important;
+  }
+}

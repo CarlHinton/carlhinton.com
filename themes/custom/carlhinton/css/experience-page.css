@@ -1,0 +1,517 @@
+:root {
+  --ch-bg: #05080d;
+  --ch-panel: #0b1726;
+  --ch-line: rgba(91, 176, 255, 0.18);
+  --ch-text: #d9e8f7;
+  --ch-text-soft: #b7c7d8;
+  --ch-white: #ffffff;
+  --ch-blue: #37a8ff;
+  --ch-gold: #d5a642;
+  --ch-radius: 10px;
+  --ch-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  --ch-page-width: 1720px;
+  --ch-page-gutter: 32px;
+}
+
+body.path-experience {
+  background:
+    radial-gradient(circle at 75% 10%, rgba(55, 168, 255, 0.1), transparent 28rem),
+    linear-gradient(180deg, #05080d 0%, #06101b 100%);
+  color: var(--ch-text);
+}
+
+body.path-experience .region--breadcrumb,
+body.path-experience .region--content-above,
+body.path-experience .site-footer,
+body.path-experience .social-bar {
+  display: none !important;
+}
+
+body.path-experience .ch-experience-header__inner,
+body.path-experience .ch-experience-container {
+  width: min(var(--ch-page-width), calc(100% - var(--ch-page-gutter)));
+  max-width: var(--ch-page-width);
+  margin: 0 auto;
+}
+
+body.path-experience .ch-experience-header {
+  background: #05080d;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.14);
+}
+
+body.path-experience .ch-experience-header__inner {
+  min-height: 108px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 2rem;
+}
+
+body.path-experience .ch-experience-brand {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+body.path-experience .ch-experience-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.path-experience .ch-experience-nav ul.primary-nav__menu,
+body.path-experience .ch-experience-nav .primary-nav__menu--level-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.95rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.path-experience .ch-experience-nav a.primary-nav__menu-link,
+body.path-experience .ch-experience-nav .primary-nav__menu-link-inner {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+body.path-experience .ch-experience-nav .primary-nav__menu-link--active-trail,
+body.path-experience .ch-experience-nav .primary-nav__menu-item--active-trail .primary-nav__menu-link-inner {
+  color: var(--ch-blue);
+}
+
+body.path-experience .ch-experience-hero {
+  margin: 1.5rem 0 2rem;
+}
+
+body.path-experience .ch-experience-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(420px, 0.85fr);
+  min-height: 24rem;
+  overflow: hidden;
+  border: 1px solid var(--ch-line);
+  border-radius: 12px;
+  background:
+    linear-gradient(90deg, rgba(5, 8, 13, 0.98) 0%, rgba(8, 22, 38, 0.95) 40%, rgba(5, 8, 13, 0.78) 100%);
+  box-shadow: var(--ch-shadow);
+}
+
+body.path-experience .ch-experience-hero__content {
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body.path-experience .ch-experience-hero__media {
+  position: relative;
+  border-left: 1px solid rgba(91, 176, 255, 0.12);
+}
+
+body.path-experience .ch-experience-hero__media-inner {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5,8,13,.12) 0%, rgba(5,8,13,.45) 100%),
+    radial-gradient(circle at 28% 20%, rgba(55,168,255,.22), transparent 16rem),
+    linear-gradient(135deg, #081321 0%, #0a1d32 38%, #0b2744 100%);
+}
+
+body.path-experience .ch-experience-breadcrumb {
+  display: flex;
+  gap: .5rem;
+  margin: 0 0 1rem;
+  color: var(--ch-blue);
+  font-size: .98rem;
+  font-weight: 700;
+}
+
+body.path-experience .ch-experience-breadcrumb a {
+  color: var(--ch-blue);
+  text-decoration: none;
+}
+
+body.path-experience .ch-experience-eyebrow {
+  margin: 0 0 .75rem;
+  color: var(--ch-text-soft);
+  font-size: 1rem;
+}
+
+body.path-experience .ch-experience-title {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: .95;
+  letter-spacing: -.06em;
+  font-weight: 900;
+}
+
+body.path-experience .ch-experience-divider {
+  width: 4rem;
+  height: 3px;
+  margin: 1.5rem 0;
+  background: var(--ch-gold);
+  border-radius: 999px;
+}
+
+body.path-experience .ch-experience-intro {
+  max-width: 46rem;
+  color: var(--ch-text);
+  font-size: 1.08rem;
+  line-height: 1.72;
+  margin: 0;
+}
+
+body.path-experience .ch-experience-listing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+body.path-experience .ch-experience-card {
+  padding: 1.75rem 1.75rem 1.5rem;
+  border: 1px solid var(--ch-line);
+  border-radius: var(--ch-radius);
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.12), transparent 20rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94), rgba(5, 13, 24, 0.98));
+  box-shadow: var(--ch-shadow);
+}
+
+body.path-experience .ch-experience-card .views-field-title {
+  margin-bottom: .85rem;
+}
+
+body.path-experience .ch-experience-card .views-field-title a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+body.path-experience .ch-experience-card .views-field-body {
+  color: var(--ch-text);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+body.path-experience .ch-experience-card .views-field-view-node a {
+  color: var(--ch-blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.path-experience .ch-experience-card hr {
+  display: none;
+}
+
+body.path-experience .ch-experience-pager {
+  margin-top: 2rem;
+}
+
+@media (max-width: 1200px) {
+  body.path-experience .ch-experience-hero__inner,
+  body.path-experience .ch-experience-listing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.path-experience .ch-experience-hero__media {
+    min-height: 18rem;
+    border-left: 0;
+    border-top: 1px solid rgba(91,176,255,.12);
+  }
+}
+
+body.path-experience .dialog-off-canvas-main-canvas,
+body.path-experience #page-wrapper,
+body.path-experience #page,
+body.path-experience #main-wrapper,
+body.path-experience #main,
+body.path-experience .main-content,
+body.path-experience .main-content__container.container {
+  background: transparent !important;
+}
+
+body.path-experience .layout-main-wrapper.layout-container,
+body.path-experience .layout-main,
+body.path-experience .main-content__container.container {
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+body.path-experience .view-experience-listing {
+  width: min(1720px, calc(100% - 32px));
+  max-width: 1720px;
+  margin: 0 auto 3rem;
+}
+
+body.path-experience .view-experience-listing .view-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+body.path-experience .view-experience-listing .views-row {
+  padding: 1.75rem 1.75rem 1.5rem;
+  border: 1px solid rgba(91, 176, 255, 0.18);
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.12), transparent 20rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94), rgba(5, 13, 24, 0.98));
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+body.path-experience .view-experience-listing .views-field-title {
+  margin-bottom: 0.85rem;
+}
+
+body.path-experience .view-experience-listing .views-field-title a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+body.path-experience .view-experience-listing .views-field-body {
+  margin-bottom: 1rem;
+  color: #d9e8f7;
+  line-height: 1.7;
+}
+
+body.path-experience .view-experience-listing .views-field-view-node a {
+  color: #37a8ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+body.path-experience .view-experience-listing .views-field-nothing {
+  display: none;
+}
+
+body.path-experience .pager {
+  width: min(1720px, calc(100% - 32px));
+  max-width: 1720px;
+  margin: 2rem auto 0;
+}
+
+body.path-experience .pager__items {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+body.path-experience .pager__item {
+  margin: 0;
+}
+
+body.path-experience .pager__item,
+body.path-experience .pager__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  min-height: 52px;
+  border-radius: 6px;
+  border: 1px solid rgba(91, 176, 255, 0.18);
+  background: rgba(10, 28, 46, 0.94);
+  color: #d9e8f7;
+  text-decoration: none;
+}
+
+body.path-experience .pager__item--active {
+  background: #1e8fff;
+  color: #ffffff;
+  border-color: #1e8fff;
+}
+
+@media (max-width: 1200px) {
+  body.path-experience .view-experience-listing .view-content,
+  body.path-experience .ch-experience-hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  body.path-experience .ch-experience-hero__media {
+    min-height: 18rem;
+    border-left: 0;
+    border-top: 1px solid rgba(91, 176, 255, 0.12);
+  }
+}
+
+/* ==========================================
+   Experience page footer
+   ========================================== */
+
+body.path-experience #block-carlhinton-researchfooter {
+  width: min(1720px, calc(100% - 32px)) !important;
+  max-width: 1720px !important;
+  margin: 3rem auto 0 !important;
+  clear: both !important;
+}
+
+body.path-experience #block-carlhinton-researchfooter .block__content,
+body.path-experience #block-carlhinton-researchfooter .field,
+body.path-experience #block-carlhinton-researchfooter .field__item,
+body.path-experience #block-carlhinton-researchfooter .text-content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-experience .ch-research-footer {
+  width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(91, 176, 255, 0.18) !important;
+  border-radius: 12px !important;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+  color: #d9e8f7 !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.path-experience .ch-research-footer__inner {
+  display: grid !important;
+  grid-template-columns: minmax(260px, 1.15fr) minmax(180px, 0.9fr) minmax(210px, 1fr) minmax(220px, 0.95fr) !important;
+  gap: 2rem !important;
+  align-items: start !important;
+  padding: 2.5rem !important;
+  box-sizing: border-box !important;
+}
+
+body.path-experience .ch-research-footer__brand,
+body.path-experience .ch-research-footer__nav,
+body.path-experience .ch-research-footer__topics,
+body.path-experience .ch-research-footer__cta {
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+body.path-experience .ch-research-footer h2,
+body.path-experience .ch-research-footer h3 {
+  margin: 0 0 1rem !important;
+  color: #ffffff !important;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+}
+
+body.path-experience .ch-research-footer h2 {
+  font-size: 2rem !important;
+}
+
+body.path-experience .ch-research-footer h3 {
+  font-size: 1rem !important;
+}
+
+body.path-experience .ch-research-footer p {
+  margin: 0 !important;
+  color: #b9c6d4 !important;
+  line-height: 1.7 !important;
+}
+
+body.path-experience .ch-research-footer__brand p {
+  max-width: 18rem !important;
+}
+
+/* Important: these are single <p> elements containing all the links */
+body.path-experience .ch-research-footer__nav p,
+body.path-experience .ch-research-footer__topics p {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.65rem !important;
+}
+
+body.path-experience .ch-research-footer__nav p a,
+body.path-experience .ch-research-footer__topics p a {
+  display: inline-block !important;
+  max-width: 100% !important;
+  color: #37a8ff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+body.path-experience .ch-research-footer__nav p a:hover,
+body.path-experience .ch-research-footer__topics p a:hover {
+  text-decoration: underline !important;
+}
+
+body.path-experience .ch-research-footer__cta p + p {
+  margin-top: 1rem !important;
+}
+
+body.path-experience .ch-research-footer__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  padding: 0.9rem 1.4rem !important;
+  border: 1px solid rgba(91, 176, 255, 0.45) !important;
+  border-radius: 6px !important;
+  background: rgba(7, 17, 31, 0.35) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+body.path-experience .ch-research-footer__button:hover {
+  background: rgba(55, 168, 255, 0.12) !important;
+}
+
+body.path-experience .ch-research-footer__bottom {
+  margin: 0 2.5rem !important;
+  padding: 1.15rem 0 1.6rem !important;
+  border-top: 1px solid rgba(91, 176, 255, 0.12) !important;
+  color: #8393a7 !important;
+  font-size: 0.85rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Stop footer links inheriting odd page styles */
+body.path-experience .ch-research-footer a,
+body.path-experience .ch-research-footer a:visited,
+body.path-experience .ch-research-footer a:hover,
+body.path-experience .ch-research-footer a:focus {
+  color: #37a8ff !important;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  body.path-experience .ch-research-footer__inner {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body.path-experience #block-carlhinton-researchfooter {
+    width: min(1720px, calc(100% - 16px)) !important;
+  }
+
+  body.path-experience .ch-research-footer__inner {
+    grid-template-columns: 1fr !important;
+    padding: 2rem !important;
+  }
+
+  body.path-experience .ch-research-footer__bottom {
+    margin: 0 2rem !important;
+  }
+}

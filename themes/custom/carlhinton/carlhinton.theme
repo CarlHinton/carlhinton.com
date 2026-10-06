@@ -1,21 +1,83 @@
 <?php
 
+use Drupal\node\NodeInterface;
+
 /**
  * Implements hook_preprocess_page().
  */
 function carlhinton_preprocess_page(array &$variables): void {
   if (\Drupal::service('path.matcher')->isFrontPage()) {
-    $variables['#attached']['library'][] = 'carlhinton/home-page';
+    $variables['#attached']['library'][] = 'carlhinton/front-page';
   }
 }
 /**
  * Implements hook_theme_suggestions_page_alter().
  */
-function carlhinton_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  $route_match = \Drupal::routeMatch();
-  $node = $route_match->getParameter('node');
+function carlhinton_theme_suggestions_page_alter(array &$suggestions, array $variables): void {
 
-  if ($node instanceof \Drupal\node\NodeInterface && $node->bundle() === 'articles') {
-    $suggestions[] = 'page__node__articles';
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    return;
+  }
+
+  $current_path = \Drupal::service('path.current')->getPath();
+
+  /*
+   * Views / non-node pages.
+   */
+  if ($current_path === '/experience') {
+    $suggestions[] = 'page__experience';
+  }
+
+  if ($current_path === '/employment-history') {
+    $suggestions[] = 'page__employment_history';
+  }
+
+  /*
+   * Node pages.
+   */
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!$node instanceof \Drupal\node\NodeInterface) {
+    return;
+  }
+
+  switch ($node->bundle()) {
+
+    case 'articles':
+      $suggestions[] = 'page__node__articles';
+      break;
+
+    case 'hobbies':
+      $suggestions[] = 'page__node__hobbies';
+      break;
+
+    case 'page':
+      $suggestions[] = 'page__node__page';
+      break;
+
+    case 'skillset':
+      $suggestions[] = 'page__node__skillset';
+      break;
+
+    case 'experience':
+      $suggestions[] = 'page__node__experience';
+      break;
+
+    /*
+     * Remaining legacy content types all use
+     * the new common node presentation.
+     */
+    case 'jobs':
+    case 'education':
+    case 'training':
+    case 'edu':
+    case 'charity':
+    case 'examples':
+    case 'files':
+    case 'skills':
+    case 'article':
+    case 'blog':
+      $suggestions[] = 'page__node__legacy';
+      break;
   }
 }

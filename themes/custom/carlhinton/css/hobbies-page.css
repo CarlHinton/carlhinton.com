@@ -1,0 +1,2040 @@
+/*
+ * Carl Hinton — Hobbies landing page
+ * File: themes/custom/carlhinton/css/hobbies-page.css
+ * Applies to: /hobbies
+ *
+ * Requires page template:
+ * themes/custom/carlhinton/templates/layout/page--views--hobbies--page-1.html.twig
+ */
+
+/* =========================================================
+   1. Page reset / dark base
+   ========================================================= */
+
+body.path-hobbies {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(30, 110, 170, 0.22), transparent 34rem),
+    linear-gradient(180deg, #05080d 0%, #06111d 42%, #05080d 100%) !important;
+  color: #d9e8f7 !important;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  overflow-x: hidden !important;
+}
+
+body.path-hobbies,
+.path-hobbies .dialog-off-canvas-main-canvas,
+.path-hobbies .page-wrapper,
+.path-hobbies #page-wrapper,
+.path-hobbies #page,
+.path-hobbies .layout-main-wrapper,
+.path-hobbies .layout-main,
+.path-hobbies .main-content,
+.path-hobbies .main-content__container {
+  background: transparent !important;
+}
+
+.path-hobbies .main-content__container,
+.path-hobbies .region--content,
+.path-hobbies .block-system-main-block,
+.path-hobbies .views-element-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.path-hobbies a {
+  color: #37a8ff !important;
+}
+
+.path-hobbies a:hover,
+.path-hobbies a:focus {
+  color: #a9d8ff !important;
+}
+
+/* Hide Olivero default regions on this custom page */
+.path-hobbies .region--breadcrumb,
+.path-hobbies .region--content-above,
+.path-hobbies .block-page-title-block,
+.path-hobbies .region--highlighted {
+  display: none !important;
+}
+
+/* Hide RSS side icon */
+.path-hobbies .social-bar,
+.path-hobbies .block-node-syndicate-block,
+.path-hobbies .feed-icon {
+  display: none !important;
+}
+
+/* Remove unwanted generated spacing/backgrounds */
+.path-hobbies .region--content::before,
+.path-hobbies .block-system-main-block::before,
+.path-hobbies .block-system-main-block::after,
+.path-hobbies .view-hobbies::before,
+.path-hobbies .view-hobbies::after {
+  content: none !important;
+  display: none !important;
+}
+
+
+/* =========================================================
+   2. Header / menu — matches research page system
+   ========================================================= */
+
+.path-hobbies .ch-hobbies-header {
+  position: relative !important;
+  z-index: 20 !important;
+  width: 100% !important;
+  min-height: 6.25rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: rgba(3, 7, 13, 0.96) !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.14) !important;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+.path-hobbies .ch-hobbies-header__inner {
+  width: min(1460px, calc(100% - 5rem)) !important;
+  min-height: 6.25rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+}
+
+.path-hobbies .ch-hobbies-header__brand {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 260px !important;
+}
+
+/* Drupal branding reset */
+.path-hobbies .ch-hobbies-header__brand .site-branding,
+.path-hobbies .ch-hobbies-header__brand .site-branding__inner,
+.path-hobbies .ch-hobbies-header__brand .site-branding__text,
+.path-hobbies .ch-hobbies-header__brand .site-branding__name {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  display: block !important;
+}
+
+.path-hobbies .ch-hobbies-header__brand .site-branding__name a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  color: #ffffff !important;
+  font-size: 1.4rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.02em !important;
+  text-decoration: none !important;
+}
+
+.path-hobbies .ch-hobbies-header__brand .site-branding__name a::before {
+  content: "CH" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 3.15rem !important;
+  height: 2.5rem !important;
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.12em !important;
+  text-shadow: 0.38em 0 0 #37a8ff !important;
+  margin-right: 1rem !important;
+}
+
+.path-hobbies .ch-hobbies-header__brand .site-branding__name a::after {
+  content: "TECHNOLOGY LEADER | SYSTEMS THINKER" !important;
+  position: absolute !important;
+  left: 5.05rem !important;
+  top: 1.45rem !important;
+  color: #b9c6d4 !important;
+  font-size: 0.62rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  white-space: nowrap !important;
+}
+
+/* Header nav */
+.path-hobbies .ch-hobbies-header__nav {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+.path-hobbies .ch-hobbies-header__nav .block,
+.path-hobbies .ch-hobbies-header__nav .block__content,
+.path-hobbies .ch-hobbies-header__nav .navigation,
+.path-hobbies .ch-hobbies-header__nav .primary-nav {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1,
+.path-hobbies .ch-hobbies-header__nav ul.menu {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-item,
+.path-hobbies .ch-hobbies-header__nav .menu-item {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.path-hobbies .ch-hobbies-header__nav a,
+.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner,
+.path-hobbies .ch-hobbies-header__nav .menu a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 2.35rem 0 2.1rem !important;
+  margin: 0 !important;
+
+  color: #ffffff !important;
+  font-size: 0.78rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.path-hobbies .ch-hobbies-header__nav a:hover,
+.path-hobbies .ch-hobbies-header__nav a.is-active,
+.path-hobbies .ch-hobbies-header__nav .is-active > a,
+.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link:hover,
+.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link.is-active,
+.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"],
+.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"] {
+  color: #37a8ff !important;
+}
+
+.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"]::after,
+.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0.65rem !important;
+  height: 3px !important;
+  background: #37a8ff !important;
+  border-radius: 999px !important;
+}
+
+/* Remove mobile/search clutter from Olivero header */
+.path-hobbies .site-header__initial,
+.path-hobbies .sticky-header-toggle,
+.path-hobbies .mobile-buttons,
+.path-hobbies .header-nav-overlay,
+.path-hobbies .region--secondary-menu,
+.path-hobbies #block-carlhinton-search-form-narrow,
+.path-hobbies #block-carlhinton-search-form-wide,
+.path-hobbies .block-search-wide,
+.path-hobbies .block-search-wide__wrapper {
+  display: none !important;
+}
+
+
+/* =========================================================
+   3. Main wrapper
+   ========================================================= */
+
+.path-hobbies .ch-hobbies-main-wrapper {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.path-hobbies .ch-hobbies-main {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 0 0 !important;
+}
+
+
+/* =========================================================
+   4. Hero
+   ========================================================= */
+
+.path-hobbies .ch-hobbies-hero {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  min-height: 20.5rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background:
+    linear-gradient(90deg, rgba(5, 8, 13, 0.98) 0%, rgba(5, 8, 13, 0.93) 34%, rgba(5, 8, 13, 0.38) 72%, rgba(5, 8, 13, 0.9) 100%),
+    radial-gradient(circle at 74% 12%, rgba(55, 168, 255, 0.22), transparent 28rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%) !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.14) !important;
+}
+
+/*
+ * Optional hero collage background.
+ * Create/upload this later if wanted:
+ * themes/custom/carlhinton/images/hobbies-hero-collage.png
+ */
+.path-hobbies .ch-hobbies-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 0 0 auto !important;
+  width: 68% !important;
+  background:
+    linear-gradient(90deg, rgba(5, 8, 13, 0.96) 0%, rgba(5, 8, 13, 0.34) 28%, rgba(5, 8, 13, 0.2) 68%, rgba(5, 8, 13, 0.9) 100%),
+    url("../images/hobbies-hero-collage.png") right center / cover no-repeat !important;
+  opacity: 0.95 !important;
+  pointer-events: none !important;
+}
+
+.path-hobbies .ch-hobbies-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(circle at 72% 0%, rgba(55, 168, 255, 0.18), transparent 22rem),
+    linear-gradient(180deg, transparent 0%, rgba(5, 8, 13, 0.24) 68%, #05080d 100%) !important;
+  pointer-events: none !important;
+}
+
+.path-hobbies .ch-hobbies-hero__inner {
+  position: relative !important;
+  z-index: 2 !important;
+  width: min(1460px, calc(100% - 5rem)) !important;
+  margin: 0 auto !important;
+  padding: 3.2rem 0 2.2rem !important;
+}
+
+.path-hobbies .ch-hobbies-breadcrumb {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  margin: 0 0 1.2rem !important;
+  color: #7faeca !important;
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+}
+
+.path-hobbies .ch-hobbies-breadcrumb a {
+  color: #37a8ff !important;
+  text-decoration: none !important;
+}
+
+.path-hobbies .ch-hobbies-breadcrumb span {
+  color: #93a9bd !important;
+}
+
+.path-hobbies .ch-hobbies-hero__content {
+  max-width: 42rem !important;
+}
+
+.path-hobbies .ch-hobbies-hero h1 {
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-size: clamp(3rem, 5vw, 5rem) !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.065em !important;
+  line-height: 0.95 !important;
+}
+
+.path-hobbies .ch-hobbies-title-rule {
+  width: 4rem !important;
+  height: 3px !important;
+  margin: 1.25rem 0 1.1rem !important;
+  background: #d5a642 !important;
+  border-radius: 999px !important;
+}
+
+.path-hobbies .ch-hobbies-hero__intro {
+  max-width: 38rem !important;
+  margin: 0 !important;
+  color: #d9e8f7 !important;
+  font-size: 1.08rem !important;
+  line-height: 1.55 !important;
+  font-weight: 500 !important;
+}
+
+
+/* =========================================================
+   5. Feature strip
+   ========================================================= */
+
+.path-hobbies .ch-hobbies-feature-strip {
+  width: min(1460px, calc(100% - 5rem)) !important;
+  margin: -0.15rem auto 1.35rem !important;
+  padding: 0 !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+
+  background: rgba(7, 21, 35, 0.74) !important;
+  border: 1px solid rgba(91, 176, 255, 0.2) !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.24) !important;
+}
+
+.path-hobbies .ch-hobbies-feature {
+  display: grid !important;
+  grid-template-columns: 2.4rem 1fr !important;
+  gap: 1rem !important;
+  align-items: center !important;
+  min-height: 4.7rem !important;
+  padding: 1rem 2rem !important;
+  border-right: 1px solid rgba(91, 176, 255, 0.16) !important;
+}
+
+.path-hobbies .ch-hobbies-feature:last-child {
+  border-right: 0 !important;
+}
+
+.path-hobbies .ch-hobbies-feature__icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #37a8ff !important;
+  font-size: 1.85rem !important;
+  line-height: 1 !important;
+  text-shadow: 0 0 20px rgba(55, 168, 255, 0.25) !important;
+}
+
+.path-hobbies .ch-hobbies-feature strong {
+  display: block !important;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  line-height: 1.25 !important;
+  font-weight: 900 !important;
+}
+
+.path-hobbies .ch-hobbies-feature small {
+  display: block !important;
+  margin-top: 0.2rem !important;
+  color: #b9c6d4 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.3 !important;
+}
+
+
+/* =========================================================
+   6. Hobbies View layout
+   ========================================================= */
+
+.path-hobbies .ch-hobbies-view-section {
+  width: min(1460px, calc(100% - 5rem)) !important;
+  margin: 0 auto !important;
+  padding: 0 0 0.8rem !important;
+}
+
+.path-hobbies .view-hobbies,
+.path-hobbies .view-hobbies .view-content {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Override Drupal Views grid */
+.path-hobbies .view-hobbies .views-view-grid {
+  --views-grid--column-count: 4 !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item {
+  width: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item-inner {
+  position: relative !important;
+  overflow: hidden !important;
+  min-height: 100% !important;
+  padding: 0 0 4.4rem !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  background:
+    radial-gradient(circle at 88% 0%, rgba(55, 168, 255, 0.14), transparent 15rem),
+    linear-gradient(180deg, rgba(10, 28, 46, 0.94) 0%, rgba(5, 13, 24, 0.98) 100%) !important;
+
+  border: 1px solid rgba(91, 176, 255, 0.2) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28) !important;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item-inner:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(55, 168, 255, 0.58) !important;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Image field first visually */
+.path-hobbies .view-hobbies .views-field-field-photo {
+  order: 1 !important;
+  width: 100% !important;
+  height: 11.5rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+}
+
+.path-hobbies .view-hobbies .views-field-field-photo .field-content {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.path-hobbies .view-hobbies .views-field-field-photo img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  transition: transform 220ms ease, opacity 220ms ease !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item-inner:hover .views-field-field-photo img {
+  transform: scale(1.035) !important;
+  opacity: 0.96 !important;
+}
+
+/* Title field */
+.path-hobbies .view-hobbies .views-field-title {
+  order: 2 !important;
+  margin: 0 !important;
+  padding: 1.05rem 1.15rem 0.55rem !important;
+}
+
+.path-hobbies .view-hobbies .views-field-title .field-content {
+  display: block !important;
+}
+
+.path-hobbies .view-hobbies .views-field-title a {
+  position: relative !important;
+  display: block !important;
+  padding-right: 1.4rem !important;
+
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-weight: 950 !important;
+  line-height: 1.14 !important;
+  letter-spacing: -0.035em !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.path-hobbies .view-hobbies .views-field-title a::after {
+  content: "›" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  color: #37a8ff !important;
+  font-size: 1.8rem !important;
+  line-height: 0.9 !important;
+}
+
+.path-hobbies .view-hobbies .views-field-title a:hover {
+  color: #37a8ff !important;
+}
+
+/* Body field */
+.path-hobbies .view-hobbies .views-field-body {
+  order: 3 !important;
+  margin: 0 !important;
+  padding: 0 1.15rem 1rem !important;
+  color: #c7d7e8 !important;
+}
+
+.path-hobbies .view-hobbies .views-field-body .field-content {
+  display: block !important;
+  color: #c7d7e8 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.48 !important;
+}
+
+.path-hobbies .view-hobbies .views-field-body p {
+  margin: 0 0 0.7rem !important;
+  color: #c7d7e8 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.48 !important;
+}
+
+.path-hobbies .view-hobbies .views-field-body p:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Clamp body text so cards stay even */
+.path-hobbies .view-hobbies .views-field-body .field-content {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Bottom action link generated from title link */
+.path-hobbies .view-hobbies .views-view-grid__item-inner::after {
+  content: "Explore this hobby  →" !important;
+  position: absolute !important;
+  left: 1.15rem !important;
+  bottom: 1.05rem !important;
+  color: #37a8ff !important;
+  font-size: 0.92rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Custom action labels per visible card order */
+.path-hobbies .view-hobbies .views-view-grid__item:nth-child(1) .views-view-grid__item-inner::after {
+  content: "Great Central Railway  →" !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item:nth-child(2) .views-view-grid__item-inner::after {
+  content: "View my publications  →" !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item:nth-child(3) .views-view-grid__item-inner::after {
+  content: "Learn about my classes  →" !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item:nth-child(4) .views-view-grid__item-inner::after {
+  content: "Listen to my hymns  →" !important;
+}
+
+.path-hobbies .view-hobbies .views-view-grid__item:nth-child(5) .views-view-grid__item-inner::after {
+  content: "Explore Technology & AI  →" !important;
+}
+
+
+/* =========================================================
+   7. Footer — research design style
+   ========================================================= */
+
+.path-hobbies .ch-hobbies-footer {
+  margin: 0 !important;
+  padding: 0 !important;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.12), transparent 24rem),
+    linear-gradient(180deg, rgba(7, 21, 35, 0.96) 0%, #05080d 100%) !important;
+  border-top: 1px solid rgba(91, 176, 255, 0.14) !important;
+}
+
+.path-hobbies .ch-hobbies-footer__inner {
+  width: min(1460px, calc(100% - 5rem)) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+/* If your research footer block is used here too */
+.path-hobbies .ch-research-footer,
+.path-hobbies .ch-hobbies-footer .ch-research-footer {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  color: #d9e8f7 !important;
+}
+
+.path-hobbies .ch-research-footer__inner {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 2.4rem 0 2rem !important;
+
+  display: grid !important;
+  grid-template-columns:
+    minmax(260px, 1.25fr)
+    minmax(160px, 0.8fr)
+    minmax(200px, 0.95fr)
+    minmax(260px, 1.1fr) !important;
+  gap: 3.5rem !important;
+  align-items: start !important;
+}
+
+.path-hobbies .ch-research-footer h2,
+.path-hobbies .ch-research-footer h3 {
+  color: #ffffff !important;
+  margin: 0 0 1rem !important;
+  line-height: 1.15 !important;
+}
+
+.path-hobbies .ch-research-footer p {
+  color: #b9c6d4 !important;
+  margin: 0 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+.path-hobbies .ch-research-footer a {
+  color: #37a8ff !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+.path-hobbies .ch-research-footer a:hover {
+  color: #a9d8ff !important;
+}
+
+.path-hobbies .ch-research-footer__bottom {
+  margin: 0 !important;
+  padding: 1.2rem 0 1.8rem !important;
+  border-top: 1px solid rgba(91, 176, 255, 0.12) !important;
+  color: #8393a7 !important;
+  font-size: 0.85rem !important;
+}
+
+/* Existing credentials block in default footer — hide on redesigned page */
+.path-hobbies .site-footer .region--footer-bottom > .block:not(:has(.ch-research-footer)) {
+  display: none !important;
+}
+
+
+/* =========================================================
+   8. Responsive
+   ========================================================= */
+
+@media (max-width: 1300px) {
+  .path-hobbies .ch-hobbies-header__inner,
+  .path-hobbies .ch-hobbies-hero__inner,
+  .path-hobbies .ch-hobbies-feature-strip,
+  .path-hobbies .ch-hobbies-view-section,
+  .path-hobbies .ch-hobbies-footer__inner {
+    width: calc(100% - 3rem) !important;
+  }
+
+  .path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1,
+  .path-hobbies .ch-hobbies-header__nav ul.menu {
+    gap: 1.2rem !important;
+  }
+
+  .path-hobbies .ch-hobbies-header__nav a,
+  .path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+  .path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner,
+  .path-hobbies .ch-hobbies-header__nav .menu a {
+    font-size: 0.7rem !important;
+  }
+
+  .path-hobbies .view-hobbies .views-view-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .path-hobbies .ch-hobbies-header {
+    min-height: auto !important;
+  }
+
+  .path-hobbies .ch-hobbies-header__inner {
+    min-height: auto !important;
+    padding: 1.2rem 0 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  .path-hobbies .ch-hobbies-header__nav {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+  }
+
+  .path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1,
+  .path-hobbies .ch-hobbies-header__nav ul.menu {
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  .path-hobbies .ch-hobbies-header__nav a,
+  .path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+  .path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner,
+  .path-hobbies .ch-hobbies-header__nav .menu a {
+    padding: 0.8rem 0 !important;
+    white-space: nowrap !important;
+  }
+
+  .path-hobbies .ch-hobbies-hero::before {
+    width: 100% !important;
+    opacity: 0.28 !important;
+  }
+
+  .path-hobbies .ch-hobbies-feature-strip {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .path-hobbies .ch-hobbies-feature:nth-child(2) {
+    border-right: 0 !important;
+  }
+
+  .path-hobbies .ch-hobbies-feature:nth-child(1),
+  .path-hobbies .ch-hobbies-feature:nth-child(2) {
+    border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+  }
+
+  .path-hobbies .ch-research-footer__inner {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .path-hobbies .ch-hobbies-header__inner,
+  .path-hobbies .ch-hobbies-hero__inner,
+  .path-hobbies .ch-hobbies-feature-strip,
+  .path-hobbies .ch-hobbies-view-section,
+  .path-hobbies .ch-hobbies-footer__inner {
+    width: calc(100% - 2rem) !important;
+  }
+
+  .path-hobbies .ch-hobbies-hero__inner {
+    padding: 2.4rem 0 2rem !important;
+  }
+
+  .path-hobbies .ch-hobbies-hero h1 {
+    font-size: 3.1rem !important;
+  }
+
+  .path-hobbies .ch-hobbies-hero__intro {
+    font-size: 1rem !important;
+  }
+
+  .path-hobbies .ch-hobbies-feature-strip {
+    grid-template-columns: 1fr !important;
+  }
+
+  .path-hobbies .ch-hobbies-feature {
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+  }
+
+  .path-hobbies .ch-hobbies-feature:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .path-hobbies .view-hobbies .views-view-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .path-hobbies .view-hobbies .views-field-field-photo {
+    height: 13rem !important;
+  }
+
+  .path-hobbies .ch-research-footer__inner {
+    grid-template-columns: 1fr !important;
+    padding: 2rem 0 !important;
+  }
+}
+
+
+/* =========================================================
+   Hobbies page correction pass
+   Fix white page leak, header visibility, page width and cards
+   Add at very bottom of hobbies-page.css
+   ========================================================= */
+
+/* Kill the white Olivero background leak */
+html,
+body.path-hobbies,
+body.path-hobbies .dialog-off-canvas-main-canvas,
+body.path-hobbies #page-wrapper,
+body.path-hobbies #page,
+body.path-hobbies .layout-main-wrapper,
+body.path-hobbies .layout-main,
+body.path-hobbies .main-content,
+body.path-hobbies .main-content__container,
+body.path-hobbies main,
+body.path-hobbies .region--content,
+body.path-hobbies #block-carlhinton-content,
+body.path-hobbies .block__content,
+body.path-hobbies .views-element-container,
+body.path-hobbies .view-hobbies {
+  background: #05080d !important;
+}
+
+/* Force the custom page to span the viewport */
+body.path-hobbies .ch-hobbies-page-wrapper,
+body.path-hobbies .ch-hobbies-page,
+body.path-hobbies .ch-hobbies-main-wrapper,
+body.path-hobbies .ch-hobbies-layout-main,
+body.path-hobbies .ch-hobbies-main-content,
+body.path-hobbies .ch-hobbies-main {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Header: make logo and menu visible again */
+body.path-hobbies .ch-hobbies-header {
+  width: 100% !important;
+  min-height: 5.8rem !important;
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+  overflow: visible !important;
+}
+
+body.path-hobbies .ch-hobbies-header__inner {
+  width: min(1460px, calc(100% - 4.5rem)) !important;
+  min-height: 5.8rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2.2rem !important;
+}
+
+/* Brand */
+body.path-hobbies .ch-hobbies-header__brand {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  min-width: 270px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a {
+  display: inline-block !important;
+  color: #ffffff !important;
+  font-size: 1.15rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a::before {
+  content: "CH" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 3.4rem !important;
+  height: 2.5rem !important;
+  margin-right: 0.85rem !important;
+  border-radius: 3px !important;
+  background: linear-gradient(135deg, #1b5fae 0%, #0b2340 100%) !important;
+  color: #ffffff !important;
+  font-size: 1.85rem !important;
+  font-weight: 950 !important;
+  letter-spacing: -0.08em !important;
+  vertical-align: middle !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a::after {
+  content: "TECHNOLOGY LEADER | SYSTEMS THINKER" !important;
+  display: block !important;
+  margin-left: 4.3rem !important;
+  margin-top: -0.65rem !important;
+  color: #7fbff5 !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.12em !important;
+}
+
+/* Hide search block inside header nav */
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-search-form-narrow,
+body.path-hobbies .ch-hobbies-header__nav .search-block-form,
+body.path-hobbies .ch-hobbies-header__nav .captcha-admin-links {
+  display: none !important;
+}
+
+/* Menu */
+body.path-hobbies .ch-hobbies-header__nav {
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  flex: 1 1 auto !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-main-menu {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav ul.menu,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1 {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 1.45rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav li {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner {
+  display: inline-flex !important;
+  position: relative !important;
+  color: #ffffff !important;
+  font-size: 0.76rem !important;
+  font-weight: 850 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"],
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"] {
+  color: #37a8ff !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"]::after,
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1.15rem !important;
+  height: 3px !important;
+  background: #37a8ff !important;
+  border-radius: 999px !important;
+}
+
+/* Hero should not leave a white right edge */
+body.path-hobbies .ch-hobbies-hero {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  background:
+    radial-gradient(circle at 68% 12%, rgba(55, 168, 255, 0.22), transparent 30rem),
+    linear-gradient(90deg, #05080d 0%, #071523 44%, #05080d 100%) !important;
+}
+
+body.path-hobbies .ch-hobbies-hero__inner {
+  width: min(1460px, calc(100% - 4.5rem)) !important;
+  margin: 0 auto !important;
+  padding: 4rem 0 4.2rem !important;
+}
+
+/* Keep the feature strip aligned with hero/cards */
+body.path-hobbies .ch-hobbies-feature-strip,
+body.path-hobbies .ch-hobbies-view-section {
+  width: min(1460px, calc(100% - 4.5rem)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Pull the feature strip up neatly */
+body.path-hobbies .ch-hobbies-feature-strip {
+  margin-top: -2.15rem !important;
+  margin-bottom: 2rem !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Cards: keep them on dark page and aligned */
+body.path-hobbies .view-hobbies .views-view-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 0 4rem !important;
+  background: transparent !important;
+}
+
+/* The View currently says 2 columns inline; this overrides it */
+body.path-hobbies .view-hobbies .views-view-grid[style] {
+  --views-grid--column-count: 4 !important;
+}
+
+/* Make cards fill their columns */
+body.path-hobbies .view-hobbies .views-view-grid__item,
+body.path-hobbies .view-hobbies .views-view-grid__item-inner {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+/* Improve card image height */
+body.path-hobbies .view-hobbies .views-field-field-photo {
+  height: 13rem !important;
+}
+
+/* Remove the old footer credentials/footer white remnants if any */
+body.path-hobbies .site-footer {
+  background: #05080d !important;
+  border-top: 1px solid rgba(91, 176, 255, 0.14) !important;
+}
+
+/* Logged-in toolbar can squash the first view; do not let it break layout */
+body.path-hobbies.toolbar-fixed .ch-hobbies-header {
+  margin-top: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  body.path-hobbies .view-hobbies .views-view-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body.path-hobbies .ch-hobbies-feature-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  body.path-hobbies .ch-hobbies-header__inner,
+  body.path-hobbies .ch-hobbies-hero__inner,
+  body.path-hobbies .ch-hobbies-feature-strip,
+  body.path-hobbies .ch-hobbies-view-section {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.path-hobbies .ch-hobbies-header__inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 1.25rem 0 !important;
+  }
+
+  body.path-hobbies .ch-hobbies-header__nav {
+    width: 100% !important;
+    overflow-x: auto !important;
+  }
+
+  body.path-hobbies .ch-hobbies-header__nav ul.menu,
+  body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1 {
+    justify-content: flex-start !important;
+    gap: 1rem !important;
+  }
+
+  body.path-hobbies .ch-hobbies-feature-strip,
+  body.path-hobbies .view-hobbies .views-view-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================================================
+   Hobbies hero correction
+   Wider heading area and visible hero image
+   ========================================================= */
+
+body.path-hobbies .ch-hobbies-hero {
+  min-height: 31rem !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(90deg, #05080d 0%, #071523 42%, rgba(5, 8, 13, 0.72) 68%, #05080d 100%) !important;
+}
+
+/* Use an existing live image until a dedicated collage exists */
+body.path-hobbies .ch-hobbies-hero::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+
+  width: 58% !important;
+
+  background:
+    linear-gradient(90deg, #05080d 0%, rgba(5, 8, 13, 0.72) 22%, rgba(5, 8, 13, 0.12) 58%, #05080d 100%),
+    linear-gradient(180deg, rgba(5, 8, 13, 0.08) 0%, #05080d 100%),
+    url("/sites/default/files/2026-06/CarlSteamS.png") center center / cover no-repeat !important;
+
+  opacity: 0.82 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+/* Blue glow over the image */
+body.path-hobbies .ch-hobbies-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(circle at 63% 22%, rgba(55, 168, 255, 0.2), transparent 28rem),
+    linear-gradient(180deg, transparent 0%, rgba(5, 8, 13, 0.18) 68%, #05080d 100%) !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+/* Wider hero content area */
+body.path-hobbies .ch-hobbies-hero__inner {
+  position: relative !important;
+  z-index: 3 !important;
+
+  width: min(1460px, calc(100% - 4.5rem)) !important;
+  min-height: 31rem !important;
+  margin: 0 auto !important;
+  padding: 4.5rem 0 5rem !important;
+
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Make heading/introduction wider */
+body.path-hobbies .ch-hobbies-hero__content {
+  width: min(54rem, 55%) !important;
+  max-width: 54rem !important;
+}
+
+body.path-hobbies .ch-hobbies-hero h1 {
+  max-width: 52rem !important;
+  margin: 0 !important;
+
+  font-size: clamp(4.2rem, 6.2vw, 6.7rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.075em !important;
+}
+
+body.path-hobbies .ch-hobbies-hero__intro {
+  max-width: 48rem !important;
+  font-size: 1.18rem !important;
+  line-height: 1.55 !important;
+}
+
+/* Move the feature strip into the correct overlap position */
+body.path-hobbies .ch-hobbies-feature-strip {
+  width: min(1460px, calc(100% - 4.5rem)) !important;
+  margin-top: -2.3rem !important;
+  margin-bottom: 2.2rem !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* Give the cards breathing space below the strip */
+body.path-hobbies .ch-hobbies-view-section {
+  width: min(1460px, calc(100% - 4.5rem)) !important;
+  margin-top: 0 !important;
+}
+
+/* Large screens: push image further right and give text more room */
+@media (min-width: 1500px) {
+  body.path-hobbies .ch-hobbies-hero__content {
+    width: 52% !important;
+  }
+
+  body.path-hobbies .ch-hobbies-hero::before {
+    width: 60% !important;
+  }
+}
+
+/* Tablet/mobile: fade image into background */
+@media (max-width: 1000px) {
+  body.path-hobbies .ch-hobbies-hero::before {
+    width: 100% !important;
+    opacity: 0.24 !important;
+  }
+
+  body.path-hobbies .ch-hobbies-hero__content {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.path-hobbies .ch-hobbies-hero h1 {
+    font-size: clamp(3.4rem, 12vw, 5rem) !important;
+  }
+}
+
+/* =========================================================
+   Hobbies hero breadcrumb fix
+   Put breadcrumb back above the title in the text column
+   ========================================================= */
+
+body.path-hobbies .ch-hobbies-hero__inner {
+  display: block !important;
+  position: relative !important;
+}
+
+body.path-hobbies .ch-hobbies-hero__content {
+  position: relative !important;
+  z-index: 4 !important;
+  margin-left: 0 !important;
+}
+
+/* Make breadcrumb part of the same left text column */
+body.path-hobbies .ch-hobbies-breadcrumb {
+  position: relative !important;
+  z-index: 5 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+
+  width: min(54rem, 55%) !important;
+  max-width: 54rem !important;
+
+  margin: 0 0 1.35rem 0 !important;
+  padding: 0 !important;
+
+  color: #b9c6d4 !important;
+  font-size: 0.95rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-breadcrumb a {
+  color: #37a8ff !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+}
+
+body.path-hobbies .ch-hobbies-breadcrumb a:hover {
+  color: #a9d8ff !important;
+}
+
+body.path-hobbies .ch-hobbies-breadcrumb span {
+  color: #c7d7e8 !important;
+}
+
+/* Keep eyebrow directly above title, not separated from the text block */
+body.path-hobbies .ch-hobbies-eyebrow {
+  margin: 0 0 1.2rem 0 !important;
+  padding: 0 !important;
+  color: #d9e8f7 !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+/* Keep hero text aligned as one column */
+body.path-hobbies .ch-hobbies-hero h1,
+body.path-hobbies .ch-hobbies-title-rule,
+body.path-hobbies .ch-hobbies-hero__intro {
+  margin-left: 0 !important;
+}
+
+/* Mobile/tablet */
+@media (max-width: 1000px) {
+  body.path-hobbies .ch-hobbies-breadcrumb {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* =========================================================
+   Hobbies header final alignment
+   Match Articles & Research header
+   ========================================================= */
+
+/* Match the Articles page header height/spacing */
+body.path-hobbies .ch-hobbies-header {
+  width: 100% !important;
+  min-height: 6.6rem !important;
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+  box-shadow: none !important;
+}
+
+body.path-hobbies .ch-hobbies-header__inner {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  min-height: 6.6rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+}
+
+/* Remove the CH logo block and subtitle treatment */
+body.path-hobbies .ch-hobbies-header__brand {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a {
+  display: inline-block !important;
+  color: #ffffff !important;
+
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.04em !important;
+  text-transform: none !important;
+
+  text-decoration: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Remove CH badge */
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remove TECHNOLOGY LEADER subtitle */
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Hide search block inside header */
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-search-form-narrow,
+body.path-hobbies .ch-hobbies-header__nav .search-block-form,
+body.path-hobbies .ch-hobbies-header__nav .captcha-admin-links {
+  display: none !important;
+}
+
+/* Match Articles menu layout */
+body.path-hobbies .ch-hobbies-header__nav {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-main-menu {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav ul.menu,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1 {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  gap: 1.55rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav li,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-item {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+
+  margin: 0 !important;
+  padding: 2.55rem 0 2.35rem !important;
+
+  color: #ffffff !important;
+  font-size: 0.82rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.02em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Active Hobbies link */
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"],
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"] {
+  color: #37a8ff !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"]::after,
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 1.35rem !important;
+  height: 3px !important;
+  background: #37a8ff !important;
+  border-radius: 999px !important;
+}
+
+/* Keep header usable at narrower widths */
+@media (max-width: 1100px) {
+  body.path-hobbies .ch-hobbies-header__inner {
+    width: calc(100% - 2rem) !important;
+  }
+
+  body.path-hobbies .ch-hobbies-header__nav ul.menu,
+  body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1 {
+    gap: 1rem !important;
+  }
+
+  body.path-hobbies .ch-hobbies-header__nav a,
+  body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+  body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner {
+    font-size: 0.76rem !important;
+  }
+}
+
+/* =========================================================
+   Hobbies header brand position fix
+   Align "Carl Hinton" with Articles page header
+   ========================================================= */
+
+/* Use the same outer header width logic as the Articles page */
+body.path-hobbies .ch-hobbies-header__inner {
+  width: min(1460px, calc(100% - 4rem)) !important;
+  max-width: 1460px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Pull brand to the proper left-hand position */
+body.path-hobbies .ch-hobbies-header__brand {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  min-width: auto !important;
+  flex: 0 0 auto !important;
+}
+
+/* Match Articles page brand text */
+body.path-hobbies .ch-hobbies-header__brand .site-branding,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__inner,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__text,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+}
+
+/* Keep the menu aligned right, like Articles */
+body.path-hobbies .ch-hobbies-header__nav {
+  margin-left: auto !important;
+  padding-left: 2rem !important;
+  justify-content: flex-end !important;
+}
+
+/* Prevent the hidden search block from affecting menu spacing */
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-search-form-narrow,
+body.path-hobbies .ch-hobbies-header__nav .search-block-form,
+body.path-hobbies .ch-hobbies-header__nav .captcha-admin-links {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+/* If still slightly too far right, this nudges the whole header content left */
+@media (min-width: 1200px) {
+  body.path-hobbies .ch-hobbies-header__inner {
+    transform: translateX(-3.2rem) !important;
+  }
+}
+
+/* =========================================================
+   Hobbies header safe alignment fix
+   Restore Carl Hinton and match Articles header more closely
+   ========================================================= */
+
+body.path-hobbies .ch-hobbies-header {
+  width: 100% !important;
+  min-height: 106px !important;
+  height: 106px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: #05080d !important;
+  border-bottom: 1px solid rgba(91, 176, 255, 0.16) !important;
+  overflow: visible !important;
+}
+
+/* One normal flex row: brand left, menu right */
+body.path-hobbies .ch-hobbies-header__inner {
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  height: 106px !important;
+  min-height: 106px !important;
+
+  margin: 0 auto !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 2rem !important;
+
+  position: relative !important;
+  transform: none !important;
+}
+
+/* Restore Carl Hinton */
+body.path-hobbies .ch-hobbies-header__brand {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  flex: 0 0 auto !important;
+  width: auto !important;
+  min-width: 150px !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  position: static !important;
+  transform: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__inner,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__text,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Remove old CH badge/subtitle styling */
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a::before,
+body.path-hobbies .ch-hobbies-header__brand .site-branding__name a::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Menu stays on same row */
+body.path-hobbies .ch-hobbies-header__nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  flex: 1 1 auto !important;
+  width: auto !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  position: static !important;
+  transform: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Hide search block without affecting layout */
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-search-form-narrow,
+body.path-hobbies .ch-hobbies-header__nav .search-block-form,
+body.path-hobbies .ch-hobbies-header__nav .captcha-admin-links {
+  display: none !important;
+}
+
+/* Menu list */
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-main-menu {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav ul.menu,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1 {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  gap: 1.25rem !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav li,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-item {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner {
+  position: relative !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  color: #ffffff !important;
+  font-size: 0.82rem !important;
+  font-weight: 850 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+  text-decoration: none !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"],
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"] {
+  color: #37a8ff !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"]::after,
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1.1rem !important;
+  height: 3px !important;
+  background: #37a8ff !important;
+  border-radius: 999px !important;
+}
+
+/* Stop Olivero pseudo-elements interfering */
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner::before,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu-link-inner::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* =========================================================
+   Hobbies header emergency brand restore
+   Forces "Carl Hinton" back into the header
+   ========================================================= */
+
+/* Make sure the header inner can hold a generated brand label */
+body.path-hobbies .ch-hobbies-header__inner {
+  position: relative !important;
+  width: min(1220px, calc(100% - 4rem)) !important;
+  max-width: 1220px !important;
+  height: 106px !important;
+  min-height: 106px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+/* Hide the broken Drupal branding block completely */
+body.path-hobbies .ch-hobbies-header__brand {
+  display: none !important;
+}
+
+/* Re-create the Articles-style text brand */
+body.path-hobbies .ch-hobbies-header__inner::before {
+  content: "Carl Hinton" !important;
+
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  display: block !important;
+
+  color: #ffffff !important;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif !important;
+  font-size: 1.75rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.045em !important;
+
+  z-index: 30 !important;
+}
+
+/* Keep menu on the right, away from the generated brand */
+body.path-hobbies .ch-hobbies-header__nav {
+  margin-left: auto !important;
+  padding-left: 12rem !important;
+
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  position: static !important;
+  transform: none !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* Ensure the menu remains visible */
+body.path-hobbies .ch-hobbies-header__nav #block-carlhinton-main-menu,
+body.path-hobbies .ch-hobbies-header__nav ul.menu,
+body.path-hobbies .ch-hobbies-header__nav .primary-nav__menu--level-1 {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Active underline remains under Hobbies */
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"],
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"] {
+  color: #37a8ff !important;
+}
+
+body.path-hobbies .ch-hobbies-header__nav a[href="/hobbies"]::after,
+body.path-hobbies .ch-hobbies-header__nav a[data-drupal-link-system-path="hobbies"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: -1.1rem !important;
+  height: 3px !important;
+  background: #37a8ff !important;
+  border-radius: 999px !important;
+}
+
+body.path-hobbies .ch-hobbies-header__inner::before {
+  left: -2rem !important;
+}
+
+/* ---------------------------------------------------------
+   Shared research footer: basic-page-only layout correction
+   Do not change the block HTML
+   --------------------------------------------------------- */
+
+body.page-node-type-page #block-carlhinton-researchfooter {
+  width: 100%;
+  margin-top: 2.75rem;
+}
+
+body.page-node-type-page #block-carlhinton-researchfooter .block__content,
+body.page-node-type-page #block-carlhinton-researchfooter .field,
+body.page-node-type-page #block-carlhinton-researchfooter .field__item,
+body.page-node-type-page #block-carlhinton-researchfooter .text-content {
+  width: 100%;
+  max-width: none;
+}
+
+body.page-node-type-page .ch-research-footer {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(55, 168, 255, 0.16), transparent 24rem),
+    linear-gradient(180deg, #07111f 0%, #05080d 100%);
+  border: 1px solid rgba(91, 176, 255, 0.18);
+  border-radius: 10px;
+  color: #d9e8f7;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+body.page-node-type-page .ch-research-footer__inner {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 1.35fr)
+    minmax(170px, 0.95fr)
+    minmax(190px, 1fr)
+    minmax(220px, 1.15fr);
+  gap: 2.5rem;
+  align-items: start;
+  width: 100%;
+  margin: 0;
+  padding: 3rem 3rem 2.25rem;
+  box-sizing: border-box;
+}
+
+body.page-node-type-page .ch-research-footer__brand,
+body.page-node-type-page .ch-research-footer__nav,
+body.page-node-type-page .ch-research-footer__topics,
+body.page-node-type-page .ch-research-footer__cta {
+  min-width: 0;
+}
+
+body.page-node-type-page .ch-research-footer h2,
+body.page-node-type-page .ch-research-footer h3 {
+  margin: 0 0 1rem;
+  color: #ffffff;
+  font-family: "Metropolis", Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+body.page-node-type-page .ch-research-footer h2 {
+  font-size: 2rem;
+}
+
+body.page-node-type-page .ch-research-footer h3 {
+  font-size: 1rem;
+}
+
+body.page-node-type-page .ch-research-footer p {
+  margin: 0;
+  color: #b9c6d4;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Key fix: the shared block uses <p> wrappers for link groups */
+body.page-node-type-page .ch-research-footer__nav p,
+body.page-node-type-page .ch-research-footer__topics p {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+body.page-node-type-page .ch-research-footer__nav p a,
+body.page-node-type-page .ch-research-footer__topics p a {
+  display: inline-block;
+}
+
+body.page-node-type-page .ch-research-footer__cta p + p {
+  margin-top: 1rem;
+}
+
+body.page-node-type-page .ch-research-footer a {
+  color: #37a8ff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+body.page-node-type-page .ch-research-footer a:hover,
+body.page-node-type-page .ch-research-footer a:focus {
+  color: #a9d8ff;
+  text-decoration: none;
+}
+
+body.page-node-type-page .ch-research-footer__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.85rem 1.35rem;
+  color: #ffffff !important;
+  font-weight: 800;
+  line-height: 1;
+  border: 1px solid rgba(91, 176, 255, 0.45);
+  border-radius: 4px;
+  background: rgba(7, 17, 31, 0.35);
+}
+
+body.page-node-type-page .ch-research-footer__button:hover {
+  background: rgba(55, 168, 255, 0.12);
+  border-color: rgba(91, 176, 255, 0.65);
+}
+
+body.page-node-type-page .ch-research-footer__bottom {
+  margin: 0 3rem;
+  padding: 1.15rem 0 1.6rem;
+  border-top: 1px solid rgba(91, 176, 255, 0.12);
+  color: #8393a7;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  body.page-node-type-page .ch-research-footer__inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding: 2rem;
+  }
+
+  body.page-node-type-page .ch-research-footer__bottom {
+    margin: 0 2rem;
+  }
+}

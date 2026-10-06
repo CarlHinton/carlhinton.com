@@ -1,0 +1,110 @@
+{{ attach_library('carlhinton/legacy-node') }}
+
+<!-- CARLHINTON LEGACY NODE TEMPLATE ACTIVE -->
+
+<div id="page-wrapper" class="page-wrapper ch-legacy-node-wrapper">
+  <div id="page" class="ch-legacy-node-page">
+
+    <header id="header" class="site-header ch-legacy-node-header" role="banner">
+      <div class="ch-legacy-node-header__inner">
+
+        <a class="ch-legacy-node-brand" href="/">Carl Hinton</a>
+
+        {% if page.primary_menu %}
+          <nav class="ch-legacy-node-nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper ch-legacy-node-main-wrapper">
+      <div id="main" class="layout-main ch-legacy-node-main">
+
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+
+          <div class="main-content__container ch-legacy-node-container">
+
+            {% if page.highlighted %}
+              <div class="ch-legacy-node-highlighted">
+                {{ page.highlighted }}
+              </div>
+            {% endif %}
+
+            <main role="main" class="ch-legacy-node-content-area">
+
+              <section class="ch-legacy-node-hero">
+                <div class="ch-legacy-node-hero__inner">
+
+                  <div class="ch-legacy-node-hero__content">
+
+                    <nav class="ch-legacy-node-breadcrumb"
+                         aria-label="{{ 'Breadcrumb'|t }}">
+                      <a href="/">Home</a>
+                      <span aria-hidden="true">/</span>
+                      <a href="/employment-history">Employment</a>
+                    </nav>
+
+                    <p class="ch-legacy-node-eyebrow">
+                      Professional history
+                    </p>
+
+                    {% if page.content_above %}
+                      <div class="ch-legacy-node-title">
+                        {{ page.content_above }}
+                      </div>
+                    {% endif %}
+
+                    <div class="ch-legacy-node-divider"
+                         aria-hidden="true"></div>
+
+                  </div>
+
+                  <div class="ch-legacy-node-hero__visual"
+                       aria-hidden="true">
+
+                    <div class="ch-legacy-system">
+                      <div class="ch-legacy-system__core"></div>
+
+                      <span class="ch-legacy-system__node
+                                   ch-legacy-system__node--1"></span>
+
+                      <span class="ch-legacy-system__node
+                                   ch-legacy-system__node--2"></span>
+
+                      <span class="ch-legacy-system__node
+                                   ch-legacy-system__node--3"></span>
+
+                      <span class="ch-legacy-system__line
+                                   ch-legacy-system__line--1"></span>
+
+                      <span class="ch-legacy-system__line
+                                   ch-legacy-system__line--2"></span>
+
+                      <span class="ch-legacy-system__line
+                                   ch-legacy-system__line--3"></span>
+                    </div>
+
+                  </div>
+
+                </div>
+              </section>
+
+              <section class="ch-legacy-node-body">
+                {{ page.content }}
+              </section>
+
+            </main>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+
+  </div>
+</div>

@@ -1,0 +1,67 @@
+{{ attach_library('carlhinton/experience-page') }}
+
+<div id="page-wrapper" class="page-wrapper ch-experience-page-wrapper">
+  <div id="page" class="ch-experience-page">
+
+    <header id="header" class="site-header ch-experience-header" role="banner">
+      <div class="ch-experience-header__inner">
+        <a class="ch-experience-brand" href="/">Carl Hinton</a>
+
+        {% if page.primary_menu %}
+          <nav class="ch-experience-nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper ch-experience-main-wrapper">
+      <div id="main" class="layout-main ch-experience-main">
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+
+          <div class="main-content__container container ch-experience-container">
+
+            {% if page.highlighted %}
+              <div class="ch-experience-highlighted">
+                {{ page.highlighted }}
+              </div>
+            {% endif %}
+
+            <main role="main" class="ch-experience-content-area">
+              <section class="ch-experience-hero">
+                <div class="ch-experience-hero__inner">
+                  <div class="ch-experience-hero__content">
+                    <nav class="ch-experience-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+                      <a href="/">Home</a>
+                      <span aria-hidden="true">/</span>
+                      <span>Experience</span>
+                    </nav>
+
+                    <p class="ch-experience-eyebrow">Professional capability</p>
+                    <h1 class="ch-experience-title">Experience</h1>
+                    <div class="ch-experience-divider"></div>
+                    <p class="ch-experience-intro">
+                      Leadership, architecture, delivery, transformation and hands-on technical execution across complex organisations.
+                    </p>
+                  </div>
+
+                  <div class="ch-experience-hero__media" aria-hidden="true">
+                    <div class="ch-experience-hero__media-inner"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="ch-experience-body-wrap">
+                {{ page.content }}
+              </section>
+            </main>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+  </div>
+</div>

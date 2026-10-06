@@ -1,0 +1,68 @@
+{{ attach_library('carlhinton/basic-page') }}
+
+<div id="page-wrapper" class="page-wrapper ch-basic-page-wrapper">
+  <div id="page" class="ch-basic-page">
+
+    <header id="header" class="site-header ch-basic-page-header" role="banner">
+      <div class="ch-basic-page-header__inner">
+        <a class="ch-basic-page-brand" href="/">Carl Hinton</a>
+
+        {% if page.primary_menu %}
+          <nav class="ch-basic-page-nav" aria-label="{{ 'Main navigation'|t }}">
+            {{ page.primary_menu }}
+          </nav>
+        {% endif %}
+      </div>
+    </header>
+
+    <div id="main-wrapper" class="layout-main-wrapper ch-basic-page-main-wrapper">
+      <div id="main" class="layout-main ch-basic-page-main">
+        <div class="main-content">
+          <a id="main-content" tabindex="-1"></a>
+
+          <div class="main-content__container container ch-basic-page-container">
+
+            {% if page.highlighted %}
+              <div class="region region--highlighted ch-basic-page-highlighted">
+                {{ page.highlighted }}
+              </div>
+            {% endif %}
+
+            <main role="main" class="ch-basic-page-content-area">
+              <section class="ch-basic-page-hero">
+                <div class="ch-basic-page-hero__inner">
+                  <div class="ch-basic-page-hero__content">
+                    <nav class="ch-basic-page-breadcrumb" aria-label="{{ 'Breadcrumb'|t }}">
+                      <a href="/">Home</a>
+                    </nav>
+
+                    {% if page.content_above %}
+                      {{ page.content_above }}
+                    {% endif %}
+                  </div>
+
+                  <div class="ch-basic-page-hero__media" aria-hidden="true">
+                    <div class="ch-basic-page-hero__media-inner"></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="ch-basic-page-body-wrap">
+                <div class="ch-basic-page-body-grid">
+                  <div class="ch-basic-page-body-main">
+                    {% if page.content %}
+                      {{ page.content }}
+                    {% endif %}
+                  </div>
+                </div>
+              </section>
+            </main>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" data-drupal-selector="overlay"></div>
+  </div>
+</div>
