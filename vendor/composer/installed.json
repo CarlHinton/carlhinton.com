@@ -2259,61 +2259,6 @@
                         "install-path": "../../modules/contrib/admin_toolbar"
                 },
                 {
-                        "name": "drupal/bartik",
-                        "version": "1.0.2",
-                        "version_normalized": "1.0.2.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://git.drupalcode.org/project/bartik.git",
-                                "reference": "1.0.2"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/bartik-1.0.2.zip",
-                                "reference": "1.0.2",
-                                "shasum": "3b1acc601c21fae5584ebc4a3b8c9d7b8a48a431"
-                        },
-                        "require": {
-                                "drupal/core": "^9 || ^10"
-                        },
-                        "type": "drupal-theme",
-                        "extra": {
-                                "drupal": {
-                                        "version": "1.0.2",
-                                        "datestamp": "1660912287",
-                                        "security-coverage": {
-                                                "status": "covered",
-                                                "message": "Covered by Drupal's security advisory policy"
-                                        }
-                                }
-                        },
-                        "installation-source": "dist",
-                        "notification-url": "https://packages.drupal.org/8/downloads",
-                        "license": [
-                                "GPL-2.0-or-later"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "bnjmnm",
-                                        "homepage": "https://www.drupal.org/user/2369194"
-                                },
-                                {
-                                        "name": "jensimmons",
-                                        "homepage": "https://www.drupal.org/user/140882"
-                                },
-                                {
-                                        "name": "lauriii",
-                                        "homepage": "https://www.drupal.org/user/1078742"
-                                }
-                        ],
-                        "description": "The Bartik theme from Drupal 8/9 moved to contrib.",
-                        "homepage": "https://www.drupal.org/project/bartik",
-                        "support": {
-                                "source": "https://git.drupalcode.org/project/bartik"
-                        },
-                        "install-path": "../../themes/contrib/bartik"
-                },
-                {
                         "name": "drupal/captcha",
                         "version": "2.0.5",
                         "version_normalized": "2.0.5.0",
@@ -3056,21 +3001,21 @@
                 },
                 {
                         "name": "drupal/google_analytics",
-                        "version": "4.0.2",
-                        "version_normalized": "4.0.2.0",
+                        "version": "4.0.3",
+                        "version_normalized": "4.0.3.0",
                         "source": {
                                 "type": "git",
                                 "url": "https://git.drupalcode.org/project/google_analytics.git",
-                                "reference": "4.0.2"
+                                "reference": "4.0.3"
                         },
                         "dist": {
                                 "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/google_analytics-4.0.2.zip",
-                                "reference": "4.0.2",
-                                "shasum": "6deec511373e4659e42ff494c8729434728e37d7"
+                                "url": "https://ftp.drupal.org/files/projects/google_analytics-4.0.3.zip",
+                                "reference": "4.0.3",
+                                "shasum": "faaae65a3b52d842ceef78fd2b2ef6344f3a21a0"
                         },
                         "require": {
-                                "drupal/core": "^9.3 || ^10"
+                                "drupal/core": "^9.5 || ^10 || ^11"
                         },
                         "require-dev": {
                                 "drupal/token": "^1.7"
@@ -3078,8 +3023,8 @@
                         "type": "drupal-module",
                         "extra": {
                                 "drupal": {
-                                        "version": "4.0.2",
-                                        "datestamp": "1662768595",
+                                        "version": "4.0.3",
+                                        "datestamp": "1734385014",
                                         "security-coverage": {
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
@@ -3112,8 +3057,8 @@
                                         "homepage": "https://www.drupal.org/user/45640"
                                 },
                                 {
-                                        "name": "pfaocle",
-                                        "homepage": "https://www.drupal.org/user/9740"
+                                        "name": "mglaman",
+                                        "homepage": "https://www.drupal.org/user/2416470"
                                 },
                                 {
                                         "name": "roberto.rivera.ixis",
@@ -3204,18 +3149,18 @@
                 },
                 {
                         "name": "drupal/quickedit",
-                        "version": "1.0.3",
-                        "version_normalized": "1.0.3.0",
+                        "version": "1.0.5",
+                        "version_normalized": "1.0.5.0",
                         "source": {
                                 "type": "git",
                                 "url": "https://git.drupalcode.org/project/quickedit.git",
-                                "reference": "1.0.3"
+                                "reference": "1.0.5"
                         },
                         "dist": {
                                 "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/quickedit-1.0.3.zip",
-                                "reference": "1.0.3",
-                                "shasum": "2fb9eb812010743949dd7ec1a9fc0cff4c1fb4ce"
+                                "url": "https://ftp.drupal.org/files/projects/quickedit-1.0.5.zip",
+                                "reference": "1.0.5",
+                                "shasum": "566a53f80f361237ca82633e6edfa69a978ad833"
                         },
                         "require": {
                                 "drupal/core": "^9.4 || ^10"
@@ -3226,8 +3171,8 @@
                         "type": "drupal-module",
                         "extra": {
                                 "drupal": {
-                                        "version": "1.0.3",
-                                        "datestamp": "1663069901",
+                                        "version": "1.0.5",
+                                        "datestamp": "1770843455",
                                         "security-coverage": {
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
@@ -3241,7 +3186,7 @@
                         ],
                         "authors": [
                                 {
-                                        "name": "Devin Carlson",
+                                        "name": "devin carlson",
                                         "homepage": "https://www.drupal.org/user/290182"
                                 },
                                 {
@@ -3249,7 +3194,7 @@
                                         "homepage": "https://www.drupal.org/user/46549"
                                 },
                                 {
-                                        "name": "Gábor Hojtsy",
+                                        "name": "gábor hojtsy",
                                         "homepage": "https://www.drupal.org/user/4166"
                                 },
                                 {
@@ -3265,11 +3210,15 @@
                                         "homepage": "https://www.drupal.org/user/627430"
                                 },
                                 {
+                                        "name": "vladimiraus",
+                                        "homepage": "https://www.drupal.org/user/673120"
+                                },
+                                {
                                         "name": "webchick",
                                         "homepage": "https://www.drupal.org/user/24967"
                                 },
                                 {
-                                        "name": "Wim Leers",
+                                        "name": "wim leers",
                                         "homepage": "https://www.drupal.org/user/99777"
                                 }
                         ],
@@ -3362,29 +3311,29 @@
                 },
                 {
                         "name": "drupal/recaptcha",
-                        "version": "3.2.0",
-                        "version_normalized": "3.2.0.0",
+                        "version": "3.5.0",
+                        "version_normalized": "3.5.0.0",
                         "source": {
                                 "type": "git",
                                 "url": "https://git.drupalcode.org/project/recaptcha.git",
-                                "reference": "8.x-3.2"
+                                "reference": "8.x-3.5"
                         },
                         "dist": {
                                 "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/recaptcha-8.x-3.2.zip",
-                                "reference": "8.x-3.2",
-                                "shasum": "a4457e8ba4c80b35be22a2bba0c18e376ee98bc8"
+                                "url": "https://ftp.drupal.org/files/projects/recaptcha-8.x-3.5.zip",
+                                "reference": "8.x-3.5",
+                                "shasum": "ab6b18e75759c0739054cb876e40256c2150c777"
                         },
                         "require": {
-                                "drupal/captcha": "^1.4 || ^2",
-                                "drupal/core": "^8.9 || ^9 || ^10",
-                                "google/recaptcha": "^1.2"
+                                "drupal/captcha": "^1.15 || ^2.0",
+                                "drupal/core": "^10 || ^11",
+                                "google/recaptcha": "^1.3"
                         },
                         "type": "drupal-module",
                         "extra": {
                                 "drupal": {
-                                        "version": "8.x-3.2",
-                                        "datestamp": "1681166371",
+                                        "version": "8.x-3.5",
+                                        "datestamp": "1786398980",
                                         "security-coverage": {
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
@@ -3394,7 +3343,7 @@
                         "installation-source": "dist",
                         "notification-url": "https://packages.drupal.org/8/downloads",
                         "license": [
-                                "GPL-2.0+"
+                                "GPL-2.0-or-later"
                         ],
                         "authors": [
                                 {
@@ -3418,51 +3367,51 @@
                                         "homepage": "https://www.drupal.org/user/370574"
                                 },
                                 {
-                                        "name": "Liam Morland",
+                                        "name": "larowlan",
+                                        "homepage": "https://www.drupal.org/user/395439"
+                                },
+                                {
+                                        "name": "liam morland",
                                         "homepage": "https://www.drupal.org/user/493050"
                                 },
                                 {
-                                        "name": "rfay",
-                                        "homepage": "https://www.drupal.org/user/30906"
-                                },
-                                {
-                                        "name": "RobLoach",
+                                        "name": "robloach",
                                         "homepage": "https://www.drupal.org/user/61114"
-                                },
-                                {
-                                        "name": "soxofaan",
-                                        "homepage": "https://www.drupal.org/user/41478"
                                 },
                                 {
                                         "name": "wundo",
                                         "homepage": "https://www.drupal.org/user/25523"
+                                },
+                                {
+                                        "name": "yseki",
+                                        "homepage": "https://www.drupal.org/user/1523064"
                                 }
                         ],
                         "description": "Protect your website from spam and abuse while letting real people pass through with ease.",
                         "homepage": "https://www.drupal.org/project/recaptcha",
                         "support": {
-                                "source": "https://git.drupal.org/project/recaptcha.git",
+                                "source": "https://git.drupalcode.org/project/recaptcha.git",
                                 "issues": "https://www.drupal.org/project/issues/recaptcha"
                         },
                         "install-path": "../../modules/contrib/recaptcha"
                 },
                 {
                         "name": "drupal/redis",
-                        "version": "1.7.0",
-                        "version_normalized": "1.7.0.0",
+                        "version": "1.11.0",
+                        "version_normalized": "1.11.0.0",
                         "source": {
                                 "type": "git",
                                 "url": "https://git.drupalcode.org/project/redis.git",
-                                "reference": "8.x-1.7"
+                                "reference": "8.x-1.11"
                         },
                         "dist": {
                                 "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.7.zip",
-                                "reference": "8.x-1.7",
-                                "shasum": "602043bdad62ff047321121edcfde8abf3638c7c"
+                                "url": "https://ftp.drupal.org/files/projects/redis-8.x-1.11.zip",
+                                "reference": "8.x-1.11",
+                                "shasum": "4a32e50b85523fd09500b6c6398cf18504bdc652"
                         },
                         "require": {
-                                "drupal/core": "^9.3 || ^10"
+                                "drupal/core": "^9.3 || ^10 || ^11"
                         },
                         "suggest": {
                                 "ext-redis": "Required to use the PhpRedis as redis driver (^4.0|^5.0).",
@@ -3472,8 +3421,8 @@
                         "type": "drupal-module",
                         "extra": {
                                 "drupal": {
-                                        "version": "8.x-1.7",
-                                        "datestamp": "1686175620",
+                                        "version": "8.x-1.11",
+                                        "datestamp": "1762688846",
                                         "security-coverage": {
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
@@ -3492,7 +3441,7 @@
                         ],
                         "authors": [
                                 {
-                                        "name": "Berdir",
+                                        "name": "berdir",
                                         "homepage": "https://www.drupal.org/user/214652"
                                 },
                                 {
@@ -3517,18 +3466,18 @@
                 },
                 {
                         "name": "drupal/schema_metatag",
-                        "version": "3.0.4",
-                        "version_normalized": "3.0.4.0",
+                        "version": "3.1.0",
+                        "version_normalized": "3.1.0.0",
                         "source": {
                                 "type": "git",
                                 "url": "https://git.drupalcode.org/project/schema_metatag.git",
-                                "reference": "3.0.4"
+                                "reference": "3.1.0"
                         },
                         "dist": {
                                 "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/schema_metatag-3.0.4.zip",
-                                "reference": "3.0.4",
-                                "shasum": "bdc9ee4efc6a995e6b0e75a517e65e1355226c95"
+                                "url": "https://ftp.drupal.org/files/projects/schema_metatag-3.1.0.zip",
+                                "reference": "3.1.0",
+                                "shasum": "d701592dace0f59cc5a5dc12345ce4220f1dfbb8"
                         },
                         "require": {
                                 "drupal/core": "^9 || ^10 || ^11",
@@ -3547,8 +3496,8 @@
                         "type": "drupal-module",
                         "extra": {
                                 "drupal": {
-                                        "version": "3.0.4",
-                                        "datestamp": "1771516335",
+                                        "version": "3.1.0",
+                                        "datestamp": "1791294250",
                                         "security-coverage": {
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
@@ -3566,8 +3515,16 @@
                         ],
                         "authors": [
                                 {
+                                        "name": "anybody",
+                                        "homepage": "https://www.drupal.org/user/291091"
+                                },
+                                {
                                         "name": "damienmckenna",
                                         "homepage": "https://www.drupal.org/user/108450"
+                                },
+                                {
+                                        "name": "grevil",
+                                        "homepage": "https://www.drupal.org/user/3668491"
                                 },
                                 {
                                         "name": "karens",

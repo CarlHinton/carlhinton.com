@@ -5,6 +5,8 @@ namespace Drupal\redis\Cache;
 use Drupal\Component\Serialization\SerializationInterface;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheTagsChecksumInterface;
+use Drupal\Core\Cache\CacheTagsChecksumPreloadInterface;
+use Drupal\Core\Cache\ChainedFastBackend;
 
 /**
  * PhpRedis cache backend.
@@ -59,6 +61,19 @@ class PhpRedis extends CacheBase {
       $result = [$this->client->hGetAll(reset($keys))];
     }
 
+    // Before checking the validity of each item individually, register the
+    // cache tags for all returned cache items for preloading, this allows the
+    // cache tag service to optimize cache tag lookups.
+    if (method_exists($this->checksumProvider, 'registerCacheTagsForPreload')) {
+      $tags_for_preload = [];
+      foreach ($result as $item) {
+        if (!empty($item['tags'])) {
+          $tags_for_preload[] = explode(' ', $item['tags']);
+        }
+      }
+      $this->checksumProvider->registerCacheTagsForPreload(array_merge(...$tags_for_preload));
+    }
+
     // Loop over the cid values to ensure numeric indexes.
     foreach (array_values($cids) as $index => $key) {
       // Check if a valid result was returned from Redis.
@@ -81,6 +96,11 @@ class PhpRedis extends CacheBase {
    * {@inheritdoc}
    */
   public function set($cid, $data, $expire = Cache::PERMANENT, array $tags = []) {
+
+    if ($this->isLastWriteTimestamp($cid)) {
+      $this->client->set($this->getPrefix() . ':' . $cid, $data);
+      return;
+    }
 
     $ttl = $this->getExpiration($expire);
 

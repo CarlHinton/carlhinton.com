@@ -2,11 +2,13 @@
 
 namespace Drupal\redis\Cache;
 
-use \DateInterval;
+use DateInterval;
 use Drupal\Component\Assertion\Inspector;
 use Drupal\Component\Serialization\SerializationInterface;
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Cache\CacheTagsChecksumPreloadInterface;
+use Drupal\Core\Cache\ChainedFastBackend;
 use Drupal\Core\Site\Settings;
 use Drupal\redis\RedisPrefixTrait;
 
@@ -127,9 +129,33 @@ abstract class CacheBase implements CacheBackendInterface {
   }
 
   /**
+   * Checks whether the cache id is the last write timestamp.
+   *
+   * Cache requests for this are streamlined to bypass the full cache API as
+   * that needs two extra requests to check for delete or invalidate all flags.
+   *
+   * Most requests will only fetch this single timestamp from bins using the
+   * ChainedFast backend.
+   *
+   * @param string $cid
+   *   The requested cache id.
+   *
+   * @return bool
+   */
+  protected function isLastWriteTimestamp(string $cid): bool {
+    return $cid === ChainedFastBackend::LAST_WRITE_TIMESTAMP_PREFIX . 'cache_' . $this->bin;
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function get($cid, $allow_invalid = FALSE) {
+
+    if ($this->isLastWriteTimestamp($cid)) {
+      $timestamp = $this->client->get($this->getPrefix() . ':' . $cid);
+      return $timestamp ? (object) ['data' => $timestamp] : NULL;
+    }
+
     $cids = [$cid];
     $cache = $this->getMultiple($cids, $allow_invalid);
     return reset($cache);
@@ -139,6 +165,18 @@ abstract class CacheBase implements CacheBackendInterface {
    * {@inheritdoc}
    */
   public function setMultiple(array $items) {
+    // Register cache tags of each item for preloading.
+    if (method_exists($this->checksumProvider, 'registerCacheTagsForPreload')) {
+      $tags_for_preload = [];
+      foreach ($items as $item) {
+        if (!empty($item['tags'])) {
+          assert(Inspector::assertAllStrings($item['tags']), 'Cache Tags must be strings.');
+          $tags_for_preload[] = $item['tags'];
+        }
+      }
+      $this->checksumProvider->registerCacheTagsForPreload(array_merge(...$tags_for_preload));
+    }
+
     foreach ($items as $cid => $item) {
       $this->set($cid, $item['data'], isset($item['expire']) ? $item['expire'] : CacheBackendInterface::CACHE_PERMANENT, isset($item['tags']) ? $item['tags'] : []);
     }
@@ -155,10 +193,16 @@ abstract class CacheBase implements CacheBackendInterface {
    * {@inheritdoc}
    */
   public function deleteMultiple(array $cids) {
-    $in_transaction = \Drupal::database()->inTransaction();
+    $in_transaction = \Drupal::hasContainer() && \Drupal::database()->inTransaction();
     if ($in_transaction) {
       if (empty($this->delayedDeletions)) {
-        \Drupal::database()->addRootTransactionEndCallback([$this, 'postRootTransactionCommit']);
+        if (method_exists(\Drupal::database(), 'transactionManager')) {
+          \Drupal::database()->transactionManager()->addPostTransactionCallback([$this, 'postRootTransactionCommit']);
+        }
+        else {
+          /** @phpstan-ignore-next-line */
+          \Drupal::database()->addRootTransactionEndCallback([$this, 'postRootTransactionCommit']);
+        }
       }
       $this->delayedDeletions = array_unique(array_merge($this->delayedDeletions, $cids));
     }
@@ -221,21 +265,31 @@ abstract class CacheBase implements CacheBackendInterface {
   }
 
   /**
-   * Calculate the correct expiration time.
+   * Calculate the correct ttl value for redis.
    *
    * @param int $expire
    *   The expiration time provided for the cache set.
    *
    * @return int
-   *   The default expiration if expire is PERMANENT or higher than the default.
-   *   May return negative values if the item is already expired.
+   *   The default TTL if expire is PERMANENT or higher than the default.
+   *   Otherwise, the adjusted lifetime of the cache if setting
+   *   redis_ttl_offset is set >= 0. May return negative values if the item
+   *   is already expired.
    */
   protected function getExpiration($expire) {
-    if ($expire == Cache::PERMANENT || $expire > $this->permTtl) {
+    $redis_ttl_offset = Settings::get('redis_ttl_offset', NULL);
+    if ($expire == Cache::PERMANENT || $redis_ttl_offset === NULL) {
       return $this->permTtl;
     }
-    return $expire - \Drupal::time()->getRequestTime();
-  }
+
+    $expire_ttl = $expire - \Drupal::time()->getRequestTime();
+    if ($expire_ttl > $this->permTtl) {
+      return $this->permTtl;
+    }
+
+    return $expire_ttl + $redis_ttl_offset;
+   }
+
   /**
    * Return the key for the tag used to specify the bin of cache-entries.
    */
@@ -258,16 +312,19 @@ abstract class CacheBase implements CacheBackendInterface {
       $this->permTtl = $ttl;
     }
     else {
-      // Attempt to set from settings.
-      if (($settings = Settings::get('redis.settings', [])) && isset($settings['perm_ttl_' . $this->bin])) {
-        $ttl = $settings['perm_ttl_' . $this->bin];
+      // Attempt to set from settings, fall back to old settings key.
+      $ttl = Settings::get('redis_perm_ttl_' . $this->bin);
+      if ($ttl === NULL) {
+        $ttl = Settings::get('redis.settings', [])['perm_ttl_' . $this->bin] ?? NULL;
+      }
+      if ($ttl) {
         if ($ttl === (int) $ttl) {
           $this->permTtl = $ttl;
         }
         else {
           if ($iv = DateInterval::createFromDateString($ttl)) {
             // http://stackoverflow.com/questions/14277611/convert-dateinterval-object-to-seconds-in-php
-            $this->permTtl = ($iv->y * 31536000 + $iv->m * 2592000 + $iv->days * 86400 + $iv->h * 3600 + $iv->i * 60 + $iv->s);
+            $this->permTtl = ($iv->y * 31536000 + $iv->m * 2592000 + $iv->d * 86400 + $iv->h * 3600 + $iv->i * 60 + $iv->s);
           }
           else {
             // Log error about invalid ttl.
@@ -308,16 +365,23 @@ abstract class CacheBase implements CacheBackendInterface {
 
     $cache = (object) $values;
 
-    $cache->tags = explode(' ', $cache->tags);
+    $cache->tags = $cache->tags ? explode(' ', $cache->tags) : [];
 
     // Check expire time, allow to have a cache invalidated explicitly, don't
     // check if already invalid.
     if ($cache->valid) {
+      //var_dump($cache->expire, \Drupal::time()->getRequestTime(), $cache->expire - \Drupal::time()->getRequestTime());
       $cache->valid = $cache->expire == Cache::PERMANENT || $cache->expire >= \Drupal::time()->getRequestTime();
 
       // Check if invalidateTags() has been called with any of the items's tags.
       if ($cache->valid && !$this->checksumProvider->isValid($cache->checksum, $cache->tags)) {
         $cache->valid = FALSE;
+      }
+
+      if (Settings::get('redis_invalidate_all_as_delete', FALSE) === FALSE) {
+        // Remove the bin cache tag to not expose that, otherwise it is reused
+        // by the fast backend in the FastChained implementation.
+        $cache->tags = array_diff($cache->tags, [$this->getTagForBin()]);
       }
     }
 
@@ -360,7 +424,9 @@ abstract class CacheBase implements CacheBackendInterface {
   protected function createEntryHash($cid, $data, $expire, array $tags) {
     // Always add a cache tag for the current bin, so that we can use that for
     // invalidateAll().
-    $tags[] = $this->getTagForBin();
+    if (Settings::get('redis_invalidate_all_as_delete', FALSE) === FALSE) {
+      $tags[] = $this->getTagForBin();
+    }
     assert(Inspector::assertAllStrings($tags), 'Cache Tags must be strings.');
     $hash = [
       'cid' => $cid,
@@ -406,8 +472,16 @@ abstract class CacheBase implements CacheBackendInterface {
    * {@inheritdoc}
    */
   public function invalidateAll() {
-    // To invalidate the whole bin, we invalidate a special tag for this bin.
-    $this->checksumProvider->invalidateTags([$this->getTagForBin()]);
+    @trigger_error("CacheBackendInterface::invalidateAll() is deprecated in drupal:11.2.0 and is removed from drupal:12.0.0. Use CacheBackendInterface::deleteAll() or cache tag invalidation instead. See https://www.drupal.org/node/3500622", E_USER_DEPRECATED);
+    if (Settings::get('redis_invalidate_all_as_delete', FALSE) === FALSE) {
+      // To invalidate the whole bin, we invalidate a special tag for this bin.
+      $this->checksumProvider->invalidateTags([$this->getTagForBin()]);
+    }
+    else {
+      // If the optimization for invalidate all is enabled, treat it as a
+      // deleteAll() so we only have to check one thing.
+      $this->deleteAll();
+    }
   }
 
   /**
