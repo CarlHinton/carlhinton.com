@@ -2342,104 +2342,6 @@
                         "install-path": "../../modules/contrib/captcha"
                 },
                 {
-                        "name": "drupal/ckeditor",
-                        "version": "1.0.2",
-                        "version_normalized": "1.0.2.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://git.drupalcode.org/project/ckeditor.git",
-                                "reference": "1.0.2"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/ckeditor-1.0.2.zip",
-                                "reference": "1.0.2",
-                                "shasum": "fec2ca9ad852a00c7b9584cb6040dc860364c481"
-                        },
-                        "require": {
-                                "drupal/core": "^9.4 || ^10"
-                        },
-                        "require-dev": {
-                                "drupal/classy": "*"
-                        },
-                        "type": "drupal-module",
-                        "extra": {
-                                "drupal": {
-                                        "version": "1.0.2",
-                                        "datestamp": "1695740655",
-                                        "security-coverage": {
-                                                "status": "covered",
-                                                "message": "Covered by Drupal's security advisory policy"
-                                        }
-                                }
-                        },
-                        "installation-source": "dist",
-                        "notification-url": "https://packages.drupal.org/8/downloads",
-                        "license": [
-                                "GPL-2.0-or-later"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "dczepierga",
-                                        "homepage": "https://www.drupal.org/user/911466"
-                                },
-                                {
-                                        "name": "hass",
-                                        "homepage": "https://www.drupal.org/user/85918"
-                                },
-                                {
-                                        "name": "jcisio",
-                                        "homepage": "https://www.drupal.org/user/210762"
-                                },
-                                {
-                                        "name": "Jorrit",
-                                        "homepage": "https://www.drupal.org/user/161217"
-                                },
-                                {
-                                        "name": "lauriii",
-                                        "homepage": "https://www.drupal.org/user/1078742"
-                                },
-                                {
-                                        "name": "Magnus",
-                                        "homepage": "https://www.drupal.org/user/73919"
-                                },
-                                {
-                                        "name": "mkesicki",
-                                        "homepage": "https://www.drupal.org/user/922884"
-                                },
-                                {
-                                        "name": "nod_",
-                                        "homepage": "https://www.drupal.org/user/598310"
-                                },
-                                {
-                                        "name": "p.wiaderny",
-                                        "homepage": "https://www.drupal.org/user/2956619"
-                                },
-                                {
-                                        "name": "vokiel",
-                                        "homepage": "https://www.drupal.org/user/2793801"
-                                },
-                                {
-                                        "name": "Wim Leers",
-                                        "homepage": "https://www.drupal.org/user/99777"
-                                },
-                                {
-                                        "name": "wwalc",
-                                        "homepage": "https://www.drupal.org/user/184556"
-                                },
-                                {
-                                        "name": "xjm",
-                                        "homepage": "https://www.drupal.org/user/65776"
-                                }
-                        ],
-                        "description": "WYSIWYG editing for rich text fields using CKEditor.",
-                        "homepage": "https://www.drupal.org/project/ckeditor",
-                        "support": {
-                                "source": "https://git.drupalcode.org/project/ckeditor"
-                        },
-                        "install-path": "../../modules/contrib/ckeditor"
-                },
-                {
                         "name": "drupal/coder",
                         "version": "8.3.23",
                         "version_normalized": "8.3.23.0",
@@ -2492,60 +2394,6 @@
                                 "source": "https://www.drupal.org/project/coder"
                         },
                         "install-path": "../drupal/coder"
-                },
-                {
-                        "name": "drupal/color",
-                        "version": "1.0.3",
-                        "version_normalized": "1.0.3.0",
-                        "source": {
-                                "type": "git",
-                                "url": "https://git.drupalcode.org/project/color.git",
-                                "reference": "1.0.3"
-                        },
-                        "dist": {
-                                "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/color-1.0.3.zip",
-                                "reference": "1.0.3",
-                                "shasum": "b88ab527bed65b67eec555ee4b17e633c19f3194"
-                        },
-                        "require": {
-                                "drupal/core": "^9.4 || ^10"
-                        },
-                        "require-dev": {
-                                "drupal/bartik": "^1.0"
-                        },
-                        "type": "drupal-module",
-                        "extra": {
-                                "drupal": {
-                                        "version": "1.0.3",
-                                        "datestamp": "1663234622",
-                                        "security-coverage": {
-                                                "status": "covered",
-                                                "message": "Covered by Drupal's security advisory policy"
-                                        }
-                                }
-                        },
-                        "installation-source": "dist",
-                        "notification-url": "https://packages.drupal.org/8/downloads",
-                        "license": [
-                                "GPL-2.0-or-later"
-                        ],
-                        "authors": [
-                                {
-                                        "name": "andypost",
-                                        "homepage": "https://www.drupal.org/user/118908"
-                                },
-                                {
-                                        "name": "kostyashupenko",
-                                        "homepage": "https://www.drupal.org/user/3281537"
-                                }
-                        ],
-                        "description": "Allows users to change the color scheme of compatible themes",
-                        "homepage": "https://www.drupal.org/project/color",
-                        "support": {
-                                "source": "https://git.drupalcode.org/project/color"
-                        },
-                        "install-path": "../../modules/contrib/color"
                 },
                 {
                         "name": "drupal/core",
@@ -3149,30 +2997,27 @@
                 },
                 {
                         "name": "drupal/quickedit",
-                        "version": "1.0.5",
-                        "version_normalized": "1.0.5.0",
+                        "version": "2.0.1",
+                        "version_normalized": "2.0.1.0",
                         "source": {
                                 "type": "git",
                                 "url": "https://git.drupalcode.org/project/quickedit.git",
-                                "reference": "1.0.5"
+                                "reference": "2.0.1"
                         },
                         "dist": {
                                 "type": "zip",
-                                "url": "https://ftp.drupal.org/files/projects/quickedit-1.0.5.zip",
-                                "reference": "1.0.5",
-                                "shasum": "566a53f80f361237ca82633e6edfa69a978ad833"
+                                "url": "https://ftp.drupal.org/files/projects/quickedit-2.0.1.zip",
+                                "reference": "2.0.1",
+                                "shasum": "a9d03552ebf0d0dc4af3b058df1ce3d9a2879005"
                         },
                         "require": {
-                                "drupal/core": "^9.4 || ^10"
-                        },
-                        "require-dev": {
-                                "drupal/ckeditor": "*"
+                                "drupal/core": "^10.2 || ^11"
                         },
                         "type": "drupal-module",
                         "extra": {
                                 "drupal": {
-                                        "version": "1.0.5",
-                                        "datestamp": "1770843455",
+                                        "version": "2.0.1",
+                                        "datestamp": "1770843440",
                                         "security-coverage": {
                                                 "status": "covered",
                                                 "message": "Covered by Drupal's security advisory policy"
@@ -3223,9 +3068,13 @@
                                 }
                         ],
                         "description": "In-place content editing (contrib).",
-                        "homepage": "https://www.drupal.org/project/quickedit",
+                        "homepage": "https://drupal.org/project/quickedit",
+                        "keywords": [
+                                "Drupal"
+                        ],
                         "support": {
-                                "source": "https://git.drupalcode.org/project/quickedit"
+                                "source": "https://git.drupalcode.org/project/quickedit",
+                                "issues": "https://drupal.org/project/issues/quickedit"
                         },
                         "install-path": "../../modules/contrib/quickedit"
                 },
