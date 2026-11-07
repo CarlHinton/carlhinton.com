@@ -30,7 +30,6 @@
         "drupal/recaptcha": "^3.0",
         "drupal/redis": "^1.5",
         "drupal/schema_metatag": "^3.0",
-        "drupal/seven": "^1.0",
         "drush/drush": "^12"
     },
     "conflict": {
